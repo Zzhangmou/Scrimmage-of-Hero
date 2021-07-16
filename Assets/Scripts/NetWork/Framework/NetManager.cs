@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 
-namespace Common
+namespace NetWorkFK
 {
     /// <summary>
     /// 网络管理器
@@ -13,7 +13,9 @@ namespace Common
     {
         private static Socket socket;
         //接收缓冲区
-        private static byte[] readBuff = new byte[512];
+        private static byte[] readBuff = new byte[1024];
+        //写入队列
+        private static Queue<ByteArray> writeQueue;
         /// <summary>
         /// 委托类型
         /// </summary>
@@ -23,6 +25,13 @@ namespace Common
         private static Dictionary<string, MsgListener> listeners = new Dictionary<string, MsgListener>();
         //消息列表
         private static List<string> msgList = new List<string>();
+        //事件
+        public enum NetEvent
+        {
+            ConnectSucc = 1,
+            ConnectFail = 2,
+            Close = 3
+        }
         /// <summary>
         /// 添加监听
         /// </summary>
@@ -76,7 +85,7 @@ namespace Common
             {
                 Socket socket = (Socket)ar.AsyncState;
                 socket.EndConnect(ar);
-                socket.BeginReceive(readBuff, 0, 512, 0, ReceiveCallback, socket);
+                socket.BeginReceive(readBuff, 0, 1024, 0, ReceiveCallback, socket);
             }
             catch (SocketException ex)
             {
@@ -91,7 +100,7 @@ namespace Common
                 int count = socket.EndReceive(ar);
                 string recvStr = System.Text.Encoding.Default.GetString(readBuff, 0, count);
                 msgList.Add(recvStr);
-                socket.BeginReceive(readBuff, 0, 512, 0, ReceiveCallback, socket);
+                socket.BeginReceive(readBuff, 0, 1024, 0, ReceiveCallback, socket);
             }
             catch (SocketException ex)
             {
