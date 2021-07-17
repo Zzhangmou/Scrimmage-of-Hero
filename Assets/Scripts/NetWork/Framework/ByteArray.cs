@@ -71,7 +71,7 @@ namespace NetWorkFK
         /// <summary>
         /// ÒÆ¶¯Êý¾Ý
         /// </summary>
-        private void MoveBytes()
+        public void MoveBytes()
         {
             if (Length > 0)
                 Array.Copy(bytes, readIndex, bytes, 0, Length);
