@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using UnityEngine;
+using Common;
+using proto;
 
 namespace NetWorkFK
 {
@@ -32,11 +34,11 @@ namespace NetWorkFK
         /// 消息委托类型
         /// </summary>
         /// <param name="msgBase"></param>
-        public delegate void MsgListener(MsgBase msgBase);
+        public delegate void MsgListener(ProtoBuf.IExtensible msgBase);
         //消息监听列表
         private static Dictionary<string, MsgListener> msgListeners = new Dictionary<string, MsgListener>();
         //消息列表
-        private static List<MsgBase> msgList;
+        private static List<ProtoBuf.IExtensible> msgList;
         //消息列表长度
         private static int msgCount = 0;
         //每次Update处理的消息量
@@ -121,7 +123,7 @@ namespace NetWorkFK
         /// </summary>
         /// <param name="msgName"></param>
         /// <param name="msgBase"></param>
-        private static void FireMsg(string msgName,MsgBase msgBase)
+        private static void FireMsg(string msgName, ProtoBuf.IExtensible msgBase)
         {
             if (msgListeners.ContainsKey(msgName))
                 msgListeners[msgName](msgBase);
@@ -163,7 +165,7 @@ namespace NetWorkFK
             writeQueue = new Queue<ByteArray>();
             isConnecting = false;
             isClosing = false;
-            msgList = new List<MsgBase>();
+            msgList = new List<ProtoBuf.IExtensible>();
             msgCount = 0;
             lastPingTime = Time.time;
             lastPongTime = Time.time;
@@ -184,15 +186,15 @@ namespace NetWorkFK
                 FireEvent(NetEvent.Close, "");
             }
         }
-        public static void Send(MsgBase msgBase)
+        public static void Send(ProtoBuf.IExtensible msgBase)
         {
             //状态判断
             if (socket == null || !socket.Connected) return;
             if (isConnecting) return;
             if (isClosing) return;
 
-            byte[] nameBytes = MsgBase.EncodeName(msgBase);
-            byte[] bodyBytes = MsgBase.Encode(msgBase);
+            byte[] nameBytes = ProtobufHelper.EncodeName(msgBase);
+            byte[] bodyBytes = ProtobufHelper.Encode(msgBase);
             int len = nameBytes.Length + bodyBytes.Length;
             byte[] sendBytes = new byte[2 + len];
             //组装长度
@@ -231,7 +233,7 @@ namespace NetWorkFK
             //处理消息
             for(int i = 0; i < MAX_MESSAGE_FIRE; i++)
             {
-                MsgBase msgBase = null;
+                ProtoBuf.IExtensible msgBase = null;
                 lock (msgList)
                 {
                     if (msgCount > 0)
@@ -243,7 +245,7 @@ namespace NetWorkFK
                 }
                 //分发消息
                 if (msgBase != null)
-                    FireMsg(msgBase.protoName, msgBase);
+                    FireMsg(msgBase.ToString(), msgBase);
                 else//没有消息了
                     break;
             }
@@ -271,7 +273,7 @@ namespace NetWorkFK
         /// 监听Pong协议
         /// </summary>
         /// <param name="msgBase"></param>
-        private static void OnMsgPong(MsgBase msgBase)
+        private static void OnMsgPong(ProtoBuf.IExtensible msgBase)
         {
             lastPongTime = Time.time;
         }
@@ -335,7 +337,7 @@ namespace NetWorkFK
             readBuff.readIndex += 2;
             //解析协议名
             int nameCount = 0;
-            string protoName = MsgBase.DecodeName(readBuff.bytes, readBuff.readIndex, out nameCount);
+            string protoName = ProtobufHelper.DecodeName(readBuff.bytes, readBuff.readIndex, out nameCount);
             if(protoName=="")
             {
                 Debug.Log("解析协议名失败,为空");
@@ -344,7 +346,7 @@ namespace NetWorkFK
             readBuff.readIndex += nameCount;
             //解析协议体
             int bodyCount = bodyLength - nameCount;
-            MsgBase msgBase = MsgBase.Decode(protoName, readBuff.bytes, readBuff.readIndex, bodyCount);
+            ProtoBuf.IExtensible msgBase = ProtobufHelper.Decode(protoName, readBuff.bytes, readBuff.readIndex, bodyCount);
             readBuff.readIndex += bodyCount;
             readBuff.CheckAndMoveBytes();
             //添加到消息列队
