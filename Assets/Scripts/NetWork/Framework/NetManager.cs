@@ -46,9 +46,9 @@ namespace NetWorkFK
         //是否启用心跳
         public static bool isUserPing = true;
         //心跳间隔时间
-        public static int pingInterval = 30;
+        public static int pingInterval = 10;
         //心跳间隔超时倍数
-        private static int closeIntervalMultiple = 2;
+        private static int closeIntervalMultiple = 4;
         //上一次发送Ping时间
         private static float lastPingTime = 0;
         //上一次收到Pong时间
@@ -170,8 +170,8 @@ namespace NetWorkFK
             lastPingTime = Time.time;
             lastPongTime = Time.time;
             //监听Pong协议
-            if (!msgListeners.ContainsKey("MsgPong"))
-                AddMsgListener("MsgPong", OnMsgPong);
+            if (!msgListeners.ContainsKey("proto.MsgPong"))
+                AddMsgListener("proto.MsgPong", OnMsgPong);
         }
         public static void Close()
         {
@@ -203,7 +203,7 @@ namespace NetWorkFK
             //组装名字
             Array.Copy(nameBytes, 0, sendBytes, 2, nameBytes.Length);
             //组装协议体
-            Array.Copy(bodyBytes, 0, sendBytes, nameBytes.Length + 2, sendBytes.Length);
+            Array.Copy(bodyBytes, 0, sendBytes, nameBytes.Length + 2, bodyBytes.Length);
 
             //写入队列
             ByteArray ba = new ByteArray(sendBytes);
@@ -231,7 +231,7 @@ namespace NetWorkFK
         {
             if (msgCount == 0) return;
             //处理消息
-            for(int i = 0; i < MAX_MESSAGE_FIRE; i++)
+            for (int i = 0; i < MAX_MESSAGE_FIRE; i++)
             {
                 ProtoBuf.IExtensible msgBase = null;
                 lock (msgList)
@@ -266,6 +266,7 @@ namespace NetWorkFK
             //检测Pong时间
             if (Time.time - lastPongTime > pingInterval * closeIntervalMultiple)
             {
+                Debug.Log("Pong回复超时");
                 Close();
             }
         }
@@ -338,7 +339,7 @@ namespace NetWorkFK
             //解析协议名
             int nameCount = 0;
             string protoName = ProtobufHelper.DecodeName(readBuff.bytes, readBuff.readIndex, out nameCount);
-            if(protoName=="")
+            if (protoName == "")
             {
                 Debug.Log("解析协议名失败,为空");
                 return;

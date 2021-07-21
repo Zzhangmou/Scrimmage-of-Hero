@@ -13,25 +13,24 @@ namespace Common
         //编码
         public static byte[] Encode(ProtoBuf.IExtensible msgBase)
         {
-            using (var memory = new System.IO.MemoryStream())
-            {
-                ProtoBuf.Serializer.Serialize(memory, msgBase);
-                return memory.ToArray();
-            }
+            using var memory = new System.IO.MemoryStream();
+            ProtoBuf.Serializer.Serialize(memory, msgBase);
+            return memory.ToArray();
         }
         //解码
         public static ProtoBuf.IExtensible Decode(string protoName, byte[] bytes, int offset, int count)
         {
-            using (var memory = new System.IO.MemoryStream(bytes, offset, count))
-            {
-                System.Type t = System.Type.GetType(protoName);
-                return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
-            }
+            using var memory = new System.IO.MemoryStream(bytes, offset, count);
+            protoName = "proto." + protoName;//添加命名空间
+            System.Type t = System.Type.GetType(protoName);
+            return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
         }
         //编码协议名
         public static byte[] EncodeName(ProtoBuf.IExtensible msgBase)
         {
-            byte[] nameBytes = System.Text.Encoding.UTF8.GetBytes(msgBase.ToString());
+            //去掉命名空间信息  proto.
+            string str = msgBase.ToString().Replace("proto.", "");
+            byte[] nameBytes = System.Text.Encoding.UTF8.GetBytes(str.ToString());
             Int16 len = (Int16)nameBytes.Length;
             //申请bytes数组
             byte[] bytes = new byte[2 + len];

@@ -16,7 +16,12 @@ namespace ns
         private void Start()
         {
             //LuaManager.Instance.DoLuaFile("Main");
-            //NetManager.Connect("127.0.0.1", 8080);
+            NetManager.Connect("127.0.0.1", 8080);
+        }
+
+        private void Update()
+        {
+            NetManager.Update();
         }
     }
 }
