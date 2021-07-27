@@ -29,7 +29,9 @@ function GameMainPanel:Init()
 end
 
 function GameMainPanel:Show()
-    self:Init()
+    if self.panelObj == nil then
+        self:Init()
+    end
     self.panelObj:SetActive(true)
 end
 

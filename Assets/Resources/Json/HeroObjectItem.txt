@@ -3,7 +3,7 @@
 {"id":2,"name":"Female","icon":"HeroIcon_2"},
 {"id":3,"name":"Male","icon":"HeroIcon_3"},
 {"id":4,"name":"Bear","icon":"HeroIcon_4"},
-{"id":5,"name":"Checmicalman","icon":"HeroIcon_5"},
+{"id":5,"name":"Chemicalman","icon":"HeroIcon_5"},
 {"id":6,"name":"Chicken","icon":"HeroIcon_6"},
 {"id":7,"name":"Cowboy","icon":"HeroIcon_7"},
 {"id":8,"name":"Hero","icon":"HeroIcon_8"},

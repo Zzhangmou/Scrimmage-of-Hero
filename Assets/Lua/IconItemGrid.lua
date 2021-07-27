@@ -3,7 +3,7 @@ Object:subClass("IconItemGrid")
 
 --"成员"
 IconItemGrid.obj = nil
-IconItemGrid.heroId = nil
+IconItemGrid.heroName = nil
 IconItemGrid.HeroImage = nil
 IconItemGrid.HeroNameText = nil
 IconItemGrid.HeroChoiceBtn = nil
@@ -24,7 +24,7 @@ function IconItemGrid:InitData(data)
     local spriteAtlas = ABMgr:LoadRes("ui", "HeroIcon", typeof(SpriteAtlas))
     self.HeroImage.sprite = spriteAtlas:GetSprite(data.icon)
     self.HeroNameText.text = data.name
-    self.heroId = data.id
+    self.heroName = data.name
     --添加点击事件
     self.HeroChoiceBtn.onClick:AddListener(
         function()
@@ -34,5 +34,6 @@ function IconItemGrid:InitData(data)
 end
 
 function IconItemGrid:SwitchHero()
-    print(self.heroId)
+    print(self.heroName)
+    HeroShowItem:Select(self.heroName)
 end

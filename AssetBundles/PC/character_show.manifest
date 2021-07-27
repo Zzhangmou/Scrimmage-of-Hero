@@ -1,0 +1,60 @@
+ManifestFileVersion: 0
+CRC: 660018183
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ee2934cba6d2fb18ec1e3f44a67cf0f5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d69880a864f0c84b1617200c5757223a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/Prefabs/Character_Show/Veteran.prefab
+- Assets/Resources/Prefabs/Character_Show/Soldier.prefab
+- Assets/Resources/Prefabs/Character_Show/Spaceman.prefab
+- Assets/Resources/Prefabs/Character_Show/Chemicalman.prefab
+- Assets/Resources/Prefabs/Character_Show/Alien.prefab
+- Assets/Resources/Prefabs/Character_Show/Male.prefab
+- Assets/Resources/Prefabs/Character_Show/Salaryman.prefab
+- Assets/Resources/Prefabs/Character_Show/Robot.prefab
+- Assets/Resources/Prefabs/Character_Show/Ninja.prefab
+- Assets/Resources/Prefabs/Character_Show/Sniper.prefab
+- Assets/Resources/Prefabs/Character_Show/Hero.prefab
+- Assets/Resources/Prefabs/Character_Show/Jester.prefab
+- Assets/Resources/Prefabs/Character_Show/Female.prefab
+- Assets/Resources/Prefabs/Character_Show/Chicken.prefab
+- Assets/Resources/Prefabs/Character_Show/Hoodie.prefab
+- Assets/Resources/Prefabs/Character_Show/Bear.prefab
+- Assets/Resources/Prefabs/Character_Show/Samurai.prefab
+- Assets/Resources/Prefabs/Character_Show/Knight.prefab
+- Assets/Resources/Prefabs/Character_Show/Cowboy.prefab
+- Assets/Resources/Prefabs/Character_Show/Terrorist.prefab
+Dependencies: []

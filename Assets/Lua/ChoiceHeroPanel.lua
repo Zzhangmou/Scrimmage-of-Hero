@@ -36,6 +36,9 @@ function ChoiceHeroPanel:CreateHeroIcon()
         local grid = IconItemGrid:new()
         grid:Init(self.Content)
         grid:InitData(value)
+        --加载人物模型
+        local hero = HeroShowItem:new()
+        hero:Init(value.name, false)
     end
 end
 
