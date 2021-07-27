@@ -3,6 +3,10 @@
 --准备之前导入的脚本
 --面向对象相关
 require("Object")
+--字符串拆分
+require("SplitTools")
+--Json解析
+Json=require("JsonUtility")
 
 --Unity相关
 GameObject = CS.UnityEngine.GameObject

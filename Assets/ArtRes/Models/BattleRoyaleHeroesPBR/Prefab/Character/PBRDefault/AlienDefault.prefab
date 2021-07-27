@@ -5265,7 +5265,7 @@ GameObject:
   - component: {fileID: 7369448170708576204}
   - component: {fileID: 7369448170708576211}
   m_Layer: 0
-  m_Name: BasicMaleDefault 1
+  m_Name: AlienDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

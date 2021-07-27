@@ -29,8 +29,14 @@ function GameMainPanel:Init()
 end
 
 function GameMainPanel:Show()
+    self:Init()
+    self.panelObj:SetActive(true)
+end
+
+function GameMainPanel:Close()
+    self.panelObj:SetActive(false)
 end
 
 function GameMainPanel:ShowChoiceHeroPanel()
-    ChoiceHeroPanel:Init()
+    ChoiceHeroPanel:Show()
 end

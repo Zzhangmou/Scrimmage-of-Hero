@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3313047044
+CRC: 915925032
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa760a86e48ad2670613e1776fa25ea7
+    Hash: f00b5e82a86d136c12c65a484a967b7b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b2d88d15968036d916c9075bd25e62bb
+    Hash: 0b32450283113b7e8874070ad33b1fd4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -20,11 +20,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
 - Class: 114
@@ -43,9 +43,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Prefabs/UI/HeroItem.prefab
-- Assets/Prefabs/UI/ChoiceHeroPanel.prefab
-- Assets/Prefabs/UI/GameMainPanel.prefab
+- Assets/Resources/Prefabs/UI/HeroItem.prefab
+- Assets/Resources/Prefabs/UI/ChoiceHeroPanel.prefab
+- Assets/Resources/SpriteAtlas/HeroIcon.spriteatlas
+- Assets/Resources/Prefabs/UI/GameMainPanel.prefab
 Dependencies: []
