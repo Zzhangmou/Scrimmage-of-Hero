@@ -24,6 +24,8 @@ namespace ns
             {
                 anim.SetBool("run", false);
             }
+            if (Input.GetMouseButton(0))
+                anim.SetTrigger("attack");
         }
     }
 }

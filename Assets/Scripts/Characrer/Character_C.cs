@@ -6,7 +6,7 @@ using Common;
 namespace ns
 {
     /// <summary>
-    /// ?????
+    /// ½ÇÉ«¿ØÖÆÀà
     /// </summary>
     public class Character_C : MonoBehaviour
     {
