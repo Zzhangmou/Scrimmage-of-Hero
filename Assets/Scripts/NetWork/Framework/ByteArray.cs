@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NetWorkFK
 {
     /// <summary>
-    /// 
+    /// 字节数组类
     /// </summary>
     public class ByteArray
     {

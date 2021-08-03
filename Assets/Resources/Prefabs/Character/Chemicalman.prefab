@@ -5181,8 +5181,6 @@ GameObject:
   - component: {fileID: 1544434719910675607}
   - component: {fileID: 1544434719910675592}
   - component: {fileID: 177357450}
-  - component: {fileID: 4895000017301333258}
-  - component: {fileID: 177357451}
   m_Layer: 0
   m_Name: Chemicalman
   m_TagString: Untagged
@@ -5282,34 +5280,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.92, z: 0}
---- !u!114 &4895000017301333258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544434719910675593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d1a048a123d7246b7d6d07a6be0398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterInfo:
-    id: 0
-    speed: 4
-  rotateSpeed: 45
---- !u!114 &177357451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544434719910675593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15529647fa633874a86ce40e026241e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1544434719916048143
 GameObject:
   m_ObjectHideFlags: 0
