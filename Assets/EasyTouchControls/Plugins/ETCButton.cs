@@ -16,7 +16,7 @@ using System.Collections;
 public class ETCButton : ETCBase, IPointerEnterHandler, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler { 
 
 	#region Unity Events
-	[System.Serializable] public class OnDownHandler : UnityEvent{}
+	[System.Serializable] public class OnDownHandler : UnityEvent<string>{}
 	[System.Serializable] public class OnPressedHandler : UnityEvent{}
 	[System.Serializable] public class OnPressedValueandler : UnityEvent<float>{}
 	[System.Serializable] public class OnUPHandler : UnityEvent{}
@@ -122,7 +122,7 @@ public class ETCButton : ETCBase, IPointerEnterHandler, IPointerDownHandler, IPo
 			isOnPress = false;
 			isOnTouch = true;
 
-			onDown.Invoke();
+			onDown.Invoke(name);
 			ApllyState();
 			axis.UpdateButton();
 		}
@@ -179,7 +179,7 @@ public class ETCButton : ETCBase, IPointerEnterHandler, IPointerDownHandler, IPo
 
 			if (Input.GetButton( axis.unityAxis)&& axis.axisState ==ETCAxis.AxisState.None ){	
 				axis.ResetAxis();
-				onDown.Invoke();
+				onDown.Invoke(name);
 				axis.axisState = ETCAxis.AxisState.Down;
 			}
 
