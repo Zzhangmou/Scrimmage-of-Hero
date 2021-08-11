@@ -9,7 +9,7 @@ namespace ns
     /// </summary>
    public enum SelectorType
    {
-        None,
+        Attack,
         //ихпн
         Sector,
         //╬ьпн

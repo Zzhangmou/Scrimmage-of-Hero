@@ -31,6 +31,11 @@ namespace ns
         /// </summary>
         public int coolRemain;
         /// <summary>
+        /// 攻击位置
+        /// </summary>
+        [HideInInspector]
+        public Transform attackPos;
+        /// <summary>
         /// 攻击距离
         /// </summary>
         public float attackDistance;
@@ -38,6 +43,10 @@ namespace ns
         /// 攻击角度
         /// </summary>
         public float attackAngle;
+        /// <summary>
+        /// 攻击条范围
+        /// </summary>
+        public float attackWide = 2f;
         /// <summary>
         /// 攻击目标Tag
         /// </summary>
@@ -98,5 +107,9 @@ namespace ns
         /// 选择类型
         /// </summary>
         public SelectorType selectorType;
+        /// <summary>
+        /// 技能指示类型
+        /// </summary>
+        public SkillAreaType areaType;
     }
 }

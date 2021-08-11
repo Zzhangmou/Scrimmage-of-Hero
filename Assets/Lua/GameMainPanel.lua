@@ -15,7 +15,7 @@ function GameMainPanel:Init()
 
     --重新赋值RenderText
     self.showHeroRImage = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(RawImage))
-    self.showHeroRImage.texture = CS.ResManager.Load("Target")
+    self.showHeroRImage.texture = Resources.Load("Target")
 
     --Btn
     self.showHeroBtn = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(Button))

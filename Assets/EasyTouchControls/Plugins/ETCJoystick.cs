@@ -19,7 +19,7 @@ public class ETCJoystick : ETCBase,IPointerEnterHandler,IDragHandler, IBeginDrag
 	[System.Serializable] public class OnMoveStartHandler : UnityEvent<string>{}
 	[System.Serializable] public class OnMoveSpeedHandler : UnityEvent<Vector2> { }
 	[System.Serializable] public class OnMoveHandler : UnityEvent<Vector2> { }
-	[System.Serializable] public class OnMoveEndHandler : UnityEvent{ }
+	[System.Serializable] public class OnMoveEndHandler : UnityEvent<string>{ }
 
 	[System.Serializable] public class OnTouchStartHandler : UnityEvent{}
 	[System.Serializable] public class OnTouchUpHandler : UnityEvent{ }
@@ -397,7 +397,7 @@ public class ETCJoystick : ETCBase,IPointerEnterHandler,IDragHandler, IBeginDrag
 			tmpAxis = Vector2.zero;
 			OldTmpAxis = Vector2.zero;
 			if (real){
-				onMoveEnd.Invoke();
+				onMoveEnd.Invoke(name);
 			}
 		}
 		
@@ -487,7 +487,7 @@ public class ETCJoystick : ETCBase,IPointerEnterHandler,IDragHandler, IBeginDrag
 			onMoveSpeed.Invoke( new Vector2(axisX.axisSpeedValue,axisY.axisSpeedValue));
 		}
 		else if (axisX.axisValue==0 &&  axisY.axisValue==0  && OldTmpAxis!=Vector2.zero) {
-			onMoveEnd.Invoke();
+			onMoveEnd.Invoke(name);
 		}		
 
 		if (!isTurnAndMove){
