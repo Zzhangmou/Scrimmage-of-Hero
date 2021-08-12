@@ -2,8 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * 使用方式：
+ * 1.所有需要频繁创建/销毁的物体,通过对象池创建/回收
+ * 2.需要通过对象池创建的物体在每次创建时执行XX 需要脚本实现IResetale接口
+ */
+
 namespace Common
 {
+    /// <summary>
+    /// 可重置
+    /// </summary>
+    public interface IResetable
+    {
+        void OnReset();
+    }
+
     /// <summary>
     /// 对象池
     /// </summary>
@@ -54,10 +68,9 @@ namespace Common
         /// <param name="key"></param>
         public void Clear(string key)
         {
-            if (!cache.ContainsKey(key)) return;
-            foreach (var item in cache[key])
+            for (int i = cache[key].Count - 1; i >= 0; i--)
             {
-                Destroy(item.gameObject);
+                Destroy(cache[key][i]);
             }
             cache.Remove(key);
         }
@@ -66,7 +79,8 @@ namespace Common
         /// </summary>
         public void ClearAll()
         {
-            foreach (var item in cache.Keys)
+            List<string> keyList = new List<string>(cache.Keys);
+            foreach (var item in keyList)
             {
                 Clear(item);
             }
@@ -79,8 +93,12 @@ namespace Common
             go.transform.position = pos;
             go.transform.rotation = rotate;
             go.SetActive(true);
-        }
 
+            foreach (var item in go.GetComponents<IResetable>())
+            {
+                item.OnReset();
+            }
+        }
         //添加对象
         private GameObject AddObject(string key, GameObject prefab)
         {
@@ -107,4 +125,3 @@ namespace Common
         #endregion
     }
 }
-

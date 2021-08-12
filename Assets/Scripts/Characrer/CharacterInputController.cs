@@ -155,5 +155,6 @@ namespace ns
             if (data != null)//Éú³É
                 skillManager.GenerateSkill(data, deltaVac);
         }
+
     }
 }

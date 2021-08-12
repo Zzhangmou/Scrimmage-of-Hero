@@ -227,7 +227,6 @@ namespace ns
             if (elementTrans == null)
             {
                 GameObject elementGo = Instantiate(ResourcesManager.Load<GameObject>(name));
-               // GameObject elementGo=GameObjectPool.Instance.CreateObject(name, ResourcesManager.Load<GameObject>(name),)
                 elementGo.transform.parent = parent;
                 elementGo.gameObject.SetActive(false);
                 elementGo.name = name;
