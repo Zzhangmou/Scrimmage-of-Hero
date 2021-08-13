@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ns
+namespace Scrimmage.Skill
 {
     [System.Serializable]
     /// <summary>
@@ -31,6 +31,11 @@ namespace ns
         /// </summary>
         public int coolRemain;
         /// <summary>
+        /// 技能生成位置
+        /// </summary>
+        [HideInInspector]
+        public Transform prefabTF;
+        /// <summary>
         /// 攻击位置
         /// </summary>
         [HideInInspector]
@@ -44,7 +49,7 @@ namespace ns
         /// </summary>
         public float attackAngle;
         /// <summary>
-        /// 攻击条范围
+        /// 技能攻击范围
         /// </summary>
         public float attackWide = 2f;
         /// <summary>

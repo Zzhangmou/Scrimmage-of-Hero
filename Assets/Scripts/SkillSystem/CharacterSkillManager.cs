@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Common;
 
-namespace ns
+namespace Scrimmage.Skill
 {
     /// <summary>
     /// 技能管理器
@@ -62,11 +62,21 @@ namespace ns
             transform.LookAt(deltaVac + transform.position);
             //创建
             if (data.selectorType != SelectorType.Attack)
+            {
                 // skillGo = Instantiate(data.skillPrefab, transform.position + deltaVac * data.attackDistance, transform.rotation);
                 skillGo = GameObjectPool.Instance.CreateObject(data.name, data.skillPrefab, transform.position + deltaVac * data.attackDistance, transform.rotation);
+            }
             else
+            {
                 //skillGo = Instantiate(data.skillPrefab, data.attackPos.position, transform.rotation);
                 skillGo = GameObjectPool.Instance.CreateObject(data.name, data.skillPrefab, data.attackPos.position, transform.rotation);
+            }
+            data.prefabTF = skillGo.transform;
+            //传递技能数据
+            SkillDeployer deployer = skillGo.GetComponent<SkillDeployer>();
+            deployer.SkillData = data;//内部创建算法对象
+            deployer.DeploySkill();//内部执行算法对象
+
             //销毁
             //Destroy(skillGo, data.durationTime);
             GameObjectPool.Instance.CollectObject(skillGo, data.durationTime);

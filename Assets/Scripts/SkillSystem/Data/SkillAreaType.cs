@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ns
+namespace Scrimmage.Skill
 {
     /// <summary>
     /// 技能区域类型

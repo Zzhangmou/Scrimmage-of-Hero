@@ -1,4 +1,5 @@
 using Common;
+using Scrimmage.Skill;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace ns
     public class CharacterInputController : MonoBehaviour
     {
         private ETCJoystick[] joysticks;
-        private PlayerStatus playerStatus;
+        private CharacterStatus characterStatus;
         private Animator anim;
         private CharacterMotor chMotor;
         private CharacterSkillManager skillManager;
@@ -28,7 +29,7 @@ namespace ns
         {
             //查找组件
             joysticks = FindObjectsOfType<ETCJoystick>();
-            playerStatus = GetComponent<PlayerStatus>();
+            characterStatus = GetComponent<CharacterStatus>();
             anim = GetComponent<Animator>();
             chMotor = GetComponent<CharacterMotor>();
             skillManager = GetComponent<CharacterSkillManager>();
@@ -124,12 +125,12 @@ namespace ns
         private void OnJoystickMoveStart(string name)
         {
             //播放动画
-            anim.SetBool(playerStatus.chParams.run, true);
+            anim.SetBool(characterStatus.chParams.run, true);
         }
         private void OnJoystickMoveEnd(string name)
         {
             //播放动画
-            anim.SetBool(playerStatus.chParams.run, false);
+            anim.SetBool(characterStatus.chParams.run, false);
         }
         private void OnJoystickMove(Vector2 dir)
         {
