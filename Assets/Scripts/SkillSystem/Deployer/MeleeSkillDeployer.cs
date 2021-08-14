@@ -15,6 +15,7 @@ namespace Scrimmage.Skill
             CalculateTargets();
 
             //Ö´ĞĞÓ°ÏìËã·¨
+            ImpactTargets();
         }
     }
 }

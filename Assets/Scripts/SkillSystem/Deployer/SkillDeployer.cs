@@ -40,13 +40,20 @@ namespace Scrimmage.Skill
         public void CalculateTargets()
         {
             skillData.attackTargets = selector.SelectTarget(skillData, transform);
-            ////////////////////////////////////
-            foreach (var item in skillData.attackTargets)
-            {
-                print(item);
-            }
+            ////////////////////////////////////测试
+            //foreach (var item in skillData.attackTargets)
+            //{
+            //    print(item);
+            //}
         }
         //影响
+        public void ImpactTargets()
+        {
+            for (int i = 0; i < impactArray.Length; i++)
+            {
+                impactArray[i].Execute(this);
+            }
+        }
 
         //释放方式
         //供技能管理器调用,由子类实现,定义具体释放策略
