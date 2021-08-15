@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 660018183
+CRC: 2655400931
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ee2934cba6d2fb18ec1e3f44a67cf0f5
+    Hash: a95c341414c21b649b68c281257f6cfa
   TypeTreeHash:
     serializedVersion: 2
     Hash: d69880a864f0c84b1617200c5757223a
@@ -37,24 +37,24 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Resources/Prefabs/Character_Show/Veteran.prefab
-- Assets/Resources/Prefabs/Character_Show/Soldier.prefab
-- Assets/Resources/Prefabs/Character_Show/Spaceman.prefab
-- Assets/Resources/Prefabs/Character_Show/Chemicalman.prefab
-- Assets/Resources/Prefabs/Character_Show/Alien.prefab
-- Assets/Resources/Prefabs/Character_Show/Male.prefab
-- Assets/Resources/Prefabs/Character_Show/Salaryman.prefab
-- Assets/Resources/Prefabs/Character_Show/Robot.prefab
-- Assets/Resources/Prefabs/Character_Show/Ninja.prefab
-- Assets/Resources/Prefabs/Character_Show/Sniper.prefab
-- Assets/Resources/Prefabs/Character_Show/Hero.prefab
-- Assets/Resources/Prefabs/Character_Show/Jester.prefab
-- Assets/Resources/Prefabs/Character_Show/Female.prefab
-- Assets/Resources/Prefabs/Character_Show/Chicken.prefab
-- Assets/Resources/Prefabs/Character_Show/Hoodie.prefab
-- Assets/Resources/Prefabs/Character_Show/Bear.prefab
-- Assets/Resources/Prefabs/Character_Show/Samurai.prefab
-- Assets/Resources/Prefabs/Character_Show/Knight.prefab
-- Assets/Resources/Prefabs/Character_Show/Cowboy.prefab
-- Assets/Resources/Prefabs/Character_Show/Terrorist.prefab
+- Assets/ArtRes/Character_Show/Veteran.prefab
+- Assets/ArtRes/Character_Show/Soldier.prefab
+- Assets/ArtRes/Character_Show/Spaceman.prefab
+- Assets/ArtRes/Character_Show/Chemicalman.prefab
+- Assets/ArtRes/Character_Show/Alien.prefab
+- Assets/ArtRes/Character_Show/Male.prefab
+- Assets/ArtRes/Character_Show/Salaryman.prefab
+- Assets/ArtRes/Character_Show/Robot.prefab
+- Assets/ArtRes/Character_Show/Ninja.prefab
+- Assets/ArtRes/Character_Show/Sniper.prefab
+- Assets/ArtRes/Character_Show/Hero.prefab
+- Assets/ArtRes/Character_Show/Jester.prefab
+- Assets/ArtRes/Character_Show/Female.prefab
+- Assets/ArtRes/Character_Show/Chicken.prefab
+- Assets/ArtRes/Character_Show/Hoodie.prefab
+- Assets/ArtRes/Character_Show/Bear.prefab
+- Assets/ArtRes/Character_Show/Samurai.prefab
+- Assets/ArtRes/Character_Show/Knight.prefab
+- Assets/ArtRes/Character_Show/Cowboy.prefab
+- Assets/ArtRes/Character_Show/Terrorist.prefab
 Dependencies: []

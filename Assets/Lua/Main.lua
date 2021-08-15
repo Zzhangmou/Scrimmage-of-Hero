@@ -12,4 +12,8 @@ require("IconItemGrid")
 
 require("GameMainPanel")
 require("ChoiceHeroPanel")
-GameMainPanel:Show()
+require("StartShowPanel")
+require("LoginPanel")
+require("RegisterPanel")
+
+StartShowPanel:Show()

@@ -8,16 +8,15 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/MsgAttack.proto
-namespace proto
+namespace proto.MsgAttack
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgAttack")]
   public partial class MsgAttack : global::ProtoBuf.IExtensible
   {
     public MsgAttack() {}
     
-    private string _desc = "";
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"desc", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    [global::System.ComponentModel.DefaultValue("")]
+    private string _desc;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"desc", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public string desc
     {
       get { return _desc; }

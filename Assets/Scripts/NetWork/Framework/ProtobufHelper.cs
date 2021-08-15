@@ -21,8 +21,8 @@ namespace Common
         public static ProtoBuf.IExtensible Decode(string protoName, byte[] bytes, int offset, int count)
         {
             using var memory = new System.IO.MemoryStream(bytes, offset, count);
-            protoName = "proto." + protoName;//添加命名空间
-            System.Type t = System.Type.GetType(protoName);
+            //添加命名空间
+            System.Type t = System.Type.GetType("proto." + protoName);
             return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
         }
         //编码协议名

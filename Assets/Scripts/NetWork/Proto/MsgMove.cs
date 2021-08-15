@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 // Generated from: proto/MsgMove.proto
-namespace proto
+namespace proto.MsgMove
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgMove")]
   public partial class MsgMove : global::ProtoBuf.IExtensible

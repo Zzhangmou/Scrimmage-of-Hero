@@ -29,6 +29,7 @@ Text = UI.Text
 Button = UI.Button
 Toggle = UI.Toggle
 ScrollRect = UI.ScrollRect
+InputField=UI.InputField
 
 Canvas = GameObject.Find("Canvas").transform
 --自己写的C#脚本相关
