@@ -13,6 +13,7 @@ namespace ns
     /// </summary>
     public class GameMain : MonoSingleton<GameMain>
     {
+        public string id = "";
         public override void Init()
         {
             base.Init();

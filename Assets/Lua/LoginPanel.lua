@@ -20,6 +20,8 @@ function LoginPanel:Init()
 
     self.loginBtn.onClick:AddListener(
         function()
+            --添加点击事件
+            self:OnLoginClick()
         end
     )
     self.RegisterBtn.onClick:AddListener(
@@ -34,8 +36,23 @@ function LoginPanel:Show()
         self:Init()
     end
     self.panelObj:SetActive(true)
+    LoginHelper.OnShow()
 end
 
 function LoginPanel:Close()
     self.panelObj:SetActive(false)
+    LoginHelper.OnClose()
+end
+
+function LoginPanel:OnLoginClick()
+    if self.UserInput.text == "" or self.PwInput.text == "" then
+        print("用户名和密码不能为空")
+        --需要调用提示面板
+        TipPanel:Show("用户名和密码不能为空")
+        return
+    end
+    local msgLogin = MsgLogin()
+    msgLogin.id = self.UserInput.text
+    msgLogin.pw = self.PwInput.text
+    NetManager.Send(msgLogin)
 end

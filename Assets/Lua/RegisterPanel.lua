@@ -20,6 +20,7 @@ function RegisterPanel:Init()
 
     self.RegisterBtn.onClick:AddListener(
         function()
+            self:OnRegisterClick()
         end
     )
 end
@@ -29,8 +30,24 @@ function RegisterPanel:Show()
         self:Init()
     end
     self.panelObj:SetActive(true)
+    RegisterHelper.OnShow()
 end
 
 function RegisterPanel:Close()
     self.panelObj:SetActive(false)
+    RegisterHelper.OnClose()
+end
+
+function RegisterPanel:OnRegisterClick()
+    if self.UserInput.text == "" or self.PwInput.text == "" or self.UserNameInput.text == "" then
+        print("用户名,账号和密码不能为空")
+        --需要调用提示面板
+        TipPanel:Show("用户名和密码不能为空")
+        return
+    end
+    local msgRegister = MsgRegister()
+    msgRegister.userName = self.UserNameInput.text
+    msgRegister.id = self.UserInput.text
+    msgRegister.pw = self.PwInput.text
+    NetManager.Send(msgRegister)
 end

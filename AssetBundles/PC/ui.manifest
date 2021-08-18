@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3046696861
+CRC: 2322995455
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0208f58a1fa5cab9c847ca9f9622cfd1
+    Hash: d0bbb553c546b49e384427e8dd939fc1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7f134d54407a0acbe08f8976ffafee37
@@ -52,6 +52,7 @@ Assets:
 - Assets/Resources/Prefabs/UI/HeroItem.prefab
 - Assets/Resources/Prefabs/UI/ChoiceHeroPanel.prefab
 - Assets/Resources/Prefabs/UI/LoginPanel.prefab
+- Assets/Resources/Prefabs/UI/TipPanel.prefab
 - Assets/Resources/Prefabs/UI/StartShowPanel.prefab
 - Assets/Resources/SpriteAtlas/HeroIcon.spriteatlas
 - Assets/Resources/Prefabs/UI/RegisterPanel.prefab

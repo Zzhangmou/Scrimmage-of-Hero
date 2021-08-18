@@ -125,8 +125,11 @@ namespace NetWorkFK
         /// <param name="msgBase"></param>
         private static void FireMsg(string msgName, ProtoBuf.IExtensible msgBase)
         {
-            if (msgListeners.ContainsKey(msgName))
-                msgListeners[msgName](msgBase);
+            //处理协议名称
+            string name = msgName.ToString().Replace("proto.", "");
+            Debug.Log("收到 " + name);
+            if (msgListeners.ContainsKey(name))
+                msgListeners[name](msgBase);
         }
         /// <summary>
         /// 获取描述
@@ -170,8 +173,8 @@ namespace NetWorkFK
             lastPingTime = Time.time;
             lastPongTime = Time.time;
             //监听Pong协议
-            if (!msgListeners.ContainsKey("proto.MsgPong"))
-                AddMsgListener("proto.MsgPong", OnMsgPong);
+            if (!msgListeners.ContainsKey("MsgPong"))
+                AddMsgListener("MsgPong", OnMsgPong);
         }
         public static void Close()
         {

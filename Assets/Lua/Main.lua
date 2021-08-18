@@ -15,5 +15,6 @@ require("ChoiceHeroPanel")
 require("StartShowPanel")
 require("LoginPanel")
 require("RegisterPanel")
+require("TipPanel")
 
 StartShowPanel:Show()
