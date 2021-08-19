@@ -37,10 +37,12 @@ TipCanvas = GameObject.Find("Canvas/TipLayer").transform
 ABMgr = CS.Common.AbManager.Instance
 
 --协议
-NetManager=CS.NetWorkFK.NetManager
+NetManager = CS.NetWorkFK.NetManager
 
-MsgLogin=CS.proto.MsgLogin
-MsgRegister=CS.proto.MsgRegister
+MsgLogin = CS.proto.MsgLogin
+MsgRegister = CS.proto.MsgRegister
+MsgGetUserInfo = CS.proto.MsgGetUserInfo
 
 LoginHelper = CS.Helper.LoginHelper
-RegisterHelper=CS.Helper.RegisterHelper
+RegisterHelper = CS.Helper.RegisterHelper
+GameMainHelper = CS.Helper.GameMainHelper

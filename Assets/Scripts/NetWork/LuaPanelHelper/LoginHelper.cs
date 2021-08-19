@@ -46,6 +46,7 @@ namespace Helper
                 Debug.Log("登陆成功");
                 GameMain.Instance.id = msg.id;//设置id
                 CallLuaHelper.PanelClose("LoginPanel");//关闭面板
+                CallLuaHelper.PanelClose("StartShowPanel");
                 CallLuaHelper.PanelShow("GameMainPanel");//打开主面板
             }
             else

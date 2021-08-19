@@ -6,15 +6,16 @@ using XLua;
 
 namespace Helper
 {
-    [CSharpCallLua]
     /// <summary>
     /// 用接口模拟lua类
     /// </summary>
+    [CSharpCallLua]
     public interface ICallPanel
     {
         void Show();
         void Show(string showText);
         void Close();
+        void SetUserInfo(string userName, string userRecord);
     }
 
     public static class CallLuaHelper
@@ -34,6 +35,11 @@ namespace Helper
         {
             ICallPanel panel = LuaManager.Instance.Global.Get<ICallPanel>("TipPanel");
             panel.Show(showText);
+        }
+        public static void SetUserInfo(string userName,string userRecord)
+        {
+            ICallPanel panel = LuaManager.Instance.Global.Get<ICallPanel>("GameMainPanel");
+            panel.SetUserInfo(userName,userRecord);
         }
     }
 }

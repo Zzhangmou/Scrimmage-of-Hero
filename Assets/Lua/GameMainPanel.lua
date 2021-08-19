@@ -8,11 +8,16 @@ GameMainPanel.showHeroBtn = nil
 GameMainPanel.setBtn = nil
 GameMainPanel.mapBtn = nil
 GameMainPanel.startBtn = nil
+--UserInfo
+GameMainPanel.UserNameText = nil
+GameMainPanel.UserRecordText = nil
 
 function GameMainPanel:Init()
     self.panelObj = ABMgr:LoadRes("ui", "GameMainPanel", typeof(GameObject))
     self.panelObj.transform:SetParent(Canvas, false)
 
+    self.UserNameText = self.panelObj.transform:Find("UserInfo/UserNameText"):GetComponent(typeof(Text))
+    self.UserRecordText = self.panelObj.transform:Find("UserInfo/UserRecordText"):GetComponent(typeof(Text))
     --重新赋值RenderText
     self.showHeroRImage = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(RawImage))
     self.showHeroRImage.texture = Resources.Load("Target")
@@ -33,12 +38,22 @@ function GameMainPanel:Show()
         self:Init()
     end
     self.panelObj:SetActive(true)
+    GameMainHelper:OnShow()
+    --发送协议
+    local msgGetUserInfo=MsgGetUserInfo()
+    NetManager.Send(msgGetUserInfo)
 end
 
 function GameMainPanel:Close()
     self.panelObj:SetActive(false)
+    GameMainHelper:OnClose()
 end
 
 function GameMainPanel:ShowChoiceHeroPanel()
     ChoiceHeroPanel:Show()
+end
+
+function GameMainPanel:SetUserInfo(userName, userRecord)
+    self.UserNameText.text = userName
+    self.UserRecordText.text = userRecord
 end
