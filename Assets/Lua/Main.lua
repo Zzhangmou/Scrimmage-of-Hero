@@ -16,5 +16,6 @@ require("StartShowPanel")
 require("LoginPanel")
 require("RegisterPanel")
 require("TipPanel")
+require("MatchPanel")
 
 StartShowPanel:Show()

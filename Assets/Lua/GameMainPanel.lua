@@ -24,11 +24,17 @@ function GameMainPanel:Init()
 
     --Btn
     self.showHeroBtn = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(Button))
+    self.startBtn = self.panelObj.transform:Find("StartButton"):GetComponent(typeof(Button))
     --如果直接.传入自己的函数 在函数内部 无法使用self获取内容
     --self.showHeroBtn.onClick:AddListener(self.ShowChoiceHeroPanel)
     self.showHeroBtn.onClick:AddListener(
         function()
             self:ShowChoiceHeroPanel()
+        end
+    )
+    self.startBtn.onClick:AddListener(
+        function()
+            MatchPanel:Show()
         end
     )
 end
@@ -40,7 +46,7 @@ function GameMainPanel:Show()
     self.panelObj:SetActive(true)
     GameMainHelper:OnShow()
     --发送协议
-    local msgGetUserInfo=MsgGetUserInfo()
+    local msgGetUserInfo = MsgGetUserInfo()
     NetManager.Send(msgGetUserInfo)
 end
 

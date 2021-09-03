@@ -42,7 +42,10 @@ NetManager = CS.NetWorkFK.NetManager
 MsgLogin = CS.proto.MsgLogin
 MsgRegister = CS.proto.MsgRegister
 MsgGetUserInfo = CS.proto.MsgGetUserInfo
+MsgStartMatch=CS.proto.MsgStartMatch
+MsgLeaveMatch=CS.proto.MsgLeaveMatch
 
 LoginHelper = CS.Helper.LoginHelper
 RegisterHelper = CS.Helper.RegisterHelper
 GameMainHelper = CS.Helper.GameMainHelper
+MatchHelper=CS.Helper.MatchHelper
