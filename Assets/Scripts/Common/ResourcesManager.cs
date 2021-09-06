@@ -48,13 +48,15 @@ namespace Common
         {
             configMap = new Dictionary<string, string>();
             //字符串读取器 提供逐行读取字符串功能
-            using StringReader reader = new StringReader(fileContent);
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            using (StringReader reader = new StringReader(fileContent))
             {
-                //解析
-                string[] keyValue = line.Split('=');
-                configMap.Add(keyValue[0], keyValue[1]);
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    //解析
+                    string[] keyValue = line.Split('=');
+                    configMap.Add(keyValue[0], keyValue[1]);
+                }
             }
         }
         public static T Load<T>(string prefabName) where T : Object

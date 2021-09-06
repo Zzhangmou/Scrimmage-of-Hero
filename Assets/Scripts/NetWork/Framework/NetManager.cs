@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using UnityEngine;
 using Common;
 using proto;
+using ns;
 
 namespace NetWorkFK
 {
@@ -328,6 +329,8 @@ namespace NetWorkFK
             }
         }
 
+        static string str;
+
         private static void OnReceiveData()
         {
             //判断消息长度
@@ -342,6 +345,7 @@ namespace NetWorkFK
             //解析协议名
             int nameCount = 0;
             string protoName = ProtobufHelper.DecodeName(readBuff.bytes, readBuff.readIndex, out nameCount);
+            str = protoName;
             if (protoName == "")
             {
                 Debug.Log("解析协议名失败,为空");

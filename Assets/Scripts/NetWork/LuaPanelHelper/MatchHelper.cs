@@ -11,8 +11,8 @@ namespace Helper
     /// <summary>
     /// 
     /// </summary>
-   public static class MatchHelper
-   {
+    public static class MatchHelper
+    {
         public static void OnShow()
         {
             NetManager.AddMsgListener("MsgEnterMatch", OnMsgEnterMatch);

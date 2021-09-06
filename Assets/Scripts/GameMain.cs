@@ -18,7 +18,7 @@ namespace ns
         {
             base.Init();
             LuaManager.Instance.DoLuaFile("Main");
-            NetManager.Connect("127.0.0.1", 8080);
+            NetManager.Connect("1.116.80.9", 18188);
         }
 
         private void Update()

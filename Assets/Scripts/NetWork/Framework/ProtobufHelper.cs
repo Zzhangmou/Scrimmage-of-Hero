@@ -13,17 +13,22 @@ namespace Common
         //编码
         public static byte[] Encode(ProtoBuf.IExtensible msgBase)
         {
-            using var memory = new System.IO.MemoryStream();
-            ProtoBuf.Serializer.Serialize(memory, msgBase);
-            return memory.ToArray();
+            using (var memory = new System.IO.MemoryStream())
+            {
+                ProtoBuf.Serializer.Serialize(memory, msgBase);
+
+                return memory.ToArray();
+            }
         }
         //解码
         public static ProtoBuf.IExtensible Decode(string protoName, byte[] bytes, int offset, int count)
         {
-            using var memory = new System.IO.MemoryStream(bytes, offset, count);
-            //添加命名空间
-            System.Type t = System.Type.GetType("proto." + protoName);
-            return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
+            using (var memory = new System.IO.MemoryStream(bytes, offset, count))
+            {
+                //添加命名空间
+                System.Type t = System.Type.GetType("proto." + protoName);
+                return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
+            }
         }
         //编码协议名
         public static byte[] EncodeName(ProtoBuf.IExtensible msgBase)
