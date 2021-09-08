@@ -2,6 +2,7 @@ GameMainPanel = {}
 
 --关联的面板对象
 GameMainPanel.panelObj = nil
+GameMainPanel.heroId = 5
 --对应的面板控件
 GameMainPanel.showHeroRImage = nil
 GameMainPanel.showHeroBtn = nil

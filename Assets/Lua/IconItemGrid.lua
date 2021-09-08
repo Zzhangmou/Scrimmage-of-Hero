@@ -28,11 +28,12 @@ function IconItemGrid:InitData(data)
     --添加点击事件
     self.HeroChoiceBtn.onClick:AddListener(
         function()
+            GameMainPanel.heroId=data.id
             self:SwitchHero()
         end
     )
 end
-
+--选择人物
 function IconItemGrid:SwitchHero()
     print(self.heroName)
     HeroShowItem:Select(self.heroName)

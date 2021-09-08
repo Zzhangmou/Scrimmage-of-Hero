@@ -15,6 +15,7 @@ namespace Common
         {
             using (var memory = new System.IO.MemoryStream())
             {
+                ProtoBuf.Meta.RuntimeTypeModel.Default.AutoCompile = false;//禁用自动编译
                 ProtoBuf.Serializer.Serialize(memory, msgBase);
 
                 return memory.ToArray();
@@ -25,8 +26,9 @@ namespace Common
         {
             using (var memory = new System.IO.MemoryStream(bytes, offset, count))
             {
+                ProtoBuf.Meta.RuntimeTypeModel.Default.AutoCompile = false;
                 //添加命名空间
-                System.Type t = System.Type.GetType("proto." + protoName);
+                Type t = Type.GetType("proto." + protoName);
                 return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
             }
         }

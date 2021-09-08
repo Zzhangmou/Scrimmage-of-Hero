@@ -27,14 +27,17 @@ function MatchPanel:Show()
     end
     self.panelObj:SetActive(true)
     MatchHelper:OnShow()
-    local msgStartMatch=MsgStartMatch()
+    local msgStartMatch = MsgStartMatch()
+    --获取玩家当前使用的角色id
+    print(GameMainPanel.heroId)
+    msgStartMatch.heroId = GameMainPanel.heroId
     NetManager.Send(msgStartMatch)
 end
 
 function MatchPanel:Close()
     self.panelObj:SetActive(false)
     MatchHelper:OnClose()
-    local msgLeaveMatch=MsgLeaveMatch()
+    local msgLeaveMatch = MsgLeaveMatch()
     NetManager.Send(msgLeaveMatch)
 end
 

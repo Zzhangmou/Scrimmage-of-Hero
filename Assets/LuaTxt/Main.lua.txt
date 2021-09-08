@@ -9,13 +9,19 @@ require("HeroShowItem")
 HeroShowItem:Init("Chemicalman", true)
 --初始化格子对象
 require("IconItemGrid")
-
+--游戏主界面
 require("GameMainPanel")
+--选择人物面板
 require("ChoiceHeroPanel")
+--游戏开始面板
 require("StartShowPanel")
+--登录面板
 require("LoginPanel")
+--注册面板
 require("RegisterPanel")
+--提示面板
 require("TipPanel")
+--匹配面板
 require("MatchPanel")
 
 StartShowPanel:Show()
