@@ -63,13 +63,14 @@ namespace Scrimmage.Skill
             //创建
             if (data.selectorType != SelectorType.Attack)
             {
-                // skillGo = Instantiate(data.skillPrefab, transform.position + deltaVac * data.attackDistance, transform.rotation);
                 skillGo = GameObjectPool.Instance.CreateObject(data.name, data.skillPrefab, transform.position + deltaVac * data.attackDistance, transform.rotation);
             }
             else
             {
-                //skillGo = Instantiate(data.skillPrefab, data.attackPos.position, transform.rotation);
                 skillGo = GameObjectPool.Instance.CreateObject(data.name, data.skillPrefab, data.attackPos.position, transform.rotation);
+                skillGo.GetComponent<ns.BulletEffect>().Init();
+                skillGo.GetComponent<Rigidbody>().AddForce(this.transform.forward * 500);
+                return;
             }
             data.prefabTF = skillGo.transform;
             //传递技能数据

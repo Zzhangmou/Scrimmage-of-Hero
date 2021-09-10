@@ -31,6 +31,7 @@ sand_cube_1=Prefabs/Ground/sand_cube_1
 sand_cube_2=Prefabs/Ground/sand_cube_2
 sand_top=Prefabs/Ground/sand_top
 Bullet=Prefabs/SkillFX/Bullet
+Bullet1=Prefabs/SkillFX/Bullet1
 Plane=Prefabs/SkillFX/Plane
 ChoiceHeroPanel=Prefabs/UI/ChoiceHeroPanel
 ControlPanel=Prefabs/UI/ControlPanel
