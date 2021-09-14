@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1536746074
+CRC: 2199678403
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7825dc0e0bce95c2ffa5e378288aa7fd
+    Hash: 42aa2baf790544231e758cfec5d0bce3
   TypeTreeHash:
     serializedVersion: 2
     Hash: caca885261da040395219673f647a223
@@ -17,34 +17,34 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/LuaTxt/Object.lua.txt
-- Assets/LuaTxt/GameMainPanel.lua.txt
-- Assets/LuaTxt/IconItemGrid.lua.txt
-- Assets/Lua/StartShowPanel.lua
-- Assets/Lua/Main.lua
-- Assets/Lua/SplitTools.lua
-- Assets/LuaTxt/TipPanel.lua.txt
-- Assets/LuaTxt/SplitTools.lua.txt
-- Assets/LuaTxt/ChoiceHeroPanel.lua.txt
-- Assets/Lua/GameMainPanel.lua
-- Assets/Lua/MatchPanel.lua
-- Assets/Lua/HeroIconData.lua
-- Assets/LuaTxt/MatchPanel.lua.txt
-- Assets/Lua/HeroShowItem.lua
-- Assets/LuaTxt/HeroShowItem.lua.txt
-- Assets/LuaTxt/HeroIconData.lua.txt
-- Assets/LuaTxt/InitClass.lua.txt
-- Assets/Lua/JsonUtility.lua
-- Assets/Lua/RegisterPanel.lua
-- Assets/Lua/InitClass.lua
-- Assets/Lua/LoginPanel.lua
-- Assets/LuaTxt/LoginPanel.lua.txt
-- Assets/LuaTxt/StartShowPanel.lua.txt
-- Assets/Lua/TipPanel.lua
-- Assets/LuaTxt/Main.lua.txt
 - Assets/Lua/IconItemGrid.lua
+- Assets/LuaTxt/InitClass.lua.txt
+- Assets/LuaTxt/LoginPanel.lua.txt
+- Assets/LuaTxt/SplitTools.lua.txt
+- Assets/LuaTxt/IconItemGrid.lua.txt
+- Assets/LuaTxt/ChoiceHeroPanel.lua.txt
 - Assets/Lua/ChoiceHeroPanel.lua
-- Assets/LuaTxt/JsonUtility.lua.txt
-- Assets/Lua/Object.lua
 - Assets/LuaTxt/RegisterPanel.lua.txt
+- Assets/Lua/JsonUtility.lua
+- Assets/LuaTxt/Main.lua.txt
+- Assets/Lua/SplitTools.lua
+- Assets/Lua/Main.lua
+- Assets/Lua/RegisterPanel.lua
+- Assets/Lua/HeroIconData.lua
+- Assets/LuaTxt/HeroIconData.lua.txt
+- Assets/Lua/TipPanel.lua
+- Assets/Lua/InitClass.lua
+- Assets/Lua/GameMainPanel.lua
+- Assets/LuaTxt/HeroShowItem.lua.txt
+- Assets/LuaTxt/TipPanel.lua.txt
+- Assets/LuaTxt/Object.lua.txt
+- Assets/Lua/LoginPanel.lua
+- Assets/Lua/HeroShowItem.lua
+- Assets/LuaTxt/JsonUtility.lua.txt
+- Assets/LuaTxt/GameMainPanel.lua.txt
+- Assets/Lua/MatchPanel.lua
+- Assets/LuaTxt/MatchPanel.lua.txt
+- Assets/Lua/Object.lua
+- Assets/Lua/StartShowPanel.lua
+- Assets/LuaTxt/StartShowPanel.lua.txt
 Dependencies: []

@@ -17,6 +17,7 @@ namespace Helper
         void Close();
         void SetUserInfo(string userName, string userRecord);
         void UpdateText(string text);
+        void ChangeSliderValue(float value);
     }
 
     public static class CallLuaHelper
@@ -47,6 +48,11 @@ namespace Helper
         {
             panel = LuaManager.Instance.Global.Get<ICallPanel>("MatchPanel");
             panel.UpdateText(text);
+        }
+        public static void ChangeSliderValue(float value)
+        {
+            panel = LuaManager.Instance.Global.Get<ICallPanel>("ProgressPanel");
+            panel.ChangeSliderValue(value);
         }
     }
 }

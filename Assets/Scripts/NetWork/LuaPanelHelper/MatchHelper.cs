@@ -1,6 +1,7 @@
 using NetWorkFK;
 using proto;
 using ProtoBuf;
+using Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,20 @@ namespace Helper
         {
             NetManager.AddMsgListener("MsgEnterMatch", OnMsgEnterMatch);
             NetManager.AddMsgListener("MsgLeaveMatch", OnMsgLeaveMatch);
+            NetManager.AddMsgListener("MsgGetRoomInfo", OnMsgGetRoomInfo);
+        }
+
+        //开始生成场景 人物模型
+        private static void OnMsgGetRoomInfo(IExtensible msgBase)
+        {
+            CallLuaHelper.PanelShow("ProgressPanel");
+            MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
+            //生成场景   mapId
+            GameObject GameMap = ResourcesManager.Load<GameObject>("Grass");
+            for (int i = 0; i < msg.players.Count; i++)
+            {
+
+            }
         }
 
         public static void OnClose()

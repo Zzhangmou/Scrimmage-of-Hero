@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3109925134
+CRC: 3525442262
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f51e148143d58ccab6d516270d4571df
+    Hash: 292390ab97bac892c707c953b780fa5c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 91c052f5f99d0487dbd7bc38bf3c7181
+    Hash: d69880a864f0c84b1617200c5757223a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -37,24 +37,24 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/ArtRes/Character_Show/Sniper.prefab
-- Assets/ArtRes/Character_Show/Alien.prefab
 - Assets/ArtRes/Character_Show/Veteran.prefab
-- Assets/ArtRes/Character_Show/Knight.prefab
-- Assets/ArtRes/Character_Show/Salaryman.prefab
-- Assets/ArtRes/Character_Show/Male.prefab
-- Assets/ArtRes/Character_Show/Terrorist.prefab
-- Assets/ArtRes/Character_Show/Ninja.prefab
-- Assets/ArtRes/Character_Show/Bear.prefab
-- Assets/ArtRes/Character_Show/Cowboy.prefab
-- Assets/ArtRes/Character_Show/Female.prefab
 - Assets/ArtRes/Character_Show/Soldier.prefab
-- Assets/ArtRes/Character_Show/Chicken.prefab
 - Assets/ArtRes/Character_Show/Spaceman.prefab
-- Assets/ArtRes/Character_Show/Samurai.prefab
-- Assets/ArtRes/Character_Show/Robot.prefab
-- Assets/ArtRes/Character_Show/Hero.prefab
-- Assets/ArtRes/Character_Show/Hoodie.prefab
 - Assets/ArtRes/Character_Show/Chemicalman.prefab
+- Assets/ArtRes/Character_Show/Alien.prefab
+- Assets/ArtRes/Character_Show/Male.prefab
+- Assets/ArtRes/Character_Show/Salaryman.prefab
+- Assets/ArtRes/Character_Show/Robot.prefab
+- Assets/ArtRes/Character_Show/Ninja.prefab
+- Assets/ArtRes/Character_Show/Sniper.prefab
+- Assets/ArtRes/Character_Show/Hero.prefab
 - Assets/ArtRes/Character_Show/Jester.prefab
+- Assets/ArtRes/Character_Show/Female.prefab
+- Assets/ArtRes/Character_Show/Chicken.prefab
+- Assets/ArtRes/Character_Show/Hoodie.prefab
+- Assets/ArtRes/Character_Show/Bear.prefab
+- Assets/ArtRes/Character_Show/Samurai.prefab
+- Assets/ArtRes/Character_Show/Knight.prefab
+- Assets/ArtRes/Character_Show/Cowboy.prefab
+- Assets/ArtRes/Character_Show/Terrorist.prefab
 Dependencies: []
