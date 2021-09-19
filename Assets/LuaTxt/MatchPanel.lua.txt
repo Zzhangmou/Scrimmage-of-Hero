@@ -17,6 +17,7 @@ function MatchPanel:Init()
     self.returnBtn.onClick:AddListener(
         function()
             self:Close()
+            self:SendMsgLeavematch()
         end
     )
 end
@@ -29,7 +30,6 @@ function MatchPanel:Show()
     MatchHelper:OnShow()
     local msgStartMatch = MsgStartMatch()
     --获取玩家当前使用的角色id
-    print("aaaa")
     print(GameMainPanel.heroId)
     msgStartMatch.heroId = GameMainPanel.heroId
     NetManager.Send(msgStartMatch)
@@ -38,6 +38,10 @@ end
 function MatchPanel:Close()
     self.panelObj:SetActive(false)
     MatchHelper:OnClose()
+end
+
+--发送离开协议
+function MatchPanel:SendMsgLeavematch()
     local msgLeaveMatch = MsgLeaveMatch()
     NetManager.Send(msgLeaveMatch)
 end

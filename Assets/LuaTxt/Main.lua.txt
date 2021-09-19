@@ -23,5 +23,9 @@ require("RegisterPanel")
 require("TipPanel")
 --匹配面板
 require("MatchPanel")
+--进度面板
+require("ProgressPanel")
+--控制面板
+require("ControlPanel")
 
 StartShowPanel:Show()

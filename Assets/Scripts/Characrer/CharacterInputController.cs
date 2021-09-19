@@ -126,11 +126,15 @@ namespace ns
         {
             //播放动画
             anim.SetBool(characterStatus.chParams.run, true);
+            chMotor.statusName = characterStatus.chParams.run;
+            chMotor.status = true;
         }
         private void OnJoystickMoveEnd(string name)
         {
             //播放动画
             anim.SetBool(characterStatus.chParams.run, false);
+            chMotor.statusName = characterStatus.chParams.run;
+            chMotor.status = false;
         }
         private void OnJoystickMove(Vector2 dir)
         {
@@ -156,6 +160,5 @@ namespace ns
             if (data != null)//生成
                 skillManager.GenerateSkill(data, deltaVac);
         }
-
     }
 }

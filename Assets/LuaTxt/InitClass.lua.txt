@@ -30,6 +30,7 @@ Button = UI.Button
 Toggle = UI.Toggle
 ScrollRect = UI.ScrollRect
 InputField = UI.InputField
+Slider=UI.Slider
 
 Canvas = GameObject.Find("Canvas/PanelLayer").transform
 TipCanvas = GameObject.Find("Canvas/TipLayer").transform

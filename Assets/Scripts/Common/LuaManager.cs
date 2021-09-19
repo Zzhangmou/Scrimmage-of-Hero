@@ -26,7 +26,7 @@ namespace Common
             luaEnv = new LuaEnv();
 
             //加载lua脚本 重定向
-            luaEnv.AddLoader(MyCustomLoader);
+            //luaEnv.AddLoader(MyCustomLoader);
             luaEnv.AddLoader(MyCustomABLoader);
         }
         //自动执行

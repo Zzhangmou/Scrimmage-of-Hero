@@ -17,6 +17,7 @@ function MatchPanel:Init()
     self.returnBtn.onClick:AddListener(
         function()
             self:Close()
+            self:SendMsgLeavematch()
         end
     )
 end
@@ -37,6 +38,10 @@ end
 function MatchPanel:Close()
     self.panelObj:SetActive(false)
     MatchHelper:OnClose()
+end
+
+--发送离开协议
+function MatchPanel:SendMsgLeavematch()
     local msgLeaveMatch = MsgLeaveMatch()
     NetManager.Send(msgLeaveMatch)
 end
