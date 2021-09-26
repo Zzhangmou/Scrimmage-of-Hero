@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293047706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.314, y: 0.599, z: 0.788}
+  m_LocalPosition: {x: 0.328, y: 0.673, z: 0.978}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8945402038609836530}
@@ -4965,9 +4965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8945402038609836530}
   - component: {fileID: 8945402038609836525}
-  - component: {fileID: 1124962282}
-  - component: {fileID: 1124962283}
-  - component: {fileID: 1124962284}
+  - component: {fileID: 224815739}
   m_Layer: 0
   m_Name: Spaceman
   m_TagString: Untagged
@@ -5050,104 +5048,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1124962282
-MonoBehaviour:
+--- !u!143 &224815739
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8945402038609836524}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ebffb06a170474b9a882e3525628ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills:
-  - skillId: 1001
-    name: Attack
-    description: 
-    coolTime: 0
-    coolRemain: 0
-    prefabTF: {fileID: 0}
-    attackPos: {fileID: 0}
-    attackDistance: 10
-    attackAngle: 0
-    attackWide: 2
-    attackTargetTags:
-    - Enemy
-    attackTargets: []
-    impactType: []
-    atkRadio: 1
-    durationTime: 5
-    atkInterval: 1
-    owner: {fileID: 0}
-    prefabName: Bullet
-    skillPrefab: {fileID: 0}
-    animationName: attack
-    hitFxName: 
-    hitFxPrefab: {fileID: 0}
-    attackType: 0
-    selectorType: 0
-    areaType: 1
-  - skillId: 1002
-    name: Skill01
-    description: 
-    coolTime: 3
-    coolRemain: 0
-    prefabTF: {fileID: 0}
-    attackPos: {fileID: 0}
-    attackDistance: 5
-    attackAngle: 360
-    attackWide: 2
-    attackTargetTags:
-    - Enemy
-    attackTargets: []
-    impactType: []
-    atkRadio: 1.5
-    durationTime: 3
-    atkInterval: 1
-    owner: {fileID: 0}
-    prefabName: Plane
-    skillPrefab: {fileID: 0}
-    animationName: attack
-    hitFxName: 
-    hitFxPrefab: {fileID: 0}
-    attackType: 1
-    selectorType: 1
-    areaType: 3
---- !u!114 &1124962283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8945402038609836524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa64f9ae4e8579441a854b933f0b3e16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1124962284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8945402038609836524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35cb4df78ef785f4c9aa08026080125b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chParams:
-    run: run
-    dead: dead
-  id: 
-  HP: 0
-  maxHp: 0
-  baseATK: 0
-  attackInterval: 0
-  attackDistance: 0
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8945402038653559325
 GameObject:
   m_ObjectHideFlags: 0

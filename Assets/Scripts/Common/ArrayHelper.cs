@@ -96,16 +96,18 @@ namespace Common
         /// 求最大值
         /// </summary>
         /// <typeparam name="T">数组类型</typeparam>
-        /// <typeparam name="Q">返回值类型</typeparam>
-        /// <param name="array">数组</param>
-        /// <param name="condition">条件</param>
+        /// <typeparam name="Q">比较条件的返回值类型</typeparam>
+        /// <param name="array">要比较的数组</param>
+        /// <param name="condition">比较的条件</param>
         /// <returns></returns>
         public static T FindMax<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
             T max = array[0];
-            for (int i = 1; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                if (condition(max).CompareTo(array[i]) < 0)
+                if (condition(max).
+                    CompareTo
+                    (condition(array[i])) < 0)
                 {
                     max = array[i];
                 }
@@ -122,15 +124,17 @@ namespace Common
         /// <returns></returns>
         public static T FindMin<T, Q>(this T[] array, Func<T, Q> condition) where Q : IComparable
         {
-            T max = array[0];
-            for (int i = 1; i < array.Length; i++)
+            T min = array[0];
+            for (int i = 0; i < array.Length; i++)
             {
-                if (condition(max).CompareTo(array[i]) > 0)
+                if (condition(min).
+                    CompareTo
+                    (condition(array[i])) > 0)
                 {
-                    max = array[i];
+                    min = array[i];
                 }
             }
-            return max;
+            return min;
         }
         /// <summary>
         /// 筛选

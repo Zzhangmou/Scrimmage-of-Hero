@@ -9,10 +9,7 @@ namespace Scrimmage.Skill
     /// </summary>
    public interface IImpactEffect
    {
-        /// <summary>
-        /// ÉËº¦ÉúÃü
-        /// </summary>
-        /// <param name="data"></param>
+
         void Execute(SkillDeployer deployer);
    }
 }

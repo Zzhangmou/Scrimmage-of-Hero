@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ns
+namespace Character
 {
     /// <summary>
     /// 角色状态信息类

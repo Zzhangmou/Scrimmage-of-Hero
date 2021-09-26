@@ -8,7 +8,7 @@ namespace ns
     /// <summary>
     /// 子弹效果
     /// </summary>
-    public class BulletEffect : MonoBehaviour
+    public class BulletEffect : MonoBehaviour, IResetable
     {
         /// <summary>
         /// 击中特效
@@ -27,7 +27,7 @@ namespace ns
         [Range(0f, 1f)] // This is an offset that moves the impact effect slightly away from the point of impact to reduce clipping of the impact effect
         public float collideOffset = 0.15f;
 
-        public void Init()
+        public void OnReset()
         {
             projectileParticle = GameObjectPool.Instance.CreateObject("projectileParticle", projectileParticle, transform.position, transform.rotation) as GameObject;
             projectileParticle.transform.parent = transform;
@@ -37,6 +37,7 @@ namespace ns
                 muzzleParticle = GameObjectPool.Instance.CreateObject("muzzleParticle", muzzleParticle, transform.position, transform.rotation) as GameObject;
                 GameObjectPool.Instance.CollectObject(muzzleParticle, 1.5f); // 2nd parameter is lifetime of effect in seconds
             }
+            GetComponent<Rigidbody>().AddForce(this.transform.forward * 500);
         }
 
         void FixedUpdate()

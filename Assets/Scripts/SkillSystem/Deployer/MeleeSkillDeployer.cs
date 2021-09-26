@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Scrimmage.Skill
 {
     /// <summary>
-    /// 
+    /// ½üÉíÊÍ·ÅÆ÷
     /// </summary>
     public class MeleeSkillDeployer : SkillDeployer
     {
