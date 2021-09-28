@@ -10,10 +10,10 @@ namespace Scrimmage.Skill
     public enum SkillGenerateType
     {
         //原地
-        Inplace,
+        Inplace = 0,
         //选择
-        Select,
+        Select = 1,
         //开火
-        Fire
+        Fire = 2
     }
 }

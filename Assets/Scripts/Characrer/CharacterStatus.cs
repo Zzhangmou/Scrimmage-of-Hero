@@ -18,11 +18,10 @@ namespace Character
         public float maxHp;
         [Header("¹¥»÷Á¦")]
         public float baseATK;
-        [Header("¹¥»÷¼ä¸ô")]
-        public float attackInterval;
-        [Header("¹¥»÷¾àÀë")]
-        public float attackDistance;
-
+        private void Start()
+        {
+            chParams = new CharacterAnimationParameter();
+        }
 
         public void Damage(float val)
         {

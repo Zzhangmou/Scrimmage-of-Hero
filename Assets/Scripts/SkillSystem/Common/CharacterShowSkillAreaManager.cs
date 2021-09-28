@@ -61,11 +61,10 @@ namespace Scrimmage.Skill
                     CreateElement(SkillAreaElement.Rectangle);
                     break;
                 case SkillAreaType.OuterCircle_InnerSector60:
-                    CreateElement(SkillAreaElement.OuterCircle);
+
                     CreateElement(SkillAreaElement.Sector60);
                     break;
                 case SkillAreaType.OuterCircle_InnerSector120:
-                    CreateElement(SkillAreaElement.OuterCircle);
                     CreateElement(SkillAreaElement.Sector120);
                     break;
                 case SkillAreaType.OuterCircle_InnerCircle:
@@ -88,14 +87,14 @@ namespace Scrimmage.Skill
             switch (skillAreaElement)
             {
                 case SkillAreaElement.OuterCircle:
-                    elementTrans.localScale = new Vector3(data.attackDistance * 2, 1, data.attackDistance * 2);
+                    elementTrans.localScale = new Vector3(data.attackScope, 1, data.attackScope);
                     elementTrans.gameObject.SetActive(true);
                     break;
                 case SkillAreaElement.InnerCircle:
                     elementTrans.localScale = new Vector3(data.attackDistance, 1, data.attackDistance);
                     break;
                 case SkillAreaElement.Rectangle:
-                    elementTrans.localScale = new Vector3(data.attackDistance, 1, data.attackDistance);
+                    elementTrans.localScale = new Vector3(1, 1, data.attackDistance);
                     elementTrans.gameObject.SetActive(true);
                     break;
                 case SkillAreaElement.Sector120:
@@ -151,7 +150,7 @@ namespace Scrimmage.Skill
         }
         private Vector3 GetCirclePosition(Vector3 JoyStickPos)
         {
-            Vector3 targetDir = JoyStickPos * data.attackDistance;
+            Vector3 targetDir = JoyStickPos * data.attackScope / 2;
             float y = Camera.main.transform.rotation.eulerAngles.y;
             targetDir = Quaternion.Euler(0, y, 0) * targetDir;
             return targetDir + this.transform.position;

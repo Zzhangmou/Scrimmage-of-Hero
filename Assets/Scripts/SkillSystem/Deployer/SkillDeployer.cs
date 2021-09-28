@@ -44,9 +44,10 @@ namespace Scrimmage.Skill
         {
             skilldata.attackTargets = selector.SelectTarget(skilldata, transform);
 
+            //≤‚ ‘!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             foreach (var item in skilldata.attackTargets)
             {
-                print(item);
+                print(item + " " + Time.frameCount);
             }
         }
         //”∞œÏ

@@ -7,12 +7,12 @@ namespace Scrimmage.Skill
     /// <summary>
     /// 技能判定类型
     /// </summary>
-   public enum SelectorType
-   {
+    public enum SelectorType
+    {
         //扇形
-        Sector,
+        Sector = 0,
         //矩形
-        Rectangle
-   }
+        Rectangle = 1
+    }
 }
 

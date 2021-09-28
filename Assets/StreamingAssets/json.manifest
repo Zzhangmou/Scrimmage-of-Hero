@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1821997037
+CRC: 3573132583
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 66514647b4a1ede38ff20a8ee1923fb1
+    Hash: 705337d59ddb0c03629629a4fb06014b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -13,5 +13,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Resources/Json/PlayerDataInfo.json
 - Assets/Resources/Json/HeroObjectItem.txt
 Dependencies: []

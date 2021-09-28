@@ -16,7 +16,7 @@ namespace Scrimmage.Skill
         private CharacterShowSkillAreaManager areaManager;
 
         private Vector3 deltaVac;
-        private void Start()
+        private void Awake()
         {
             skillManager = GetComponent<CharacterSkillManager>();
             areaManager = GetComponent<CharacterShowSkillAreaManager>();
@@ -44,7 +44,7 @@ namespace Scrimmage.Skill
                 case SkillGenerateType.Inplace:
                     return this.transform.position;
                 case SkillGenerateType.Select:
-                    return transform.position + deltaVac * data.attackDistance;
+                    return transform.position + deltaVac * data.attackScope / 2;
                 default:
                     return data.attackPos.position;
             }
@@ -57,6 +57,14 @@ namespace Scrimmage.Skill
         public SkillData GetSkillData(int id)
         {
             return skillManager.skills.Find(s => s.skillId == id);
+        }
+        /// <summary>
+        /// 设置技能数据
+        /// </summary>
+        /// <param name="data"></param>
+        public void SetSkillData(SkillData[] data)
+        {
+            skillManager.skills = data;
         }
 
         #region 提供调用技能区域管理器的方法

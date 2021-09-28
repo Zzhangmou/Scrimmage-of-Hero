@@ -39,13 +39,18 @@ namespace Scrimmage.Skill
         /// <summary>
         /// 技能生成位置
         /// </summary>
-        [HideInInspector]
+        //[HideInInspector]
         public Vector3 prefabPos;
         /// <summary>
         /// 攻击位置
         /// </summary>
         [HideInInspector]
         public Transform attackPos;
+        [Header("攻击范围")]
+        /// <summary>
+        /// 攻击范围
+        /// </summary>
+        public float attackScope;
         [Header("攻击距离")]
         /// <summary>
         /// 攻击距离
@@ -56,6 +61,11 @@ namespace Scrimmage.Skill
         /// 攻击角度
         /// </summary>
         public float attackAngle;
+        [Header("子弹类型技能设置速度")]
+        /// <summary>
+        /// 子弹飞行速度
+        /// </summary>
+        public float bulletSpeed;
         [Header("攻击目标Tag")]
         /// <summary>
         /// 攻击目标Tag

@@ -12,10 +12,15 @@ namespace Character
     /// </summary>
     public class CharacterInputController : MonoBehaviour
     {
+        [SerializeField]
         private ETCJoystick[] joysticks;
+        [SerializeField]
         private CharacterStatus characterStatus;
+        [SerializeField]
         private Animator anim;
+        [SerializeField]
         private CharacterMotor chMotor;
+        [SerializeField]
         private CharacterSkillSystem skillSystem;
 
         private void Awake()
@@ -51,9 +56,12 @@ namespace Character
         //脚本禁用注销事件
         private void OnDisable()
         {
+            //print(joysticks.Length);
             //注销事件
             for (int i = 0; i < joysticks.Length; i++)
             {
+                //print(joysticks[i]);
+                //print(joysticks[i].name);
                 if (joysticks[i].name == "MainJoystick")
                 {
                     joysticks[i].onMove.RemoveListener(OnMainJoystickMove);

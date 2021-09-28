@@ -18,6 +18,7 @@ namespace Scrimmage.Skill
             for (int i = 0; i < skills.Length; i++)
                 InitSkill(skills[i]);
         }
+
         //初始化技能
         private void InitSkill(SkillData data)
         {
@@ -63,7 +64,7 @@ namespace Scrimmage.Skill
             data.coolRemain = data.coolTime;
             while (data.coolRemain > 0)
             {
-               
+
                 yield return new WaitForSeconds(1);
                 data.coolRemain--;
             }

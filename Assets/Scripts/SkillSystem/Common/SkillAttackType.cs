@@ -10,9 +10,9 @@ namespace Scrimmage.Skill
     public enum SkillAttackType
     {
         //单体
-        Single,
+        Single = 0,
         //群体
-        Group
+        Group = 1
     }
 }
 

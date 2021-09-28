@@ -5210,8 +5210,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1544434719910675607}
   - component: {fileID: 1544434719910675592}
-  - component: {fileID: 1040271114}
-  - component: {fileID: 1040271116}
   m_Layer: 0
   m_Name: Chemicalman
   m_TagString: Player
@@ -5294,92 +5292,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1040271114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544434719910675593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35cb4df78ef785f4c9aa08026080125b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chParams:
-    run: run
-    dead: dead
-  id: 
-  HP: 0
-  maxHp: 0
-  baseATK: 0
-  attackInterval: 0
-  attackDistance: 0
---- !u!114 &1040271116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544434719910675593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ebffb06a170474b9a882e3525628ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills:
-  - skillId: 1001
-    name: Attack
-    description: 
-    coolTime: 0
-    coolRemain: 0
-    prefabTF: {fileID: 0}
-    attackPos: {fileID: 0}
-    attackDistance: 10
-    attackAngle: 0
-    attackWide: 2
-    attackTargetTags:
-    - Enemy
-    attackTargets: []
-    impactType: []
-    atkRadio: 1
-    durationTime: 5
-    atkInterval: 1
-    owner: {fileID: 0}
-    prefabName: Bullet
-    skillPrefab: {fileID: 0}
-    animationName: attack
-    hitFxName: 
-    hitFxPrefab: {fileID: 0}
-    attackType: 0
-    selectorType: 0
-    areaType: 1
-  - skillId: 1002
-    name: Skill01
-    description: 
-    coolTime: 3
-    coolRemain: 0
-    prefabTF: {fileID: 0}
-    attackPos: {fileID: 0}
-    attackDistance: 5
-    attackAngle: 360
-    attackWide: 2
-    attackTargetTags:
-    - Enemy
-    attackTargets: []
-    impactType: []
-    atkRadio: 1.5
-    durationTime: 3
-    atkInterval: 1
-    owner: {fileID: 0}
-    prefabName: Plane
-    skillPrefab: {fileID: 0}
-    animationName: attack
-    hitFxName: 
-    hitFxPrefab: {fileID: 0}
-    attackType: 1
-    selectorType: 1
-    areaType: 3
 --- !u!1 &1544434719916048143
 GameObject:
   m_ObjectHideFlags: 0
