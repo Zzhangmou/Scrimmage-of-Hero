@@ -71,13 +71,29 @@ namespace proto
       get { return _eulerZ; }
       set { _eulerZ = value; }
     }
-    private float _desTime = default(float);
-    [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"desTime", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    private float _durTime = default(float);
+    [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"durTime", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
     [global::System.ComponentModel.DefaultValue(default(float))]
-    public float desTime
+    public float durTime
     {
-      get { return _desTime; }
-      set { _desTime = value; }
+      get { return _durTime; }
+      set { _durTime = value; }
+    }
+    private bool _isFllowTarget = default(bool);
+    [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"isFllowTarget", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(default(bool))]
+    public bool isFllowTarget
+    {
+      get { return _isFllowTarget; }
+      set { _isFllowTarget = value; }
+    }
+    private string _targetId = "";
+    [global::ProtoBuf.ProtoMember(10, IsRequired = false, Name=@"targetId", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string targetId
+    {
+      get { return _targetId; }
+      set { _targetId = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -176,6 +192,14 @@ namespace proto
     {
       get { return _targetZ; }
       set { _targetZ = value; }
+    }
+    private float _durTime = default(float);
+    [global::ProtoBuf.ProtoMember(12, IsRequired = false, Name=@"durTime", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    [global::System.ComponentModel.DefaultValue(default(float))]
+    public float durTime
+    {
+      get { return _durTime; }
+      set { _durTime = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

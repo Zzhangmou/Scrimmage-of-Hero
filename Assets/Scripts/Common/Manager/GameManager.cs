@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Common;
 using NetWorkFK;
 using proto;
 using Helper;
 using XLua;
 using ProtoBuf;
-using System;
 using Character;
-using Scrimmage.Skill;
 
-namespace ns
+namespace Common
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        public static Dictionary<string, GameObject> heros;
+        public Dictionary<string, GameObject> heros;
 
         public override void Init()
         {
@@ -43,21 +40,21 @@ namespace ns
             motor.forecastTime = Time.time;
         }
 
-        public static GameObject GetHero(string id)
+        public GameObject GetHero(string id)
         {
             if (heros.ContainsKey(id))
                 return heros[id];
             return null;
         }
 
-        private static void OnMsgStartGame(IExtensible msgBase)
+        private void OnMsgStartGame(IExtensible msgBase)
         {
             CallLuaHelper.PanelClose("ProgressPanel");
             CallLuaHelper.PanelClose("MatchPanel");
             CallLuaHelper.PanelClose("GameMainPanel");
         }
 
-        private static void OnMsgPrepared(IExtensible msgBase)
+        private void OnMsgPrepared(IExtensible msgBase)
         {
             MsgPrepared msg = (MsgPrepared)msgBase;
             float num = msg.currentNum / msg.maxNum;
@@ -65,7 +62,7 @@ namespace ns
         }
 
         //开始生成场景 人物模型
-        private static void OnMsgGetRoomInfo(IExtensible msgBase)
+        private void OnMsgGetRoomInfo(IExtensible msgBase)
         {
             int redNum = 1;
             int blueNum = 1;

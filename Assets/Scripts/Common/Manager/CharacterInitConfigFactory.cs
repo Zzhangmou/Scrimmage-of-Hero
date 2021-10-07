@@ -1,10 +1,11 @@
 using Character;
+using Scrimmage;
 using Scrimmage.Skill;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ns
+namespace Common
 {
     /// <summary>
     /// 角色初始化工厂
@@ -12,7 +13,7 @@ namespace ns
     public static class CharacterInitConfigFactory
     {
         //获取JS数据
-        private static Dictionary<int, PlayerJsDataInfo> skillDataDic=SkillJsonDataManager.GetPlayerJsDataInfo();
+        private static Dictionary<int, PlayerJsDataInfo> skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
 
         /// <summary>
         /// 创建角色
@@ -28,7 +29,11 @@ namespace ns
             go = GameObject.Instantiate(hero, GenerateTF.position, GenerateTF.rotation);
             if (!isPlayer)
             {
-                go.AddComponent<CharacterSyncMotor>();
+                go.AddComponent<CharacterSyncMotor>().moveSpeed = skillDataDic[id].moveSpeed;
+                Rigidbody rigidbody = go.AddComponent<Rigidbody>();
+                rigidbody.useGravity = false;
+                rigidbody.freezeRotation = true;
+                go.AddComponent<EnemyStatus>();
                 return go;
             }
             return MainPlayerComponentInit(go, id);
@@ -47,13 +52,13 @@ namespace ns
             controller.center = new Vector3(0, 1f, 0);
             Rigidbody rigidbody = go.AddComponent<Rigidbody>();
             rigidbody.useGravity = false;
-
+            rigidbody.freezeRotation = true;
 
             CharacterSkillSystem characterSkillSystem = go.AddComponent<CharacterSkillSystem>();
             SkillData[] skilldata = skillDataDic[id].dataList.ToArray();
             characterSkillSystem.SetSkillData(skilldata);
 
-            go.AddComponent<CharacterMotor>();
+            go.AddComponent<CharacterMotor>().moveSpeed=skillDataDic[id].moveSpeed;
             go.AddComponent<PlayerStatus>();
             go.GetComponent<CharacterStatus>().baseATK = skillDataDic[id].baseATK;
             go.GetComponent<CharacterStatus>().HP = skillDataDic[id].maxHp;

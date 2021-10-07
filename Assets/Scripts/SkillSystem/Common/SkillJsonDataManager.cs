@@ -11,6 +11,7 @@ namespace Scrimmage.Skill
     {
         public float baseATK;
         public float maxHp;
+        public float moveSpeed;
 
         public List<SkillData> dataList;
     }
@@ -38,6 +39,7 @@ namespace Scrimmage.Skill
                     CharacterStatus status = new CharacterStatus();
                     skillDataDic[id].baseATK = (float)skillJsArray[i]["baseATK"];
                     skillDataDic[id].maxHp = (float)skillJsArray[i]["maxHp"];
+                    skillDataDic[id].moveSpeed = (float)skillJsArray[i]["moveSpeed"];
                 }
                 SkillData data = new SkillData();
                 string str;

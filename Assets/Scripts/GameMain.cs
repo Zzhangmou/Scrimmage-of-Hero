@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Common;
 using System;
 using NetWorkFK;
 
-namespace ns
+namespace Common
 {
     /// <summary>
     /// 游戏主要入口

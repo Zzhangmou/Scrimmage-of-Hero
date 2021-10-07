@@ -383,20 +383,6 @@ MonoBehaviour:
   HP: 10000
   maxHp: 0
   baseATK: 0
---- !u!136 &293036381
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293036377}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &293036382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -408,7 +394,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -543,85 +529,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1018526296
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4496450975933938348, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: skills.Array.data[1].generateType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677095, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677113, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_Name
-      value: Spaceman
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774635380061677113, guid: 4ca3fc302290cf9418f2f8dcdd820b00,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4ca3fc302290cf9418f2f8dcdd820b00, type: 3}
 --- !u!1001 &1354465098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -723,20 +630,6 @@ MonoBehaviour:
   HP: 10000
   maxHp: 0
   baseATK: 0
---- !u!136 &1354465103
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354465099}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1354465104
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -748,7 +641,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -1000,20 +893,6 @@ MonoBehaviour:
   HP: 10000
   maxHp: 0
   baseATK: 0
---- !u!136 &1906838954
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906838950}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1906838955
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1025,7 +904,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112

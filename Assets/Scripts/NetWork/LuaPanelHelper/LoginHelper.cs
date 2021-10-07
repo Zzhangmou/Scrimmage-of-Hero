@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NetWorkFK;
 using proto;
-using ns;
+using Common;
 
 namespace Helper
 {

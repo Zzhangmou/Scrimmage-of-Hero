@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ns
+namespace Character
 {
     /// <summary>
     /// 角色同步马达
@@ -11,7 +11,6 @@ namespace ns
     public class CharacterSyncMotor : MonoBehaviour
     {
         private Animator anim;
-        private CharacterStatus characterStatus;
         public string statusName;
         public bool status;
         //同步帧率
@@ -29,7 +28,6 @@ namespace ns
         private void Start()
         {
             anim = GetComponent<Animator>();
-            characterStatus = GetComponent<CharacterStatus>();
         }
         private void Update()
         {
@@ -40,10 +38,11 @@ namespace ns
         {
             //设置动画
             anim.SetBool(statusName, status);
-            //旋转
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRot), rotateSpeed * Time.deltaTime);
+
             float t = (Time.time - forecastTime) / syncInterval;
             t = Mathf.Clamp(t, 0f, 1f);
+            //旋转
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRot), t);
             //位置
             transform.position = Vector3.Lerp(transform.position, targetPos, t);
         }

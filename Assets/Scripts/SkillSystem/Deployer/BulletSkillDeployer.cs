@@ -21,10 +21,10 @@ namespace Scrimmage.Skill
         {
             transform.position = Vector3.MoveTowards(transform.position, targetTf, Time.deltaTime * speed);
         }
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            targetTf = collision.transform.position;
-            print(collision.gameObject.name);
+            targetTf = other.transform.position;
+            print(other.name);
         }
     }
 }

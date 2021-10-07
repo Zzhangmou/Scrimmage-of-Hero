@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1938321104
+CRC: 1316299032
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -17,36 +17,36 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Lua/IconItemGrid.lua
+- Assets/Resources/Lua/IconItemGrid.lua
 - Assets/LuaTxt/InitClass.lua.txt
 - Assets/LuaTxt/LoginPanel.lua.txt
 - Assets/LuaTxt/SplitTools.lua.txt
 - Assets/LuaTxt/IconItemGrid.lua.txt
 - Assets/LuaTxt/ChoiceHeroPanel.lua.txt
-- Assets/Lua/ChoiceHeroPanel.lua
+- Assets/Resources/Lua/ChoiceHeroPanel.lua
 - Assets/LuaTxt/RegisterPanel.lua.txt
-- Assets/Lua/JsonUtility.lua
+- Assets/Resources/Lua/JsonUtility.lua
 - Assets/LuaTxt/Main.lua.txt
-- Assets/Lua/SplitTools.lua
-- Assets/Lua/Main.lua
-- Assets/Lua/RegisterPanel.lua
+- Assets/Resources/Lua/SplitTools.lua
+- Assets/Resources/Lua/Main.lua
+- Assets/Resources/Lua/RegisterPanel.lua
 - Assets/LuaTxt/ProgressPanel.lua.txt
 - Assets/LuaTxt/HeroIconData.lua.txt
-- Assets/Lua/HeroIconData.lua
-- Assets/Lua/InitClass.lua
-- Assets/Lua/GameMainPanel.lua
+- Assets/Resources/Lua/HeroIconData.lua
+- Assets/Resources/Lua/InitClass.lua
+- Assets/Resources/Lua/GameMainPanel.lua
 - Assets/LuaTxt/HeroShowItem.lua.txt
 - Assets/LuaTxt/TipPanel.lua.txt
 - Assets/LuaTxt/Object.lua.txt
 - Assets/LuaTxt/ControlPanel.lua.txt
-- Assets/Lua/LoginPanel.lua
-- Assets/Lua/HeroShowItem.lua
+- Assets/Resources/Lua/LoginPanel.lua
+- Assets/Resources/Lua/HeroShowItem.lua
 - Assets/LuaTxt/JsonUtility.lua.txt
 - Assets/LuaTxt/GameMainPanel.lua.txt
-- Assets/Lua/TipPanel.lua
-- Assets/Lua/MatchPanel.lua
+- Assets/Resources/Lua/TipPanel.lua
+- Assets/Resources/Lua/MatchPanel.lua
 - Assets/LuaTxt/MatchPanel.lua.txt
-- Assets/Lua/Object.lua
-- Assets/Lua/StartShowPanel.lua
+- Assets/Resources/Lua/Object.lua
+- Assets/Resources/Lua/StartShowPanel.lua
 - Assets/LuaTxt/StartShowPanel.lua.txt
 Dependencies: []

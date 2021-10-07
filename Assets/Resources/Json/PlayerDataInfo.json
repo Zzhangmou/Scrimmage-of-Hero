@@ -21,9 +21,10 @@
         "attackType": 0,
         "selectorType": 0,
         "areaType": 1,
-        "generateType": 2,
+        "generateType": 4,
         "baseATK": 100,
-        "maxHp": 5000
+        "maxHp": 5000,
+        "moveSpeed": 6
     },
     {
         "id": 18,
@@ -47,8 +48,9 @@
         "attackType": 1,
         "selectorType": 0,
         "areaType": 3,
-        "generateType": 2,
+        "generateType": 3,
         "baseATK": "",
-        "maxHp": ""
+        "maxHp": "",
+        "moveSpeed": ""
     }
 ]

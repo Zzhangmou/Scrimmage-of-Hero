@@ -1,7 +1,9 @@
 using Common;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using proto;
 
 namespace Scrimmage.Skill
 {
@@ -36,6 +38,8 @@ namespace Scrimmage.Skill
             //播放动画
             //生成技能
             skillManager.GenerateSkill(skill);
+            //发送协议
+            SendMsgByType(skill);
         }
         private Vector3 SwitchPosByAttackType(SkillData data)
         {
@@ -49,6 +53,53 @@ namespace Scrimmage.Skill
                     return data.attackPos.position;
             }
         }
+        #region 协议相关
+        /// <summary>
+        /// 发送协议
+        /// </summary>
+        /// <param name="data"></param>
+        private void SendMsgByType(SkillData data)
+        {
+            if (data.generateType == SkillGenerateType.FileAndDIs)
+            {
+                SendMsgGeneratePrefabWDis(data);
+            }
+            else
+                SendMsgGeneratePrefab(data);
+        }
+        private void SendMsgGeneratePrefab(SkillData data)
+        {
+            MsgGeneratePrefab msg = new MsgGeneratePrefab();
+            msg.prefabName = data.prefabName;
+            msg.x = data.prefabPos.x;
+            msg.y = data.prefabPos.y;
+            msg.z = data.prefabPos.z;
+            msg.eulerX = transform.rotation.eulerAngles.x;
+            msg.eulerY = transform.rotation.eulerAngles.y;
+            msg.eulerZ = transform.rotation.eulerAngles.z;
+            msg.durTime = data.durationTime;
+            msg.isFllowTarget = data.generateType == SkillGenerateType.FileAndFllow ? true : false;
+            NetWorkFK.NetManager.Send(msg);
+        }
+
+        private void SendMsgGeneratePrefabWDis(SkillData data)
+        {
+            MsgGeneratePrefabWDis msg = new MsgGeneratePrefabWDis();
+            msg.prefabName = data.prefabName;
+            msg.x = data.prefabPos.x;
+            msg.y = data.prefabPos.y;
+            msg.z = data.prefabPos.z;
+            msg.eulerX = transform.rotation.eulerAngles.x;
+            msg.eulerY = transform.rotation.eulerAngles.y;
+            msg.eulerZ = transform.rotation.eulerAngles.z;
+            msg.moveSpeed = data.bulletSpeed;
+            msg.targetX = data.attackPos.TransformPoint(0, 0, data.attackDistance).x;
+            msg.targetY = data.attackPos.TransformPoint(0, 0, data.attackDistance).y;
+            msg.targetZ = data.attackPos.TransformPoint(0, 0, data.attackDistance).z;
+            msg.durTime = data.durationTime;
+            NetWorkFK.NetManager.Send(msg);
+        }
+        #endregion
         /// <summary>
         /// 获得技能数据
         /// </summary>

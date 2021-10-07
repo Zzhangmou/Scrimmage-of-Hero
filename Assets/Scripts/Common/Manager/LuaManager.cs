@@ -26,7 +26,7 @@ namespace Common
             luaEnv = new LuaEnv();
 
             //加载lua脚本 重定向
-            //luaEnv.AddLoader(MyCustomLoader);
+            luaEnv.AddLoader(MyCustomLoader);
             luaEnv.AddLoader(MyCustomABLoader);
         }
         //自动执行
@@ -35,7 +35,7 @@ namespace Common
             //测试传入的参数是什么
             Debug.Log(filePath);
             
-            string path = Application.dataPath + "/Lua/" + filePath + ".lua";
+            string path = Application.dataPath + "/Resources/Lua/" + filePath + ".lua";
 
             //判断文件是否存在
             if (File.Exists(path))

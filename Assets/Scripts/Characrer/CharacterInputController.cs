@@ -12,15 +12,10 @@ namespace Character
     /// </summary>
     public class CharacterInputController : MonoBehaviour
     {
-        [SerializeField]
         private ETCJoystick[] joysticks;
-        [SerializeField]
         private CharacterStatus characterStatus;
-        [SerializeField]
         private Animator anim;
-        [SerializeField]
         private CharacterMotor chMotor;
-        [SerializeField]
         private CharacterSkillSystem skillSystem;
 
         private void Awake()
@@ -56,12 +51,9 @@ namespace Character
         //脚本禁用注销事件
         private void OnDisable()
         {
-            //print(joysticks.Length);
             //注销事件
             for (int i = 0; i < joysticks.Length; i++)
             {
-                //print(joysticks[i]);
-                //print(joysticks[i].name);
                 if (joysticks[i].name == "MainJoystick")
                 {
                     joysticks[i].onMove.RemoveListener(OnMainJoystickMove);
@@ -100,7 +92,7 @@ namespace Character
                 skillSystem.CreateSkillShowArea(data);
             }
         }
-        
+
         private void OnSkillButtonDown(string name)
         {
             int id = GetSkillIdWithName(name);
@@ -125,11 +117,13 @@ namespace Character
         private void OnMainJoystickMoveEnd(string arg0)
         {
             anim.SetBool(characterStatus.chParams.run, false);
+            chMotor.SetAnimStatus(characterStatus.chParams.run, false);
         }
 
         private void OnMainJoystickMoveStart(string arg0)
         {
             anim.SetBool(characterStatus.chParams.run, true);
+            chMotor.SetAnimStatus(characterStatus.chParams.run, true);
         }
 
         private void OnMainJoystickMove(Vector2 dir)
