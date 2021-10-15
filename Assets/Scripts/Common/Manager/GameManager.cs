@@ -13,12 +13,12 @@ namespace Common
 {
     public class GameManager : MonoSingleton<GameManager>
     {
-        public Dictionary<string, GameObject> heros;
+        public Dictionary<string, GameObject> gameDatas;
 
         public override void Init()
         {
             base.Init();
-            heros = new Dictionary<string, GameObject>();
+            gameDatas = new Dictionary<string, GameObject>();
 
             NetManager.AddMsgListener("MsgGetRoomInfo", OnMsgGetRoomInfo);
             NetManager.AddMsgListener("MsgPrepared", OnMsgPrepared);
@@ -34,6 +34,8 @@ namespace Common
         {
             //处理对局消息
             //打开结果面板 显示 
+            CallLuaHelper.PanelClose("ControlPanel");
+
             string id = GameMain.Instance.id;
             int camp = GetHero(id).GetComponent<CharacterStatus>().camp;
             MsgBattleResult msg = (MsgBattleResult)msgBase;
@@ -41,6 +43,12 @@ namespace Common
                 CallLuaHelper.PanelShow("ResultPanel", "胜利");
             else
                 CallLuaHelper.PanelShow("ResultPanel", "失败");
+
+            //场景清理
+            GameObjectPool.Instance.ClearAll();//清理对象池
+            //生成角色清理
+            RemoveAllHero();
+            //清理地图
         }
 
         private void OnMsgHit(IExtensible msgBase)
@@ -66,9 +74,18 @@ namespace Common
 
         public GameObject GetHero(string id)
         {
-            if (heros.ContainsKey(id))
-                return heros[id];
+            if (gameDatas.ContainsKey(id))
+                return gameDatas[id];
             return null;
+        }
+        public void RemoveAllHero()
+        {
+            List<string> keyList = new List<string>(gameDatas.Keys);
+            foreach (var key in keyList)
+            {
+                Destroy(gameDatas[key]);
+                gameDatas.Remove(key);
+            }
         }
 
         private void OnMsgStartGame(IExtensible msgBase)
@@ -100,7 +117,8 @@ namespace Common
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
             GameObject GameMap = ResourcesManager.Load<GameObject>("Grass");
-            Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            gameDatas.Add("Map", GameMap);
             //获取生成点
             Transform[] wayPointA = GameMap.transform.Find("RestartA").transform.GetComponentsInChildren<Transform>();
             Transform[] wayPointB = GameMap.transform.Find("RestartB").transform.GetComponentsInChildren<Transform>();
@@ -128,7 +146,7 @@ namespace Common
                     go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId);
                     blueNum++;
                 }
-                heros.Add(msg.players[i].id, go);
+                gameDatas.Add(msg.players[i].id, go);
             }
 
             //生成完毕 发送准备完毕协议

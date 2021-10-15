@@ -16,6 +16,8 @@ namespace Character
             base.Death();
             //关闭操作面板
             CallLuaHelper.PanelClose("ControlPanel");
+            //停止发送同步位置
+            GetComponent<CharacterMotor>().enabled = false;
             //发送协议
             MsgDeath msgDeath = new MsgDeath()
             {

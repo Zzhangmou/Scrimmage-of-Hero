@@ -118,6 +118,8 @@ namespace Common
             characterStatus.heroId = playerInfoData.heroId;
             //初始化数据
             go.GetComponent<CharacterUIController>().Init();
+            //添加动画事件
+            go.AddComponent<AnimatorEventBehaviour>();
         }
         #endregion
     }
