@@ -56,6 +56,14 @@ namespace proto
       get { return _heroId; }
       set { _heroId = value; }
     }
+    private string _userName = "";
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"userName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string userName
+    {
+      get { return _userName; }
+      set { _userName = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

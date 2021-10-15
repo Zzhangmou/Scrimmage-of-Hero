@@ -7,6 +7,7 @@ using Helper;
 using XLua;
 using ProtoBuf;
 using Character;
+using System;
 
 namespace Common
 {
@@ -24,6 +25,29 @@ namespace Common
             NetManager.AddMsgListener("MsgStartGame", OnMsgStartGame);
 
             NetManager.AddMsgListener("MsgSyncPos", OnMsgSyncPos);
+            NetManager.AddMsgListener("MsgHit", OnMsgHit);
+
+            NetManager.AddMsgListener("MsgBattleResult", OnMsgBattleResult);
+        }
+
+        private void OnMsgBattleResult(IExtensible msgBase)
+        {
+            //处理对局消息
+            //打开结果面板 显示 
+            string id = GameMain.Instance.id;
+            int camp = GetHero(id).GetComponent<CharacterStatus>().camp;
+            MsgBattleResult msg = (MsgBattleResult)msgBase;
+            if (camp == msg.winCamp)
+                CallLuaHelper.PanelShow("ResultPanel", "胜利");
+            else
+                CallLuaHelper.PanelShow("ResultPanel", "失败");
+        }
+
+        private void OnMsgHit(IExtensible msgBase)
+        {
+            MsgHit msg = (MsgHit)msgBase;
+            GameObject hitHero = GetHero(msg.targetId);
+            hitHero.GetComponent<CharacterStatus>().Damage(msg.hitNum);
         }
 
         private void OnMsgSyncPos(IExtensible msgBase)
@@ -69,8 +93,9 @@ namespace Common
             CallLuaHelper.PanelShow("ProgressPanel");
 
             //ab包不能直接打包预制体及脚本 暂时直接生成
-            GameObject controlPanel = Instantiate(ResourcesManager.Load<GameObject>("ControlPanel"));
-            controlPanel.transform.SetParent(GameObject.Find("Canvas/PanelLayer").transform, false);
+            //GameObject controlPanel = Instantiate(ResourcesManager.Load<GameObject>("ControlPanel"));
+            //controlPanel.transform.SetParent(GameObject.Find("Canvas/PanelLayer").transform, false);
+            CallLuaHelper.PanelShow("ControlPanel");
 
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
@@ -82,7 +107,7 @@ namespace Common
             //获取人物模型数据映射表
             LuaTable heroTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
             //生成模型
-            GameObject go = null;
+            GameObject go;
             //玩家控制角色 
             string gameMainId = FindObjectOfType<GameMain>().id;
             //相机
@@ -91,16 +116,16 @@ namespace Common
             {
                 LuaTable heroId = heroTable.Get<int, LuaTable>(msg.players[i].heroId);
                 string heroName = heroId.Get<string, string>("name");
-                GameObject heroGo = ResourcesManager.Load<GameObject>(heroName);
+                go = ResourcesManager.Load<GameObject>(heroName);
 
                 if (msg.players[i].camp == 1)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(heroGo, wayPointA[redNum], msg.players[i].heroId, msg.players[i].id == gameMainId);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId);
                     redNum++;
                 }
                 if (msg.players[i].camp == 2)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(heroGo, wayPointB[blueNum], msg.players[i].heroId, msg.players[i].id == gameMainId);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId);
                     blueNum++;
                 }
                 heros.Add(msg.players[i].id, go);

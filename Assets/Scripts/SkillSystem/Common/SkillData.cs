@@ -74,7 +74,7 @@ namespace Scrimmage.Skill
         /// <summary>
         /// 攻击目标对象数组
         /// </summary>
-        [HideInInspector]
+        //[HideInInspector]
         public Transform[] attackTargets;
         [Header("技能影响类型")]
         /// <summary>

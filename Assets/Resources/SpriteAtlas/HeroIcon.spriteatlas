@@ -38,10 +38,10 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 87f25c673ed39164a9b6c662413c0bce, type: 3}
     - {fileID: 2800000, guid: 0a29a08b1894aaa41a090cbf1a6bf9de, type: 3}
     - {fileID: 2800000, guid: 695a6456a8c18404780f4a3d4c130bb7, type: 3}
-    - {fileID: 2800000, guid: 563852def7725ff41bd0cd75ba3352b6, type: 3}
+    - {fileID: 2800000, guid: b01274d6f55d13c40a97df899c7e27f9, type: 3}
     - {fileID: 2800000, guid: 11e1618e77144eb4eae927cd2548c943, type: 3}
     - {fileID: 2800000, guid: cbf5fb91c7762db4cbf45dba5bae1122, type: 3}
-    - {fileID: 2800000, guid: f935765d67ad3064688d05867ad7185f, type: 3}
+    - {fileID: 2800000, guid: 60076f98a69996147994edcc86976d64, type: 3}
     - {fileID: 2800000, guid: 160e9b31bf3a92f40af73f41055503ac, type: 3}
     - {fileID: 2800000, guid: ffb4a23ed0f104747987529b26af49ff, type: 3}
     - {fileID: 2800000, guid: 55d48f0761d54df4992a003e0b954e57, type: 3}
@@ -64,9 +64,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 72614fa17cb1c1142b0b81d1197a735c, type: 3}
   - {fileID: 21300000, guid: 6e71ed8245f35df42ae42302e419ac0b, type: 3}
   - {fileID: 21300000, guid: 695a6456a8c18404780f4a3d4c130bb7, type: 3}
+  - {fileID: 21300000, guid: b01274d6f55d13c40a97df899c7e27f9, type: 3}
   - {fileID: 21300000, guid: 55d48f0761d54df4992a003e0b954e57, type: 3}
   - {fileID: 21300000, guid: 87f25c673ed39164a9b6c662413c0bce, type: 3}
   - {fileID: 21300000, guid: 46056ab772f5b714b9a47fb440a7fb0d, type: 3}
+  - {fileID: 21300000, guid: 60076f98a69996147994edcc86976d64, type: 3}
   - {fileID: 21300000, guid: cc0dbf983a1291d48a0db49717d6df71, type: 3}
   - {fileID: 21300000, guid: 5e21bfcabdfd28f4dab4a3a51fcec405, type: 3}
   - {fileID: 21300000, guid: a927770b67a1ddd43a05e7f6356440c1, type: 3}
@@ -74,10 +76,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8625c73c4b111294087cca8d1fa08465, type: 3}
   - {fileID: 21300000, guid: 276d5becc95212546a91b3db189c43d5, type: 3}
   - {fileID: 21300000, guid: 7ffb442db2fb7e74b844fc2c8756863a, type: 3}
-  - {fileID: 21300000, guid: f935765d67ad3064688d05867ad7185f, type: 3}
   - {fileID: 21300000, guid: ffb4a23ed0f104747987529b26af49ff, type: 3}
   - {fileID: 21300000, guid: 11e1618e77144eb4eae927cd2548c943, type: 3}
-  - {fileID: 21300000, guid: 563852def7725ff41bd0cd75ba3352b6, type: 3}
   m_PackedSpriteNamesToIndex:
   - HeroIcon_20
   - HeroIcon_11
@@ -85,9 +85,11 @@ SpriteAtlas:
   - HeroIcon_18
   - HeroIcon_19
   - HeroIcon_6
+  - HeroIcon_7
   - HeroIcon_13
   - HeroIcon_4
   - HeroIcon_3
+  - HeroIcon_10
   - HeroIcon_17
   - HeroIcon_1
   - HeroIcon_15
@@ -95,10 +97,8 @@ SpriteAtlas:
   - HeroIcon_16
   - HeroIcon_14
   - HeroIcon_2
-  - HeroIcon_10
   - HeroIcon_12
   - HeroIcon_8
-  - HeroIcon_7
   m_RenderDataMap: {}
   m_Tag: HeroIcon
   m_IsVariant: 0

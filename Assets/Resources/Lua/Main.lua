@@ -27,5 +27,7 @@ require("MatchPanel")
 require("ProgressPanel")
 --控制面板
 require("ControlPanel")
+---结果面板
+require("ResultPanel")
 
 StartShowPanel:Show()

@@ -34,9 +34,9 @@ namespace Helper
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
             panel.Show();
         }
-        public static void PanelShowTip(string showText)
+        public static void PanelShow(string panelName,string showText)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>("TipPanel");
+            panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
             panel.Show(showText);
         }
         public static void SetUserInfo(string userName, string userRecord)

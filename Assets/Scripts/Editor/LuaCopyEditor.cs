@@ -16,7 +16,7 @@ namespace ns
         public static void CopyLuaToTxt()
         {
             //找到所有Lua文件
-            string path = Application.dataPath + "/Lua/";
+            string path = Application.dataPath + "/Resources/Lua/";
             //判断路径是否存在
             if (!Directory.Exists(path))
                 return;

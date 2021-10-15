@@ -55,13 +55,13 @@ namespace Helper
                 switch (msg.result)
                 {
                     case -1:
-                        CallLuaHelper.PanelShowTip("账号或密码错误");
+                        CallLuaHelper.PanelShow("TipPanel", "账号或密码错误");
                         break;
                     case -2:
-                        CallLuaHelper.PanelShowTip("用户已经登陆");
+                        CallLuaHelper.PanelShow("TipPanel", "用户已经登陆");
                         break;
                     case -3:
-                        CallLuaHelper.PanelShowTip("获取玩家数据出错");
+                        CallLuaHelper.PanelShow("TipPanel", "获取玩家数据出错");
                         break;
                 }
             }

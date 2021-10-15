@@ -14,7 +14,7 @@ namespace ns
         private void Start()
         {
             GameObject go = ResourcesManager.Load<GameObject>("Spaceman");
-            CharacterInitConfigFactory.CreateCharacter(go, GenerateTf, 18, true);
+            //CharacterInitConfigFactory.CreateCharacter(go, GenerateTf, 18, true);
         }
     }
 }

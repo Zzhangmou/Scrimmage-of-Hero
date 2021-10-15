@@ -1,52 +1,34 @@
 ManifestFileVersion: 0
-CRC: 1316299032
+CRC: 699186779
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fdf441207d837189f026e27742d79201
+    Hash: d34b7afb7e2ffa6fdf19f0f2f7ee7afa
   TypeTreeHash:
     serializedVersion: 2
-    Hash: caca885261da040395219673f647a223
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
 HashAppended: 0
 ClassTypes:
 - Class: 49
   Script: {instanceID: 0}
-- Class: 114
-  Script: {fileID: 11500000, guid: 6e74971328614f4e8ecb0a9e39610d40, type: 3}
-- Class: 115
-  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Resources/Lua/IconItemGrid.lua
 - Assets/LuaTxt/InitClass.lua.txt
 - Assets/LuaTxt/LoginPanel.lua.txt
 - Assets/LuaTxt/SplitTools.lua.txt
 - Assets/LuaTxt/IconItemGrid.lua.txt
 - Assets/LuaTxt/ChoiceHeroPanel.lua.txt
-- Assets/Resources/Lua/ChoiceHeroPanel.lua
 - Assets/LuaTxt/RegisterPanel.lua.txt
-- Assets/Resources/Lua/JsonUtility.lua
+- Assets/LuaTxt/ResultPanel.lua.txt
 - Assets/LuaTxt/Main.lua.txt
-- Assets/Resources/Lua/SplitTools.lua
-- Assets/Resources/Lua/Main.lua
-- Assets/Resources/Lua/RegisterPanel.lua
 - Assets/LuaTxt/ProgressPanel.lua.txt
 - Assets/LuaTxt/HeroIconData.lua.txt
-- Assets/Resources/Lua/HeroIconData.lua
-- Assets/Resources/Lua/InitClass.lua
-- Assets/Resources/Lua/GameMainPanel.lua
 - Assets/LuaTxt/HeroShowItem.lua.txt
 - Assets/LuaTxt/TipPanel.lua.txt
 - Assets/LuaTxt/Object.lua.txt
 - Assets/LuaTxt/ControlPanel.lua.txt
-- Assets/Resources/Lua/LoginPanel.lua
-- Assets/Resources/Lua/HeroShowItem.lua
 - Assets/LuaTxt/JsonUtility.lua.txt
 - Assets/LuaTxt/GameMainPanel.lua.txt
-- Assets/Resources/Lua/TipPanel.lua
-- Assets/Resources/Lua/MatchPanel.lua
 - Assets/LuaTxt/MatchPanel.lua.txt
-- Assets/Resources/Lua/Object.lua
-- Assets/Resources/Lua/StartShowPanel.lua
 - Assets/LuaTxt/StartShowPanel.lua.txt
 Dependencies: []

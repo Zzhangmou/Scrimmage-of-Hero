@@ -2,6 +2,7 @@ using Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using proto;
 
 namespace Scrimmage.Skill
 {
@@ -40,6 +41,11 @@ namespace Scrimmage.Skill
             {
                 var status = data.attackTargets[i].GetComponent<CharacterStatus>();
                 status.Damage(atk);
+                //发送伤害协议
+                MsgHit msgHit = new MsgHit();
+                msgHit.targetId = status.id;
+                msgHit.hitNum = atk;
+                NetWorkFK.NetManager.Send(msgHit);
             }
             //创建攻击特效
         }

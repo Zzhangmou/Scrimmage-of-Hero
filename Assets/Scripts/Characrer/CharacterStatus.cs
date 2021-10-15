@@ -10,8 +10,14 @@ namespace Character
     public class CharacterStatus : MonoBehaviour
     {
         public CharacterAnimationParameter chParams;
-        [Header("ID")]
+        [Header("连接ID")]
         public string id;
+        [Header("角色ID")]
+        public int heroId;
+        [Header("用户名称")]
+        public string userName;
+        [Header("阵营")]
+        public int camp;
         [Header("血量")]
         public float HP;
         [Header("最大血量")]
@@ -26,6 +32,7 @@ namespace Character
         public void Damage(float val)
         {
             HP -= val;
+            GetComponentInChildren<CharacterUIController>().ChangeSliderValue(HP, maxHp);
             if (HP <= 0)
                 Death();
         }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1132102541
+CRC: 3003738828
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8436e9cb4aaace8858d039b27352cd23
+    Hash: 8144cf1266e0aabc5a874f493f971560
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1baed26710b04425ddba439c20affdfa
+    Hash: c72786754ecf77a8d0503d9704b892f5
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,10 +17,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
 - Class: 114
@@ -38,7 +42,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: c26c7a0dcd8138d4194e0a4435a4740c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -46,6 +54,8 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 - Class: 222
+  Script: {instanceID: 0}
+- Class: 223
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
@@ -58,11 +68,13 @@ Assets:
 - Assets/Resources/Prefabs/UI/HeroItem.prefab
 - Assets/Resources/Prefabs/UI/MatchPanel.prefab
 - Assets/Resources/Prefabs/UI/ChoiceHeroPanel.prefab
+- Assets/Resources/Prefabs/UI/PlayerUICanvas.prefab
 - Assets/Resources/Prefabs/UI/LoginPanel.prefab
 - Assets/Resources/Prefabs/UI/TipPanel.prefab
 - Assets/Resources/Prefabs/UI/ControlPanel.prefab
 - Assets/Resources/Prefabs/UI/StartShowPanel.prefab
 - Assets/Resources/SpriteAtlas/HeroIcon.spriteatlas
+- Assets/Resources/Prefabs/UI/ResultPanel.prefab
 - Assets/Resources/Prefabs/UI/RegisterPanel.prefab
 - Assets/Resources/Prefabs/UI/ProgressPanel.prefab
 - Assets/Resources/Prefabs/UI/GameMainPanel.prefab

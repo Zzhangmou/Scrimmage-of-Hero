@@ -28,12 +28,12 @@ namespace Helper
             {
                 Debug.Log("注册成功");
                 CallLuaHelper.PanelClose("RegisterPanel");
-                CallLuaHelper.PanelShowTip("注册成功");
+                CallLuaHelper.PanelShow("TipPanel", "注册成功");
             }
             else
             {
                 Debug.Log("注册失败");
-                CallLuaHelper.PanelShowTip("注册失败,注册账号已存在");
+                CallLuaHelper.PanelShow("TipPanel", "注册失败,注册账号已存在");
             }
         }
     }
