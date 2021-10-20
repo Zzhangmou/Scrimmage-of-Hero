@@ -20,11 +20,9 @@ namespace Scrimmage.Skill
     /// </summary>
     public static class SkillJsonDataManager
     {
-        private static Dictionary<int, PlayerJsDataInfo> skillDataDic;
-
         public static Dictionary<int, PlayerJsDataInfo> GetPlayerJsDataInfo()
         {
-            skillDataDic = new Dictionary<int, PlayerJsDataInfo>();
+            Dictionary<int, PlayerJsDataInfo> skillDataDic = new Dictionary<int, PlayerJsDataInfo>();
             List<SkillData> dataList = new List<SkillData>();
             TextAsset skillJsonData = (TextAsset)Common.AbManager.Instance.LoadRes("json", "PlayerDataInfo", typeof(TextAsset));
             JArray skillJsArray = (JArray)JsonConvert.DeserializeObject(skillJsonData.text);

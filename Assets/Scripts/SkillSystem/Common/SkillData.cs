@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace Scrimmage.Skill
         /// <summary>
         /// 冷却剩余
         /// </summary>
-        [HideInInspector]
+        //[HideInInspector]
         public int coolRemain;
         /// <summary>
         /// 技能生成位置

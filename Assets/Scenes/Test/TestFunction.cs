@@ -16,5 +16,13 @@ namespace ns
             GameObject go = ResourcesManager.Load<GameObject>("Spaceman");
             //CharacterInitConfigFactory.CreateCharacter(go, GenerateTf, 18, true);
         }
+
+        private void OnGUI()
+        {
+            if (GUILayout.Button("Çå¿ÕÈ«²¿"))
+            {
+                GameObjectPool.Instance.ClearAll();
+            }
+        }
     }
 }

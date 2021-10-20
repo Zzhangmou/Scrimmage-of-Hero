@@ -9,8 +9,13 @@ namespace Scrimmage.Skill
     /// 释放器配置工厂:提供创建释放器算法对象各种算法对象的功能
     /// 作用:将对象 创建 与 使用 分离
     /// </summary>
-   public class DeployerConfigFactory
-   {
+    public class DeployerConfigFactory
+    {
+        private static Dictionary<string, object> cache;
+        static DeployerConfigFactory()
+        {
+            cache = new Dictionary<string, object>();
+        }
         public static IAttackSelector CreateAttackSelector(SkillData data)
         {
             //skillData.selectorType
@@ -31,8 +36,14 @@ namespace Scrimmage.Skill
         }
         private static T CreateObject<T>(string className) where T : class
         {
-            Type type = Type.GetType(className);
-            return Activator.CreateInstance(type) as T;
+            if (!cache.ContainsKey(className))
+            {
+                Debug.Log("反射");
+                Type type = Type.GetType(className);
+                object instance = Activator.CreateInstance(type);
+                cache.Add(className, instance);
+            }
+            return cache[className] as T;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Scrimmage.Skill
         {
             //准备技能
             SkillData skill = skillManager.PrepareSkill(skillId);
+            print(skill);
             if (skill == null) return;
             //面向技能方向
             transform.LookAt(transform.position + deltaVac);

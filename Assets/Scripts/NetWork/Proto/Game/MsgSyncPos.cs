@@ -63,8 +63,9 @@ namespace proto
       get { return _status; }
       set { _status = value; }
     }
-    private string _id;
-    [global::ProtoBuf.ProtoMember(7, IsRequired = true, Name=@"id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    private string _id = "";
+    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue("")]
     public string id
     {
       get { return _id; }

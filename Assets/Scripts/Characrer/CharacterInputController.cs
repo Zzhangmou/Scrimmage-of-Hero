@@ -54,6 +54,7 @@ namespace Character
             //注销事件
             for (int i = 0; i < joysticks.Length; i++)
             {
+                if (joysticks[i] == null) continue;//编译器层面不加会有一个报错(先销毁 后执行)
                 if (joysticks[i].name == "MainJoystick")
                 {
                     joysticks[i].onMove.RemoveListener(OnMainJoystickMove);

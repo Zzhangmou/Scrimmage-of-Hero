@@ -45,15 +45,16 @@ namespace Common
                 CallLuaHelper.PanelShow("ResultPanel", "失败");
 
             //场景清理
-            GameObjectPool.Instance.ClearAll();//清理对象池
+            //GameObjectPool.Instance.ClearAll();//清理对象池(游戏开始时 清理)
             //生成角色清理
-            RemoveAllHero();
+            CollectAllData();
             //清理地图
         }
 
         private void OnMsgHit(IExtensible msgBase)
         {
             MsgHit msg = (MsgHit)msgBase;
+            if (GameMain.Instance.id == msg.attackId) return;
             GameObject hitHero = GetHero(msg.targetId);
             hitHero.GetComponent<CharacterStatus>().Damage(msg.hitNum);
         }
@@ -78,14 +79,14 @@ namespace Common
                 return gameDatas[id];
             return null;
         }
-        public void RemoveAllHero()
+        public void CollectAllData()
         {
             List<string> keyList = new List<string>(gameDatas.Keys);
             foreach (var key in keyList)
             {
-                Destroy(gameDatas[key]);
-                gameDatas.Remove(key);
+                GameObjectPool.Instance.CollectObject(gameDatas[key]);
             }
+            gameDatas.Clear();
         }
 
         private void OnMsgStartGame(IExtensible msgBase)
@@ -105,6 +106,9 @@ namespace Common
         //开始生成场景 人物模型
         private void OnMsgGetRoomInfo(IExtensible msgBase)
         {
+            //清理上场数据
+            GameObjectPool.Instance.ClearAll();
+
             int redNum = 1;
             int blueNum = 1;
             CallLuaHelper.PanelShow("ProgressPanel");
@@ -117,7 +121,8 @@ namespace Common
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
             GameObject GameMap = ResourcesManager.Load<GameObject>("Grass");
-            GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            //GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            GameMap = GameObjectPool.Instance.CreateObject("Grass", GameMap, GameMap.transform.position, GameMap.transform.rotation);
             gameDatas.Add("Map", GameMap);
             //获取生成点
             Transform[] wayPointA = GameMap.transform.Find("RestartA").transform.GetComponentsInChildren<Transform>();

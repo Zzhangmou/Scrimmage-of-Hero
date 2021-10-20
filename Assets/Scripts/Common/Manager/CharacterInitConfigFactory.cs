@@ -14,11 +14,15 @@ namespace Common
     public static class CharacterInitConfigFactory
     {
         //获取JS数据
-        private static Dictionary<int, PlayerJsDataInfo> skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
+        public static Dictionary<int, PlayerJsDataInfo> skillDataDic;
 
-        private static PlayerInfo playerInfoData;
+        //static CharacterInitConfigFactory()
+        //{
+        //    skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
+        //}
         //ui位移
         private static Vector3 offet = new Vector3(0, 2.2f, 0);
+
 
         /// <summary>
         /// 创建角色
@@ -30,21 +34,21 @@ namespace Common
         /// <returns></returns>
         public static GameObject CreateCharacter(GameObject hero, Transform GenerateTF, PlayerInfo playerInfo, string gameMainId)
         {
-            //赋值
-            playerInfoData = playerInfo;
+            skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
             //生成
-            GameObject go = GameObject.Instantiate(hero, GenerateTF.position, GenerateTF.rotation);
+            //GameObject go = GameObject.Instantiate(hero, GenerateTF.position, GenerateTF.rotation);
+            GameObject go = GameObjectPool.Instance.CreateObject(hero.name, hero, GenerateTF.position, GenerateTF.rotation);
             GameObject uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
                 , go.transform.position + offet, go.transform.rotation);
             uiCanvas.transform.SetParent(go.transform);
             //配置
             if (playerInfo.id == gameMainId)
             {
-                return MainPlayerComponentInit(go);
+                return MainPlayerComponentInit(go, playerInfo);
             }
             else
             {
-                return SyncPlayerComponentInit(go, playerInfo.id == gameMainId);
+                return SyncPlayerComponentInit(go, playerInfo, playerInfo.id == gameMainId);
             }
         }
         #region 主角初始化相关脚本
@@ -54,7 +58,7 @@ namespace Common
         /// <param name="go"></param>
         /// <param name="id"></param>
         /// <returns></returns>
-        private static GameObject MainPlayerComponentInit(GameObject go)
+        private static GameObject MainPlayerComponentInit(GameObject go, PlayerInfo playerInfo)
         {
             //设置相机
             CameraFollow cameraFollow = Object.FindObjectOfType<CameraFollow>();
@@ -70,13 +74,16 @@ namespace Common
             rigidbody.freezeRotation = true;
 
             CharacterSkillSystem characterSkillSystem = go.AddComponent<CharacterSkillSystem>();
-            SkillData[] skilldata = skillDataDic[playerInfoData.heroId].dataList.ToArray();
-            characterSkillSystem.SetSkillData(skilldata);
+            SkillData[] skillDatas = skillDataDic[playerInfo.heroId].dataList.ToArray();
 
-            go.AddComponent<CharacterMotor>().moveSpeed = skillDataDic[playerInfoData.heroId].moveSpeed;
+            //Debug.Log(skillDatas[1].coolRemain);
+
+            characterSkillSystem.SetSkillData(skillDatas);
+
+            go.AddComponent<CharacterMotor>().moveSpeed = skillDataDic[playerInfo.heroId].moveSpeed;
             go.AddComponent<CharacterUIController>();
             go.AddComponent<PlayerStatus>();
-            CharacterDataConfig(go);
+            CharacterDataConfig(go, playerInfo);
 
             go.AddComponent<CharacterInputController>();
 
@@ -84,9 +91,9 @@ namespace Common
             return go;
         }
 
-        public static GameObject SyncPlayerComponentInit(GameObject go, bool isTeam)
+        public static GameObject SyncPlayerComponentInit(GameObject go, PlayerInfo playerInfo, bool isTeam)
         {
-            go.AddComponent<CharacterSyncMotor>().moveSpeed = skillDataDic[playerInfoData.heroId].moveSpeed;
+            go.AddComponent<CharacterSyncMotor>().moveSpeed = skillDataDic[playerInfo.heroId].moveSpeed;
             Rigidbody rigidbody = go.AddComponent<Rigidbody>();
             rigidbody.useGravity = false;
             rigidbody.freezeRotation = true;
@@ -94,7 +101,7 @@ namespace Common
             go.AddComponent<CharacterUIController>();
             go.AddComponent<EnemyStatus>();
 
-            CharacterDataConfig(go);
+            CharacterDataConfig(go, playerInfo);
 
             //设置Tag
             if (isTeam)
@@ -105,17 +112,17 @@ namespace Common
             return go;
         }
 
-        private static void CharacterDataConfig(GameObject go)
+        private static void CharacterDataConfig(GameObject go, PlayerInfo playerInfo)
         {
             CharacterStatus characterStatus = go.GetComponent<CharacterStatus>();
-            characterStatus.baseATK = skillDataDic[playerInfoData.heroId].baseATK;
-            characterStatus.HP = skillDataDic[playerInfoData.heroId].maxHp;
-            characterStatus.maxHp = skillDataDic[playerInfoData.heroId].maxHp;
+            characterStatus.baseATK = skillDataDic[playerInfo.heroId].baseATK;
+            characterStatus.HP = skillDataDic[playerInfo.heroId].maxHp;
+            characterStatus.maxHp = skillDataDic[playerInfo.heroId].maxHp;
 
-            characterStatus.camp = playerInfoData.camp;
-            characterStatus.userName = playerInfoData.userName;
-            characterStatus.id = playerInfoData.id;
-            characterStatus.heroId = playerInfoData.heroId;
+            characterStatus.camp = playerInfo.camp;
+            characterStatus.userName = playerInfo.userName;
+            characterStatus.id = playerInfo.id;
+            characterStatus.heroId = playerInfo.heroId;
             //初始化数据
             go.GetComponent<CharacterUIController>().Init();
             //添加动画事件

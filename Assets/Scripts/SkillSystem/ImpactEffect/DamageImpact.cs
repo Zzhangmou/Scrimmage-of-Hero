@@ -11,10 +11,10 @@ namespace Scrimmage.Skill
     /// </summary>
     public class DamageImpact : IImpactEffect
     {
-        private SkillData data;
+        //private SkillData data;
         public void Execute(SkillDeployer deployer)
         {
-            data = deployer.SkillData;
+            //data = deployer.SkillData;
             deployer.StartCoroutine(RepeatDamage(deployer));
         }
 
@@ -24,15 +24,15 @@ namespace Scrimmage.Skill
             do
             {
                 //伤害目标生命
-                OnceDamage();
-                yield return new WaitForSeconds(data.atkInterval);
-                atkTime += data.atkInterval;
+                OnceDamage(deployer.SkillData);
+                yield return new WaitForSeconds(deployer.SkillData.atkInterval);
+                atkTime += deployer.SkillData.atkInterval;
                 //重新计算一次目标
                 deployer.CalculateTargets();
-            } while (atkTime < data.durationTime);//攻击时间没到
+            } while (atkTime < deployer.SkillData.durationTime);//攻击时间没到
         }
 
-        private void OnceDamage()
+        private void OnceDamage(SkillData data)
         {
             //deployer.SkillData.attackTargets
             //技能攻击力 :攻击比率 * 基础攻击力
