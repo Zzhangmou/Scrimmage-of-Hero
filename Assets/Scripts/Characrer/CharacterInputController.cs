@@ -18,6 +18,7 @@ namespace Character
         private CharacterMotor chMotor;
         private CharacterSkillSystem skillSystem;
 
+        public bool reverse;
         private void Awake()
         {
             //查找组件
@@ -73,7 +74,7 @@ namespace Character
         private void OnSkillJoystickMove(Vector2 dir)
         {
             //更新技能区域
-            skillSystem.UpdateElement(new Vector3(dir.x, 0, dir.y));
+            skillSystem.UpdateElement(new Vector3(dir.x, 0, dir.y), reverse);
         }
 
         private void OnSkillJoysticjMoveEnd(string name)
@@ -129,6 +130,8 @@ namespace Character
 
         private void OnMainJoystickMove(Vector2 dir)
         {
+            if (reverse)
+                dir = -dir;
             chMotor.Movement(new Vector3(dir.x, 0, dir.y));
         }
         #endregion

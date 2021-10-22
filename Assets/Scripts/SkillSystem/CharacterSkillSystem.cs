@@ -131,10 +131,12 @@ namespace Scrimmage.Skill
         /// 更新技能展示区域
         /// </summary>
         /// <param name="deltaVac">摇杆位置</param>
-        public void UpdateElement(Vector3 JoyStickPos)
+        public void UpdateElement(Vector3 JoyStickPos, bool reverse)
         {
-            deltaVac = JoyStickPos;
             areaManager.UpdateElement(JoyStickPos);
+            if (reverse)
+                JoyStickPos = -JoyStickPos;
+            deltaVac = JoyStickPos;
         }
         /// <summary>
         /// 隐藏技能区域显示

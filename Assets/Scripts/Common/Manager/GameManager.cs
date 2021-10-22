@@ -120,9 +120,9 @@ namespace Common
 
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
-            GameObject GameMap = ResourcesManager.Load<GameObject>("Grass");
+            GameObject GameMap = ResourcesManager.Load<GameObject>("Sand");
             //GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
-            GameMap = GameObjectPool.Instance.CreateObject("Grass", GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            GameMap = GameObjectPool.Instance.CreateObject("Sand", GameMap, GameMap.transform.position, GameMap.transform.rotation);
             gameDatas.Add("Map", GameMap);
             //获取生成点
             Transform[] wayPointA = GameMap.transform.Find("RestartA").transform.GetComponentsInChildren<Transform>();

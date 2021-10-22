@@ -21,7 +21,7 @@ namespace Common
         //    skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
         //}
         //ui位移
-        private static Vector3 offet = new Vector3(0, 2.2f, 0);
+        private static Vector3 offset = new Vector3(0, 2.2f, 0);
 
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Common
             //GameObject go = GameObject.Instantiate(hero, GenerateTF.position, GenerateTF.rotation);
             GameObject go = GameObjectPool.Instance.CreateObject(hero.name, hero, GenerateTF.position, GenerateTF.rotation);
             GameObject uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
-                , go.transform.position + offet, go.transform.rotation);
+                , go.transform.position + offset, go.transform.rotation);
             uiCanvas.transform.SetParent(go.transform);
             //配置
             if (playerInfo.id == gameMainId)
@@ -60,11 +60,6 @@ namespace Common
         /// <returns></returns>
         private static GameObject MainPlayerComponentInit(GameObject go, PlayerInfo playerInfo)
         {
-            //设置相机
-            CameraFollow cameraFollow = Object.FindObjectOfType<CameraFollow>();
-            //设置属性
-            cameraFollow.targetPlayerTF = go.transform;
-            cameraFollow.offset = new Vector3(0, 10, -10);
             //添加组件
             CharacterController controller = go.AddComponent<CharacterController>();
             controller.height = 2;
@@ -85,8 +80,19 @@ namespace Common
             go.AddComponent<PlayerStatus>();
             CharacterDataConfig(go, playerInfo);
 
-            go.AddComponent<CharacterInputController>();
-
+            //设置相机
+            CameraFollow cameraFollow = Object.FindObjectOfType<CameraFollow>();
+            //根据阵营设置属性
+            if (playerInfo.camp == 1)
+            {
+                cameraFollow.CameraInit(go.transform, new Vector3(0, 12, -5));
+                go.AddComponent<CharacterInputController>();
+            }
+            else
+            {
+                cameraFollow.CameraInit(go.transform, new Vector3(0, 12, 5));
+                go.AddComponent<CharacterInputController>().reverse = true;
+            }
             go.tag = "TeamMate";
             return go;
         }

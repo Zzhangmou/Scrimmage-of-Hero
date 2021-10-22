@@ -19,6 +19,7 @@ Spaceman=Prefabs/Character/Spaceman
 Terrorist=Prefabs/Character/Terrorist
 Veteran=Prefabs/Character/Veteran
 Grass=Prefabs/Scene/Grass
+Sand=Prefabs/Scene/Sand
 BulletSmallBlue=Prefabs/SkillFX/BulletSmallBlue
 FlamethrowerCartoonyPink=Prefabs/SkillFX/FlamethrowerCartoonyPink
 LaserMissileBlue=Prefabs/SkillFX/LaserMissileBlue
