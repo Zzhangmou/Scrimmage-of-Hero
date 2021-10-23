@@ -292,7 +292,7 @@ namespace NetWorkFK
                 FireEvent(NetEvent.ConnectSucc, "");
                 isConnecting = false;
                 //开始接收
-                socket.BeginReceive(readBuff.bytes, readBuff.writeIndex, readBuff.remain, 0, ReceiveCallback, socket);
+                socket.BeginReceive(readBuff.bytes, readBuff.writeIndex, readBuff.Remain, 0, ReceiveCallback, socket);
             }
             catch (SocketException ex)
             {
@@ -316,20 +316,18 @@ namespace NetWorkFK
                 //处理二进制消息
                 OnReceiveData();
                 //继续接收数据
-                if (readBuff.remain < 8)
+                if (readBuff.Remain < 8)
                 {
                     readBuff.MoveBytes();
                     readBuff.ResetSize(readBuff.Length * 2);
                 }
-                socket.BeginReceive(readBuff.bytes, readBuff.writeIndex, readBuff.remain, 0, ReceiveCallback, socket);
+                socket.BeginReceive(readBuff.bytes, readBuff.writeIndex, readBuff.Remain, 0, ReceiveCallback, socket);
             }
             catch (SocketException ex)
             {
                 Debug.Log("Socket接收失败 " + ex.ToString());
             }
         }
-
-        static string str;
 
         private static void OnReceiveData()
         {
@@ -345,7 +343,6 @@ namespace NetWorkFK
             //解析协议名
             int nameCount = 0;
             string protoName = ProtobufHelper.DecodeName(readBuff.bytes, readBuff.readIndex, out nameCount);
-            str = protoName;
             if (protoName == "")
             {
                 Debug.Log("解析协议名失败,为空");

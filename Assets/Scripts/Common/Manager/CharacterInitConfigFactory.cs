@@ -21,7 +21,7 @@ namespace Common
         //    skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
         //}
         //uiÎ»ÒÆ
-        private static Vector3 offset = new Vector3(0, 2.2f, 0);
+        private static Vector3 offset = new Vector3(0, 2.4f, 0);
 
 
         /// <summary>

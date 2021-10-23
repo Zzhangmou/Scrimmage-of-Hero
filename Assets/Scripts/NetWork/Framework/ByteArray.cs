@@ -22,9 +22,9 @@ namespace NetWorkFK
         //容量
         private int capacity = 0;
         //剩余空间
-        public int remain => capacity - writeIndex;
+        public int Remain { get { return capacity - writeIndex; } }
         //数据长度
-        public int Length => writeIndex - readIndex;
+        public int Length { get { return writeIndex - readIndex; } }
 
         public ByteArray(int size = DEFAULT_SIZE)
         {
@@ -65,7 +65,7 @@ namespace NetWorkFK
         /// </summary>
         public void CheckAndMoveBytes()
         {
-            if (Length < 8)
+            if (Length < 64)
                 MoveBytes();
         }
         /// <summary>
@@ -87,7 +87,7 @@ namespace NetWorkFK
         /// <returns></returns>
         public int Write(byte[] bs, int offset, int count)
         {
-            if (remain < count)
+            if (Remain < count)
                 ResetSize(Length + count);
             Array.Copy(bs, offset, bytes, writeIndex, count);
             writeIndex += count;
@@ -111,7 +111,7 @@ namespace NetWorkFK
         public Int16 ReadInt16()
         {
             if (Length < 2) return 0;
-            Int16 ret = (Int16)((bytes[1] << 8) | bytes[0]);
+            Int16 ret = (Int16)((bytes[readIndex + 1] << 8) | bytes[readIndex]);
             readIndex += 2;
             CheckAndMoveBytes();
             return ret;
@@ -119,7 +119,9 @@ namespace NetWorkFK
         public Int32 ReadInt32()
         {
             if (Length < 4) return 0;
-            Int32 ret = (Int32)((bytes[3] << 24) | (bytes[2]) << 16 | (bytes[1]) << 8 | bytes[0]);
+            Int32 ret = (Int32)((bytes[readIndex + 3] << 24) |
+                (bytes[readIndex + 2]) << 16 |
+                (bytes[readIndex + 1]) << 8 | bytes[readIndex]);
             readIndex += 4;
             CheckAndMoveBytes();
             return ret;
