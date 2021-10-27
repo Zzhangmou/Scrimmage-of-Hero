@@ -7,7 +7,6 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HeroIcon
-  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -52,7 +51,6 @@ SpriteAtlas:
     - {fileID: 2800000, guid: d5c90b6a6501a6544b752eef21d39d69, type: 3}
     - {fileID: 2800000, guid: 6e71ed8245f35df42ae42302e419ac0b, type: 3}
     - {fileID: 2800000, guid: 80694e21be9e766469b8eb75db5fdba5, type: 3}
-    totalSpriteSurfaceArea: 1310209
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -102,4 +100,3 @@ SpriteAtlas:
   m_RenderDataMap: {}
   m_Tag: HeroIcon
   m_IsVariant: 0
-  m_IsPlaceholder: 0

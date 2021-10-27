@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1468974243
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui
+      Dependencies: {}
+    Info_1:
+      Name: lua
+      Dependencies: {}
+    Info_2:
+      Name: character_show
+      Dependencies: {}
+    Info_3:
+      Name: json
+      Dependencies: {}

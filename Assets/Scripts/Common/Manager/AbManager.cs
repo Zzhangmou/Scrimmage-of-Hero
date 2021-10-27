@@ -27,12 +27,12 @@ namespace Common
         {
             get
             {
-#if UNITY_IOS
+#if UNITY_EDITOR || UNITY_STANDALONE
+                return "PC";
+#elif UNITY_IOS
         reuten "IOS";
 #elif UNITY_ANDROID
-        return "Android";
-#else
-                return "PC";
+                return "Android";
 #endif
             }
         }

@@ -22,6 +22,14 @@ namespace proto
       get { return _players; }
     }
   
+    private int _currentCamp = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"currentCamp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int currentCamp
+    {
+      get { return _currentCamp; }
+      set { _currentCamp = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

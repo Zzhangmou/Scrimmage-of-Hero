@@ -32,7 +32,7 @@ namespace Common
         /// <param name="id"></param>
         /// <param name="isPlayer"></param>
         /// <returns></returns>
-        public static GameObject CreateCharacter(GameObject hero, Transform GenerateTF, PlayerInfo playerInfo, string gameMainId)
+        public static GameObject CreateCharacter(GameObject hero, Transform GenerateTF, PlayerInfo playerInfo, string gameMainId, int currentCamp)
         {
             skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
             //生成
@@ -48,7 +48,7 @@ namespace Common
             }
             else
             {
-                return SyncPlayerComponentInit(go, playerInfo, playerInfo.id == gameMainId);
+                return SyncPlayerComponentInit(go, playerInfo, playerInfo.camp == currentCamp);
             }
         }
         #region 主角初始化相关脚本
@@ -85,12 +85,12 @@ namespace Common
             //根据阵营设置属性
             if (playerInfo.camp == 1)
             {
-                cameraFollow.CameraInit(go.transform, new Vector3(0, 12, -5));
+                cameraFollow.CameraInit(go.transform, new Vector3(0, 22, -9));
                 go.AddComponent<CharacterInputController>();
             }
             else
             {
-                cameraFollow.CameraInit(go.transform, new Vector3(0, 12, 5));
+                cameraFollow.CameraInit(go.transform, new Vector3(0, 22, 9));
                 go.AddComponent<CharacterInputController>().reverse = true;
             }
             go.tag = "TeamMate";

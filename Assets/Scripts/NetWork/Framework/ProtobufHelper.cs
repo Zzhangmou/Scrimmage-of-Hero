@@ -10,6 +10,12 @@ namespace Common
     /// </summary>
     public static class ProtobufHelper
     {
+        private static Dictionary<string, Type> cache;
+
+        static ProtobufHelper()
+        {
+            cache = new Dictionary<string, Type>();
+        }
         //编码
         public static byte[] Encode(ProtoBuf.IExtensible msgBase)
         {
@@ -24,11 +30,21 @@ namespace Common
         //解码
         public static ProtoBuf.IExtensible Decode(string protoName, byte[] bytes, int offset, int count)
         {
-            using (var memory = new System.IO.MemoryStream(bytes, offset, count))
+            using (System.IO.MemoryStream memory = new System.IO.MemoryStream(bytes, offset, count))
             {
-                ProtoBuf.Meta.RuntimeTypeModel.Default.AutoCompile = false;
-                //添加命名空间
-                Type t = Type.GetType("proto." + protoName);
+                ProtoBuf.Meta.RuntimeTypeModel.Default.AutoCompile = false;//禁用自动编译
+                string className = "proto." + protoName;
+                Type t;
+                if (!cache.ContainsKey(className))
+                {
+                    Debug.Log("获取类型" + className);
+                    t = Type.GetType(className);
+                    cache.Add(className, t);
+                }
+                else
+                    t = cache[className];
+                //命名空间信息  proto.+类名
+                //Type t = Type.GetType("proto." + protoName);
                 return (ProtoBuf.IExtensible)ProtoBuf.Serializer.NonGeneric.Deserialize(t, memory);
             }
         }

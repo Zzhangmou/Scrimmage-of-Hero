@@ -1709,6 +1709,7 @@ Transform:
   - {fileID: 5039317053650473902}
   - {fileID: 5039317054737761700}
   - {fileID: 5039317054158430865}
+  - {fileID: 5590841976953324163}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6360,6 +6361,36 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0009431541, y: -0.08320141, z: 0.4614281}
     m_Extent: {x: 0.54177165, y: 0.60521185, z: 0.52980155}
   m_DirtyAABB: 0
+--- !u!1 &9106205860800357590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5590841976953324163}
+  m_Layer: 0
+  m_Name: FirePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5590841976953324163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106205860800357590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.314, y: 0.599, z: 1.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5039317053753387924}
+  m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &175212933845043742
 PrefabInstance:
   m_ObjectHideFlags: 0

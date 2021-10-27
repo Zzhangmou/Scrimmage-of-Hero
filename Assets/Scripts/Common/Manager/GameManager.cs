@@ -120,9 +120,9 @@ namespace Common
 
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
-            GameObject GameMap = ResourcesManager.Load<GameObject>("Sand");
+            GameObject GameMap = ResourcesManager.Load<GameObject>("Forest");
             //GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
-            GameMap = GameObjectPool.Instance.CreateObject("Sand", GameMap, GameMap.transform.position, GameMap.transform.rotation);
+            GameMap = GameObjectPool.Instance.CreateObject("Forest", GameMap, GameMap.transform.position, GameMap.transform.rotation);
             gameDatas.Add("Map", GameMap);
             //获取生成点
             Transform[] wayPointA = GameMap.transform.Find("RestartA").transform.GetComponentsInChildren<Transform>();
@@ -143,12 +143,12 @@ namespace Common
 
                 if (msg.players[i].camp == 1)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId,msg.currentCamp);
                     redNum++;
                 }
                 if (msg.players[i].camp == 2)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId,msg.currentCamp);
                     blueNum++;
                 }
                 gameDatas.Add(msg.players[i].id, go);
