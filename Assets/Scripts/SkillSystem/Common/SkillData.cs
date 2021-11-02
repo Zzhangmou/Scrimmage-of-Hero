@@ -35,12 +35,12 @@ namespace Scrimmage.Skill
         /// <summary>
         /// 冷却剩余
         /// </summary>
-        //[HideInInspector]
+        [HideInInspector]
         public int coolRemain;
         /// <summary>
         /// 技能生成位置
         /// </summary>
-        //[HideInInspector]
+        [HideInInspector]
         public Vector3 prefabPos;
         /// <summary>
         /// 攻击位置
@@ -75,7 +75,7 @@ namespace Scrimmage.Skill
         /// <summary>
         /// 攻击目标对象数组
         /// </summary>
-        //[HideInInspector]
+        [HideInInspector]
         public Transform[] attackTargets;
         [Header("技能影响类型")]
         /// <summary>

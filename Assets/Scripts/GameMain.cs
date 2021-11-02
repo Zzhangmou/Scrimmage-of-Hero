@@ -18,8 +18,8 @@ namespace Common
         {
             base.Init();
             LuaManager.Instance.DoLuaFile("Main");
-            //NetManager.Connect("127.0.0.1", 18188);
-            NetManager.Connect("server.natappfree.cc", 43969);
+            NetManager.Connect("127.0.0.1", 18188);
+            //NetManager.Connect("server.natappfree.cc", 35609);
 
         }
 

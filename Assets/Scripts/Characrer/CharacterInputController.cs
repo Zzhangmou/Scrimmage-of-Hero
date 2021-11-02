@@ -1,4 +1,5 @@
 using Common;
+using proto;
 using Scrimmage.Skill;
 using System;
 using System.Collections;
@@ -19,6 +20,13 @@ namespace Character
         private CharacterSkillSystem skillSystem;
 
         public bool reverse;
+
+        #region 同步数据
+        //上次发送同步信息时间
+        private float lastSendSyncTime = 0;
+        //同步帧率
+        private float syncInterval = 0.1f;
+        #endregion
         private void Awake()
         {
             //查找组件
@@ -70,6 +78,45 @@ namespace Character
                 }
             }
         }
+        #region 同步
+        private void Update()
+        {
+            //每自定义帧上传位置信息
+            SyncPosUpdate();
+        }
+
+        private void SyncPosUpdate()
+        {
+            if (Time.time - lastSendSyncTime < syncInterval) return;
+            lastSendSyncTime = Time.time;
+            SyncPosPackage();
+        }
+        private void SyncPosPackage()
+        {
+            MsgSyncPos msgSyncPos = new MsgSyncPos();
+            msgSyncPos.x = transform.position.x;
+            msgSyncPos.y = transform.position.y;
+            msgSyncPos.z = transform.position.z;
+            msgSyncPos.eulerY = transform.rotation.eulerAngles.y;
+            msgSyncPos.statusList.Add(new StatusList()
+            {
+                statusName = characterStatus.chParams.run,
+                status = anim.GetBool(characterStatus.chParams.run)
+            });
+            msgSyncPos.statusList.Add(new StatusList()
+            {
+                statusName = characterStatus.chParams.attack01,
+                status = anim.GetBool(characterStatus.chParams.attack01)
+            });
+            msgSyncPos.statusList.Add(new StatusList()
+            {
+                statusName = characterStatus.chParams.attack02,
+                status = anim.GetBool(characterStatus.chParams.attack02)
+            });
+            NetWorkFK.NetManager.Send(msgSyncPos);
+        }
+        #endregion
+
         #region  技能摇杆操作
         private void OnSkillJoystickMove(Vector2 dir)
         {
@@ -94,9 +141,14 @@ namespace Character
                 skillSystem.CreateSkillShowArea(data);
             }
         }
-
+        private bool IsAttacking()
+        {
+            return anim.GetBool(characterStatus.chParams.attack01) || anim.GetBool(characterStatus.chParams.attack02);
+        }
         private void OnSkillButtonDown(string name)
         {
+            //如果正在攻击 退出
+            if (IsAttacking()) return;
             int id = GetSkillIdWithName(name);
             skillSystem.AttackUseSkill(id);
         }
@@ -119,13 +171,11 @@ namespace Character
         private void OnMainJoystickMoveEnd(string arg0)
         {
             anim.SetBool(characterStatus.chParams.run, false);
-            chMotor.SetAnimStatus(characterStatus.chParams.run, false);
         }
 
         private void OnMainJoystickMoveStart(string arg0)
         {
             anim.SetBool(characterStatus.chParams.run, true);
-            chMotor.SetAnimStatus(characterStatus.chParams.run, true);
         }
 
         private void OnMainJoystickMove(Vector2 dir)

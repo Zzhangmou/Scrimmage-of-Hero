@@ -33,8 +33,8 @@ namespace Scrimmage.Skill
                 int id = (int)skillJsArray[i]["id"];
                 if (!skillDataDic.ContainsKey(id))
                 {
+                    dataList = new List<SkillData>();
                     skillDataDic.Add(id, playerJs);
-                    CharacterStatus status = new CharacterStatus();
                     skillDataDic[id].baseATK = (float)skillJsArray[i]["baseATK"];
                     skillDataDic[id].maxHp = (float)skillJsArray[i]["maxHp"];
                     skillDataDic[id].moveSpeed = (float)skillJsArray[i]["moveSpeed"];

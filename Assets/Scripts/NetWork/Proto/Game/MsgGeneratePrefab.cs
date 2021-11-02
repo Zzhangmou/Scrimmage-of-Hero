@@ -201,6 +201,14 @@ namespace proto
       get { return _durTime; }
       set { _durTime = value; }
     }
+    private int _camp = default(int);
+    [global::ProtoBuf.ProtoMember(13, IsRequired = false, Name=@"camp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int camp
+    {
+      get { return _camp; }
+      set { _camp = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

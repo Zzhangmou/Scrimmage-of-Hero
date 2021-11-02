@@ -63,7 +63,7 @@ namespace XLua.CSObjectWrap
 #endif
 		}
         
-		void Helper.ICallPanel.Show(string showText)
+		void Helper.ICallPanel.Show(string message)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -86,7 +86,7 @@ namespace XLua.CSObjectWrap
 				}
 				LuaAPI.lua_pushvalue(L, -2);
 				LuaAPI.lua_remove(L, -3);
-				LuaAPI.lua_pushstring(L, showText);
+				LuaAPI.lua_pushstring(L, message);
 				
 				int __gen_error = LuaAPI.lua_pcall(L, 2, 0, err_func);
 				if (__gen_error != 0)

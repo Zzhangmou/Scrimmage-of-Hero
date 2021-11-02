@@ -54,7 +54,8 @@ namespace Scrimmage.Skill
             deployer.SkillData = data;
             //内部执行算法对象
             deployer.DeploySkill();
-            GameObjectPool.Instance.CollectObject(skillGo, data.durationTime);
+            if (data.generateType != SkillGenerateType.FileAndDIs)
+                GameObjectPool.Instance.CollectObject(skillGo, data.durationTime);
             //冷却
             StartCoroutine(CoolTimeDown(data));
         }

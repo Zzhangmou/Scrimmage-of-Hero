@@ -25,7 +25,7 @@ namespace Common
         /// </summary>
         private void OnAttack()
         {
-            if(AttackHandler!=null)
+            if (AttackHandler != null)
             {
                 //引发事件
                 AttackHandler();
@@ -37,6 +37,21 @@ namespace Common
         /// <param name="animParam"></param>
         private void OnCancelAnim(string animParam)
         {
+            anim.SetBool(animParam, false);
+        }
+        /// <summary>
+        /// 由Unity调用
+        /// </summary>
+        /// <param name="animParam"></param>
+        private void OnCancelAnimWithDelay(string animParam)
+        {
+            int delay = 2;
+            StartCoroutine(CancelAnim(animParam, delay));
+        }
+
+        private IEnumerator CancelAnim(string animParam, int delay)
+        {
+            yield return new WaitForSeconds(delay);
             anim.SetBool(animParam, false);
         }
     }

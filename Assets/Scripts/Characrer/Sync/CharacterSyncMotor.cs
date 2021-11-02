@@ -11,8 +11,6 @@ namespace Character
     public class CharacterSyncMotor : MonoBehaviour
     {
         private Animator anim;
-        public string statusName;
-        public bool status;
         //同步帧率
         public static float syncInterval = 0.1f;
         public float forecastTime = 0f;
@@ -36,8 +34,6 @@ namespace Character
 
         public void SyncMovement()
         {
-            //设置动画
-            anim.SetBool(statusName, status);
 
             float t = (Time.time - forecastTime) / syncInterval;
             t = Mathf.Clamp(t, 0f, 1f);

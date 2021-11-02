@@ -13,6 +13,10 @@ namespace Character
         public string run = "run";
 
         public string dead = "dead";
+
+        public string attack01 = "attack01";
+
+        public string attack02 = "attack02";
     }
 }
 

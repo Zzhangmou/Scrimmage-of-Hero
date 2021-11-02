@@ -28,9 +28,11 @@ namespace Common
             Quaternion rot = Quaternion.Euler(msg.eulerX, msg.eulerY, msg.eulerZ);
             GameObject go = GameObjectPool.Instance.CreateObject(msg.prefabName, prefab, pos, rot);
             Vector3 targetPos = new Vector3(msg.targetX, msg.targetY, msg.targetZ);
-            go.GetComponent<Scrimmage.Skill.BulletSkillDeployer>().targetTf = targetPos;
-            go.GetComponent<Scrimmage.Skill.BulletSkillDeployer>().speed = msg.moveSpeed;
-            GameObjectPool.Instance.CollectObject(go, msg.durTime);
+            Scrimmage.Skill.BulletSkillDeployer bullet = go.GetComponent<Scrimmage.Skill.BulletSkillDeployer>();
+            bullet.targetTf = targetPos;
+            bullet.speed = msg.moveSpeed;
+            bullet.camp = msg.camp;
+            //GameObjectPool.Instance.CollectObject(go, msg.durTime);
         }
 
         private void OnMsgGeneratePrefab(IExtensible msgBase)

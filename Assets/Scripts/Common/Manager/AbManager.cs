@@ -28,7 +28,7 @@ namespace Common
             get
             {
 #if UNITY_EDITOR || UNITY_STANDALONE
-                return "PC";
+                return "StandaloneWindows";
 #elif UNITY_IOS
         reuten "IOS";
 #elif UNITY_ANDROID
@@ -55,7 +55,7 @@ namespace Common
                 manifest = mainAB.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
             }
             //获取依赖包相关信息
-            AssetBundle ab = null;
+            AssetBundle ab;
             string[] strs = manifest.GetAllDependencies(abName);
             for (int i = 0; i < strs.Length; i++)
             {

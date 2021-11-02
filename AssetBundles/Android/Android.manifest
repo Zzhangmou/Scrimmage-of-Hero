@@ -1,10 +1,11 @@
 ManifestFileVersion: 0
-CRC: 1468974243
+CRC: 536891627
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: ui
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: progressui
     Info_1:
       Name: lua
       Dependencies: {}
@@ -13,4 +14,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: json
+      Dependencies: {}
+    Info_4:
+      Name: progressui
       Dependencies: {}

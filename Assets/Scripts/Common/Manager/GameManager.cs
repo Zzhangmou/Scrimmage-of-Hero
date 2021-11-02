@@ -14,19 +14,15 @@ namespace Common
     public class GameManager : MonoSingleton<GameManager>
     {
         public Dictionary<string, GameObject> gameDatas;
-
         public override void Init()
         {
             base.Init();
             gameDatas = new Dictionary<string, GameObject>();
 
             NetManager.AddMsgListener("MsgGetRoomInfo", OnMsgGetRoomInfo);
-            NetManager.AddMsgListener("MsgPrepared", OnMsgPrepared);
             NetManager.AddMsgListener("MsgStartGame", OnMsgStartGame);
-
             NetManager.AddMsgListener("MsgSyncPos", OnMsgSyncPos);
             NetManager.AddMsgListener("MsgHit", OnMsgHit);
-
             NetManager.AddMsgListener("MsgBattleResult", OnMsgBattleResult);
         }
 
@@ -66,11 +62,21 @@ namespace Common
             if (msg.id == GameMain.Instance.id) return;
             GameObject currentHero = GetHero(msg.id);
             CharacterSyncMotor motor = currentHero.GetComponent<CharacterSyncMotor>();
+            Animator anim = currentHero.GetComponent<Animator>();
+            for (int i = 0; i < msg.statusList.Count; i++)
+            {
+                anim.SetBool(msg.statusList[i].statusName, msg.statusList[i].status);
+            }
             motor.targetPos = new Vector3(msg.x, msg.y, msg.z);
             motor.targetRot = new Vector3(0, msg.eulerY, 0);
-            motor.statusName = msg.statusName;
-            motor.status = msg.status;
             motor.forecastTime = Time.time;
+        }
+
+        private void OnMsgStartGame(IExtensible msgBase)
+        {
+            CallLuaHelper.PanelClose("ProgressPanel");
+            CallLuaHelper.PanelClose("MatchPanel");
+            CallLuaHelper.PanelClose("GameMainPanel");
         }
 
         public GameObject GetHero(string id)
@@ -89,20 +95,6 @@ namespace Common
             gameDatas.Clear();
         }
 
-        private void OnMsgStartGame(IExtensible msgBase)
-        {
-            CallLuaHelper.PanelClose("ProgressPanel");
-            CallLuaHelper.PanelClose("MatchPanel");
-            CallLuaHelper.PanelClose("GameMainPanel");
-        }
-
-        private void OnMsgPrepared(IExtensible msgBase)
-        {
-            MsgPrepared msg = (MsgPrepared)msgBase;
-            float num = msg.currentNum / msg.maxNum;
-            CallLuaHelper.ChangeSliderValue(num);
-        }
-
         //开始生成场景 人物模型
         private void OnMsgGetRoomInfo(IExtensible msgBase)
         {
@@ -111,17 +103,19 @@ namespace Common
 
             int redNum = 1;
             int blueNum = 1;
-            CallLuaHelper.PanelShow("ProgressPanel");
+
+            MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
+            LuaTable luaTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
+
+            CallLuaHelper.PanelShow("ProgressPanel", msg.userHeroId.ToString());
 
             //ab包不能直接打包预制体及脚本 暂时直接生成
             //GameObject controlPanel = Instantiate(ResourcesManager.Load<GameObject>("ControlPanel"));
             //controlPanel.transform.SetParent(GameObject.Find("Canvas/PanelLayer").transform, false);
             CallLuaHelper.PanelShow("ControlPanel");
 
-            MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //生成场景   mapId
             GameObject GameMap = ResourcesManager.Load<GameObject>("Forest");
-            //GameMap = Instantiate(GameMap, GameMap.transform.position, GameMap.transform.rotation);
             GameMap = GameObjectPool.Instance.CreateObject("Forest", GameMap, GameMap.transform.position, GameMap.transform.rotation);
             gameDatas.Add("Map", GameMap);
             //获取生成点
@@ -143,18 +137,31 @@ namespace Common
 
                 if (msg.players[i].camp == 1)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId,msg.currentCamp);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId, msg.currentCamp);
                     redNum++;
                 }
                 if (msg.players[i].camp == 2)
                 {
-                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId,msg.currentCamp);
+                    go = CharacterInitConfigFactory.CreateCharacter(go, wayPointB[blueNum], msg.players[i], gameMainId, msg.currentCamp);
                     blueNum++;
                 }
                 gameDatas.Add(msg.players[i].id, go);
             }
 
             //生成完毕 发送准备完毕协议
+            //NetManager.Send(new MsgPrepared());
+
+            //开启伪进度条
+            StartCoroutine(ProgressLoad());
+        }
+
+        private IEnumerator ProgressLoad()
+        {
+            for (float i = 0; i <= 1; i += Time.deltaTime / 2f)
+            {
+                CallLuaHelper.ChangeSliderValue(i);
+                yield return null;
+            }
             NetManager.Send(new MsgPrepared());
         }
     }

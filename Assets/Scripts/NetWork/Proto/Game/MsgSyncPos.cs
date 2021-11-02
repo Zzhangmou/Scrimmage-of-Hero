@@ -47,8 +47,33 @@ namespace proto
       get { return _eulerY; }
       set { _eulerY = value; }
     }
+    private readonly global::System.Collections.Generic.List<StatusList> _statusList = new global::System.Collections.Generic.List<StatusList>();
+    [global::ProtoBuf.ProtoMember(5, Name=@"statusList", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<StatusList> statusList
+    {
+      get { return _statusList; }
+    }
+  
+    private string _id = "";
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"id", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue("")]
+    public string id
+    {
+      get { return _id; }
+      set { _id = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"StatusList")]
+  public partial class StatusList : global::ProtoBuf.IExtensible
+  {
+    public StatusList() {}
+    
     private string _statusName = "";
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"statusName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"statusName", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue("")]
     public string statusName
     {
@@ -56,20 +81,12 @@ namespace proto
       set { _statusName = value; }
     }
     private bool _status = default(bool);
-    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"status", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"status", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(default(bool))]
     public bool status
     {
       get { return _status; }
       set { _status = value; }
-    }
-    private string _id = "";
-    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"id", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    [global::System.ComponentModel.DefaultValue("")]
-    public string id
-    {
-      get { return _id; }
-      set { _id = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

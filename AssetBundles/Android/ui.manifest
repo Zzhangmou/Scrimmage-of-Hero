@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1406981422
+CRC: 809474508
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dc3cfe1a409b3b3f7bd7c88c2ac6b67f
+    Hash: 5e089a96034af587fe128dd15cab8e28
   TypeTreeHash:
     serializedVersion: 2
     Hash: fd309d89a93900617eb4009aac647094
@@ -76,4 +76,5 @@ Assets:
 - Assets/Resources/Prefabs/UI/RegisterPanel.prefab
 - Assets/Resources/Prefabs/UI/ProgressPanel.prefab
 - Assets/Resources/Prefabs/UI/GameMainPanel.prefab
-Dependencies: []
+Dependencies:
+- E:/Unity/Scrimmage-of-Hero/AssetBundles/Android/progressui

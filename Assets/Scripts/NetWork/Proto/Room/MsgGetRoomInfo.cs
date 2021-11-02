@@ -30,6 +30,14 @@ namespace proto
       get { return _currentCamp; }
       set { _currentCamp = value; }
     }
+    private int _userHeroId = default(int);
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"userHeroId", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int userHeroId
+    {
+      get { return _userHeroId; }
+      set { _userHeroId = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

@@ -36,11 +36,12 @@ namespace Common
         {
             skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
             //生成
-            //GameObject go = GameObject.Instantiate(hero, GenerateTF.position, GenerateTF.rotation);
             GameObject go = GameObjectPool.Instance.CreateObject(hero.name, hero, GenerateTF.position, GenerateTF.rotation);
             GameObject uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
                 , go.transform.position + offset, go.transform.rotation);
             uiCanvas.transform.SetParent(go.transform);
+            //添加动画事件
+            go.AddComponent<AnimatorEventBehaviour>();
             //配置
             if (playerInfo.id == gameMainId)
             {
@@ -70,7 +71,7 @@ namespace Common
 
             CharacterSkillSystem characterSkillSystem = go.AddComponent<CharacterSkillSystem>();
             SkillData[] skillDatas = skillDataDic[playerInfo.heroId].dataList.ToArray();
-
+            Debug.Log(skillDatas.Length);
             //Debug.Log(skillDatas[1].coolRemain);
 
             characterSkillSystem.SetSkillData(skillDatas);
@@ -131,8 +132,6 @@ namespace Common
             characterStatus.heroId = playerInfo.heroId;
             //初始化数据
             go.GetComponent<CharacterUIController>().Init();
-            //添加动画事件
-            go.AddComponent<AnimatorEventBehaviour>();
         }
         #endregion
     }

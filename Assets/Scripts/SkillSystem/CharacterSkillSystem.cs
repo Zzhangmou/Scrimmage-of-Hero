@@ -16,13 +16,25 @@ namespace Scrimmage.Skill
     {
         private CharacterSkillManager skillManager;
         private CharacterShowSkillAreaManager areaManager;
+        private Animator anim;
 
         private Vector3 deltaVac;
         private void Awake()
         {
             skillManager = GetComponent<CharacterSkillManager>();
             areaManager = GetComponent<CharacterShowSkillAreaManager>();
+            anim = GetComponent<Animator>();
+            GetComponent<AnimatorEventBehaviour>().AttackHandler += DeploySkill;
         }
+
+        private void DeploySkill()
+        {
+            //生成技能
+            skillManager.GenerateSkill(skill);
+            //发送协议
+            SendMsgByType(skill);
+        }
+        private SkillData skill;
         /// <summary>
         /// 使用技能
         /// </summary>
@@ -30,17 +42,13 @@ namespace Scrimmage.Skill
         public void AttackUseSkill(int skillId)
         {
             //准备技能
-            SkillData skill = skillManager.PrepareSkill(skillId);
-            print(skill);
+            skill = skillManager.PrepareSkill(skillId);
             if (skill == null) return;
             //面向技能方向
             transform.LookAt(transform.position + deltaVac);
             skill.prefabPos = SwitchPosByAttackType(skill);
             //播放动画
-            //生成技能
-            skillManager.GenerateSkill(skill);
-            //发送协议
-            SendMsgByType(skill);
+            anim.SetBool(skill.animationName, true);
         }
         private Vector3 SwitchPosByAttackType(SkillData data)
         {

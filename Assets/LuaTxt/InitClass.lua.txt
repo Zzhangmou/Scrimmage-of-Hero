@@ -17,6 +17,7 @@ TextAsset = CS.UnityEngine.TextAsset
 --图集对象类
 SpriteAtlas = CS.UnityEngine.U2D.SpriteAtlas
 RenderTexture = CS.UnityEngine.RenderTexture
+Sprite=CS.UnityEngine.Sprite
 
 Vector3 = CS.UnityEngine.Vector3
 Vector2 = CS.UnityEngine.Vector2

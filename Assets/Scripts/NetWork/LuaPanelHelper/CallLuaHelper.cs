@@ -13,7 +13,7 @@ namespace Helper
     public interface ICallPanel
     {
         void Show();
-        void Show(string showText);
+        void Show(string message);
         void Close();
         void SetUserInfo(string userName, string userRecord);
         void UpdateText(string text);
@@ -34,10 +34,10 @@ namespace Helper
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
             panel.Show();
         }
-        public static void PanelShow(string panelName,string showText)
+        public static void PanelShow(string panelName,string message)
         {
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
-            panel.Show(showText);
+            panel.Show(message);
         }
         public static void SetUserInfo(string userName, string userRecord)
         {
