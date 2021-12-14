@@ -415,13 +415,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 100
+  baseATK: 200
 --- !u!114 &270391211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,10 +740,12 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 2
   HP: 10000
   maxHp: 0
   baseATK: 0
@@ -952,13 +956,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 100
+  baseATK: 200
 --- !u!114 &499961519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,7 +1119,7 @@ PrefabInstance:
     - target: {fileID: 7207970308713968039, guid: 885e546af90dd68449b5104a2de2ae76,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7207970308713968057, guid: 885e546af90dd68449b5104a2de2ae76,
         type: 3}
@@ -1315,13 +1321,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 0
+  baseATK: 200
 --- !u!143 &1020426141
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1572,13 +1580,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 0
+  baseATK: 200
 --- !u!143 &1039259791
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1711,10 +1721,12 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 2
   HP: 10000
   maxHp: 0
   baseATK: 0
@@ -2011,13 +2023,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 100
+  baseATK: 200
 --- !u!114 &1435375980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2462,13 +2476,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 0
+  baseATK: 200
 --- !u!114 &1658605730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,7 +2677,7 @@ PrefabInstance:
     - target: {fileID: 719838290704905758, guid: dcf1336dc1fb31f4985243e1d3f6e9a2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 719838290704905759, guid: dcf1336dc1fb31f4985243e1d3f6e9a2,
         type: 3}
@@ -2901,10 +2917,12 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 2
   HP: 10000
   maxHp: 0
   baseATK: 0
@@ -3383,13 +3401,15 @@ MonoBehaviour:
   chParams:
     run: run
     dead: dead
+    attack01: attack01
+    attack02: attack02
   id: 
   heroId: 0
   userName: 
-  camp: 0
+  camp: 1
   HP: 0
   maxHp: 0
-  baseATK: 0
+  baseATK: 200
 --- !u!143 &2015477683
 CharacterController:
   m_ObjectHideFlags: 0

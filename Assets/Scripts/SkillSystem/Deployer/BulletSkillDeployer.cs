@@ -36,6 +36,7 @@ namespace Scrimmage.Skill
             CharacterStatus otherStatus = other.GetComponent<CharacterStatus>();
             if (camp == otherStatus.camp) return;
             GameObjectPool.Instance.CollectObject(gameObject);
+            if (status == null) return;
             if (other.tag != "Enemy") return;
             print(other.name);
             CharacterStatus otherStaus = other.GetComponent<CharacterStatus>();
@@ -51,6 +52,9 @@ namespace Scrimmage.Skill
         {
             //÷ÿ÷√ Ù–‘
             camp = -1;
+            targetTf = Vector3.zero;
+            speed = 0;
+            status = null;
         }
     }
 }

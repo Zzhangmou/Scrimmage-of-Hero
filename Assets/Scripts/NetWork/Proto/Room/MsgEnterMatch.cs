@@ -23,6 +23,40 @@ namespace proto
       get { return _currentMatchNum; }
       set { _currentMatchNum = value; }
     }
+    private int _allMatchNum = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"allMatchNum", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int allMatchNum
+    {
+      get { return _allMatchNum; }
+      set { _allMatchNum = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"MsgLeaveMatch")]
+  public partial class MsgLeaveMatch : global::ProtoBuf.IExtensible
+  {
+    public MsgLeaveMatch() {}
+    
+    private int _currentMatchNum = default(int);
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"currentMatchNum", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int currentMatchNum
+    {
+      get { return _currentMatchNum; }
+      set { _currentMatchNum = value; }
+    }
+    private int _allMatchNum = default(int);
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"allMatchNum", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int allMatchNum
+    {
+      get { return _allMatchNum; }
+      set { _allMatchNum = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

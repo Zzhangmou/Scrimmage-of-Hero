@@ -30,17 +30,17 @@ namespace Helper
         private static void OnMsgLeaveMatch(IExtensible msgBase)
         {
             MsgLeaveMatch msg = (MsgLeaveMatch)msgBase;
-            UpdateMatch(msg.currentMatchNum);
+            UpdateMatch(msg.currentMatchNum, msg.allMatchNum);
         }
 
         private static void OnMsgEnterMatch(IExtensible msgBase)
         {
             MsgEnterMatch msg = (MsgEnterMatch)msgBase;
-            UpdateMatch(msg.currentMatchNum);
+            UpdateMatch(msg.currentMatchNum, msg.allMatchNum);
         }
-        private static void UpdateMatch(int num)
+        private static void UpdateMatch(int currentNum, int allNum)
         {
-            string text = num + "/6";
+            string text = currentNum + "/" + allNum;
             CallLuaHelper.UpdateText(text);
         }
     }

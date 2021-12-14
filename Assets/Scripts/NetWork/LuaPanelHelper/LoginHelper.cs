@@ -30,7 +30,7 @@ namespace Helper
 
         private static void OnConnectFail(string str)
         {
-            Debug.Log("连接失败");
+            Debug.Log("连接失败" + str);
         }
 
         private static void OnConnectSucc(string str)

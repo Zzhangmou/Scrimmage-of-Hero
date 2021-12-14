@@ -266,6 +266,7 @@ namespace NetWorkFK
                 MsgPing msgPing = new MsgPing();
                 Send(msgPing);
                 lastPingTime = Time.time;
+                Debug.Log("·¢ËÍPing");
             }
             //¼ì²âPongÊ±¼ä
             if (Time.time - lastPongTime > pingInterval * closeIntervalMultiple)

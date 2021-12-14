@@ -29,10 +29,12 @@ namespace Scrimmage.Skill
 
         private void DeploySkill()
         {
+            //transform.LookAt(transform.position + deltaVac);
             //生成技能
             skillManager.GenerateSkill(skill);
             //发送协议
             SendMsgByType(skill);
+            GetComponent<Character.CharacterInputController>().enabled = true;
         }
         private SkillData skill;
         /// <summary>
@@ -46,6 +48,7 @@ namespace Scrimmage.Skill
             if (skill == null) return;
             //面向技能方向
             transform.LookAt(transform.position + deltaVac);
+            GetComponent<Character.CharacterInputController>().enabled = false;
             skill.prefabPos = SwitchPosByAttackType(skill);
             //播放动画
             anim.SetBool(skill.animationName, true);
