@@ -4,6 +4,8 @@ using Scrimmage;
 using Scrimmage.Skill;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 namespace Common
@@ -35,10 +37,20 @@ namespace Common
         public static GameObject CreateCharacter(GameObject hero, Transform GenerateTF, PlayerInfo playerInfo, string gameMainId, int currentCamp)
         {
             skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
+            PreLoadSkillPrefab(playerInfo.heroId);
             //生成
             GameObject go = GameObjectPool.Instance.CreateObject(hero.name, hero, GenerateTF.position, GenerateTF.rotation);
-            GameObject uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
-                , go.transform.position + offset, go.transform.rotation);
+            GameObject uiCanvas;//UI 临时处理
+            if (playerInfo.camp == currentCamp)
+            {
+                uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
+                    , go.transform.position + offset, go.transform.rotation);
+            }
+            else
+            {
+                uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas_red")
+                    , go.transform.position + offset, go.transform.rotation);
+            }
             uiCanvas.transform.SetParent(go.transform);
             //添加动画事件
             go.AddComponent<AnimatorEventBehaviour>();
@@ -71,8 +83,7 @@ namespace Common
 
             CharacterSkillSystem characterSkillSystem = go.AddComponent<CharacterSkillSystem>();
             SkillData[] skillDatas = skillDataDic[playerInfo.heroId].dataList.ToArray();
-            Debug.Log(skillDatas.Length);
-            //Debug.Log(skillDatas[1].coolRemain);
+
 
             characterSkillSystem.SetSkillData(skillDatas);
 
@@ -82,16 +93,16 @@ namespace Common
             CharacterDataConfig(go, playerInfo);
 
             //设置相机
-            CameraFollow cameraFollow = Object.FindObjectOfType<CameraFollow>();
+            //CameraFollow cameraFollow = Object.FindObjectOfType<CameraFollow>();
             //根据阵营设置属性
             if (playerInfo.camp == 1)
             {
-                cameraFollow.CameraInit(go.transform, new Vector3(0, 22, -9));
+                CameraFollow.Instance.CameraInit(go.transform, new Vector3(0, 22, -9));
                 go.AddComponent<CharacterInputController>();
             }
             else
             {
-                cameraFollow.CameraInit(go.transform, new Vector3(0, 22, 9));
+                CameraFollow.Instance.CameraInit(go.transform, new Vector3(0, 22, 9));
                 go.AddComponent<CharacterInputController>().reverse = true;
             }
             go.tag = "TeamMate";
@@ -134,5 +145,21 @@ namespace Common
             go.GetComponent<CharacterUIController>().Init();
         }
         #endregion
+
+        /// <summary>
+        /// 预生成
+        /// </summary>
+        /// <param name="id"></param>
+        public static void PreLoadSkillPrefab(int id)
+        {
+            SkillData[] skillDatas = skillDataDic[id].dataList.ToArray();
+            for (int i = 0; i < skillDatas.Length; i++)
+            {
+                GameObject skillPrefab = ResourcesManager.Load<GameObject>(skillDatas[i].prefabName);
+                GameObject skillGo = GameObjectPool.Instance.CreateObject(skillDatas[i].prefabName, skillPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
+                GameObjectPool.Instance.CollectObject(skillGo);
+            }
+
+        }
     }
 }

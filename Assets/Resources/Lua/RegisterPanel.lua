@@ -12,15 +12,21 @@ function RegisterPanel:Init()
     self.panelObj.transform:SetParent(Canvas, false)
 
     --InputText
-    self.UserNameInput = self.panelObj.transform:Find("UserNameInput"):GetComponent(typeof(InputField))
-    self.UserInput = self.panelObj.transform:Find("UserInput"):GetComponent(typeof(InputField))
-    self.PwInput = self.panelObj.transform:Find("PwInput"):GetComponent(typeof(InputField))
+    self.UserNameInput = self.panelObj.transform:Find("Input/UserNameInput"):GetComponentInChildren(typeof(InputField))
+    self.UserInput = self.panelObj.transform:Find("Input/UserInput"):GetComponentInChildren(typeof(InputField))
+    self.PwInput = self.panelObj.transform:Find("Input/PwInput"):GetComponentInChildren(typeof(InputField))
     --Btn
     self.RegisterBtn = self.panelObj.transform:Find("RegisterButton"):GetComponent(typeof(Button))
+    self.CloseBtn = self.panelObj.transform:Find("Btn_Close"):GetComponent(typeof(Button))
 
     self.RegisterBtn.onClick:AddListener(
         function()
             self:OnRegisterClick()
+        end
+    )
+    self.CloseBtn.onClick:AddListener(
+        function ()
+            self:Close()
         end
     )
 end
@@ -34,7 +40,7 @@ function RegisterPanel:Show()
 end
 
 function RegisterPanel:Close()
-    self.panelObj:SetActive(false)
+    self.panelObj:SetActive(false) 
     RegisterHelper.OnClose()
 end
 
@@ -47,6 +53,7 @@ function RegisterPanel:OnRegisterClick()
     end
     local msgRegister = MsgRegister()
     msgRegister.userName = self.UserNameInput.text
+    print(self.UserNameInput.text)
     msgRegister.id = self.UserInput.text
     msgRegister.pw = self.PwInput.text
     NetManager.Send(msgRegister)

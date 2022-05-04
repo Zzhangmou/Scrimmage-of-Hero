@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 namespace Scrimmage.Skill
 {
-    [System.Serializable]
+    [Serializable]
     /// <summary>
     /// 技能数据
     /// </summary>
@@ -42,6 +44,11 @@ namespace Scrimmage.Skill
         /// </summary>
         [HideInInspector]
         public Vector3 prefabPos;
+        /// <summary>
+        /// 技能生成位置旋转
+        /// </summary>
+        [HideInInspector]
+        public Quaternion prefabRotation;
         /// <summary>
         /// 攻击位置
         /// </summary>
@@ -147,5 +154,22 @@ namespace Scrimmage.Skill
         /// 技能释放方式
         /// </summary>
         public SkillGenerateType generateType;
+
+        //public SkillData DeepClone()
+        //{
+        //    object obj = null;
+        //    BinaryFormatter inputFormatter = new BinaryFormatter();
+        //    MemoryStream inputStream;
+        //    using (inputStream = new MemoryStream())
+        //    {
+        //        inputFormatter.Serialize(inputStream,this);
+        //    }
+        //    using (MemoryStream outputStream = new MemoryStream(inputStream.ToArray()))
+        //    {
+        //        BinaryFormatter outputFormatter = new BinaryFormatter();
+        //        obj = (SkillData)outputFormatter.Deserialize(outputStream);
+        //    }
+        //    return (SkillData)obj;
+        //}
     }
 }

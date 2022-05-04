@@ -7,6 +7,7 @@ using UnityEngine;
 using Common;
 using proto;
 using ns;
+using Helper;
 
 namespace NetWorkFK
 {
@@ -43,11 +44,11 @@ namespace NetWorkFK
         //消息列表长度
         private static int msgCount = 0;
         //每次Update处理的消息量
-        readonly static int MAX_MESSAGE_FIRE = 10;
+        readonly static int MAX_MESSAGE_FIRE = 20;
         //是否启用心跳
         public static bool isUserPing = true;
         //心跳间隔时间
-        public static int pingInterval = 10;
+        public static int pingInterval = 20;
         //心跳间隔超时倍数
         private static int closeIntervalMultiple = 4;
         //上一次发送Ping时间
@@ -290,6 +291,7 @@ namespace NetWorkFK
                 Socket socket = (Socket)ar.AsyncState;
                 socket.EndConnect(ar);
                 Debug.Log("连接成功");
+                ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "连接成功"));
                 FireEvent(NetEvent.ConnectSucc, "");
                 isConnecting = false;
                 //开始接收
@@ -298,6 +300,7 @@ namespace NetWorkFK
             catch (SocketException ex)
             {
                 Debug.Log("Socket连接失败 " + ex.ToString());
+                ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "Socket连接失败 " + ex.ToString()));
                 FireEvent(NetEvent.ConnectFail, ex.ToString());
                 isConnecting = false;
             }

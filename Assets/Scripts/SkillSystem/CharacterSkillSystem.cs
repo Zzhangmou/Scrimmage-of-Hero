@@ -18,9 +18,10 @@ namespace Scrimmage.Skill
         private CharacterShowSkillAreaManager areaManager;
         private Animator anim;
 
-        private Vector3 deltaVac;
+        private Vector3 deltaVec;
         private void Awake()
         {
+
             skillManager = GetComponent<CharacterSkillManager>();
             areaManager = GetComponent<CharacterShowSkillAreaManager>();
             anim = GetComponent<Animator>();
@@ -29,12 +30,19 @@ namespace Scrimmage.Skill
 
         private void DeploySkill()
         {
-            //transform.LookAt(transform.position + deltaVac);
-            //生成技能
-            skillManager.GenerateSkill(skill);
-            //发送协议
-            SendMsgByType(skill);
-            GetComponent<Character.CharacterInputController>().enabled = true;
+            //在主线程调用
+            ThreadCrossHelper.Instance.ExecuteOnMainThread(() =>
+            {
+                if (skill.generateType == SkillGenerateType.FileAndDIs || skill.generateType == SkillGenerateType.FileAndFllow)
+                {
+                    transform.LookAt(transform.position + deltaVec);
+                    skill.prefabPos = SwitchPosByAttackType(skill);
+                }
+                //生成技能
+                skillManager.GenerateSkill(skill);
+                //发送协议
+                SendMsgByType(skill);
+            });
         }
         private SkillData skill;
         /// <summary>
@@ -46,10 +54,12 @@ namespace Scrimmage.Skill
             //准备技能
             skill = skillManager.PrepareSkill(skillId);
             if (skill == null) return;
-            //面向技能方向
-            transform.LookAt(transform.position + deltaVac);
-            GetComponent<Character.CharacterInputController>().enabled = false;
-            skill.prefabPos = SwitchPosByAttackType(skill);
+            if (skill.generateType != SkillGenerateType.FileAndDIs && skill.generateType != SkillGenerateType.FileAndFllow)
+            {
+                //面向技能方向
+                transform.LookAt(transform.position + deltaVec);
+                skill.prefabPos = SwitchPosByAttackType(skill);
+            }
             //播放动画
             anim.SetBool(skill.animationName, true);
         }
@@ -59,8 +69,8 @@ namespace Scrimmage.Skill
             {
                 case SkillGenerateType.Inplace:
                     return this.transform.position;
-                case SkillGenerateType.Select:
-                    return transform.position + deltaVac * data.attackScope / 2;
+                case SkillGenerateType.Select:     //??????我在想什么??
+                    return transform.position + deltaVec * data.attackScope / 2;
                 default:
                     return data.attackPos.position;
             }
@@ -147,7 +157,7 @@ namespace Scrimmage.Skill
             areaManager.UpdateElement(JoyStickPos);
             if (reverse)
                 JoyStickPos = -JoyStickPos;
-            deltaVac = JoyStickPos;
+            deltaVec = JoyStickPos;
         }
         /// <summary>
         /// 隐藏技能区域显示

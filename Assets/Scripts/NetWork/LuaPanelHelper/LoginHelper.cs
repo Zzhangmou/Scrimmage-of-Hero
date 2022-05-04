@@ -56,6 +56,8 @@ namespace Helper
                 {
                     case -1:
                         CallLuaHelper.PanelShow("TipPanel", "账号或密码错误");
+                        PlayerPrefs.DeleteKey("ID");
+                        PlayerPrefs.DeleteKey("PW");
                         break;
                     case -2:
                         CallLuaHelper.PanelShow("TipPanel", "用户已经登陆");

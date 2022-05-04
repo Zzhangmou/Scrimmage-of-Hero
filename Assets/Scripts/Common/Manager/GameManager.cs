@@ -14,16 +14,25 @@ namespace Common
     public class GameManager : MonoSingleton<GameManager>
     {
         public Dictionary<string, GameObject> gameDatas;
+        public Dictionary<string, Transform> teamDatas;
         public override void Init()
         {
             base.Init();
             gameDatas = new Dictionary<string, GameObject>();
+            teamDatas = new Dictionary<string, Transform>();
 
             NetManager.AddMsgListener("MsgGetRoomInfo", OnMsgGetRoomInfo);
             NetManager.AddMsgListener("MsgStartGame", OnMsgStartGame);
             NetManager.AddMsgListener("MsgSyncPos", OnMsgSyncPos);
             NetManager.AddMsgListener("MsgHit", OnMsgHit);
             NetManager.AddMsgListener("MsgBattleResult", OnMsgBattleResult);
+            NetManager.AddMsgListener("MsgDeath", OnMsgDeath);
+            NetManager.AddEventListener(NetManager.NetEvent.Close, OnClose);
+        }
+
+        private void OnClose(string str)
+        {
+            ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "已断开连接"));
         }
 
         private void OnMsgBattleResult(IExtensible msgBase)
@@ -77,6 +86,12 @@ namespace Common
             CallLuaHelper.PanelClose("ProgressPanel");
             CallLuaHelper.PanelClose("MatchPanel");
             CallLuaHelper.PanelClose("GameMainPanel");
+            CallLuaHelper.PanelShow("BattleMessagePanel");
+        }
+        private void OnMsgDeath(IExtensible msgBase)
+        {
+            MsgDeath msg = (MsgDeath)msgBase;
+            CallLuaHelper.FlushData(msg.belongCamp, msg.deathID);
         }
 
         public GameObject GetHero(string id)
@@ -105,7 +120,7 @@ namespace Common
             int blueNum = 1;
 
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
-            LuaTable luaTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
+            //LuaTable luaTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
 
             CallLuaHelper.PanelShow("ProgressPanel", msg.userHeroId.ToString());
 
@@ -122,7 +137,7 @@ namespace Common
             Transform[] wayPointA = GameMap.transform.Find("RestartA").transform.GetComponentsInChildren<Transform>();
             Transform[] wayPointB = GameMap.transform.Find("RestartB").transform.GetComponentsInChildren<Transform>();
             //获取人物模型数据映射表
-            LuaTable heroTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
+            LuaTable heroTable = LuaManager.Instance.Global.Get<LuaTable>("HeroiconDataList");
             //生成模型
             GameObject go;
             //玩家控制角色 
@@ -131,6 +146,9 @@ namespace Common
 
             for (int i = 0; i < msg.players.Count; i++)
             {
+                //加载显示界面数据
+                CallLuaHelper.InitBattleMessage(msg.players[i].camp, msg.players[i].heroId, msg.players[i].id);
+
                 LuaTable heroId = heroTable.Get<int, LuaTable>(msg.players[i].heroId);
                 string heroName = heroId.Get<string, string>("name");
                 go = ResourcesManager.Load<GameObject>(heroName);
@@ -146,6 +164,8 @@ namespace Common
                     blueNum++;
                 }
                 gameDatas.Add(msg.players[i].id, go);
+                if (msg.players[i].camp == msg.currentCamp)
+                    teamDatas.Add(msg.players[i].id, go.transform);
             }
 
             //生成完毕 发送准备完毕协议

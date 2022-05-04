@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2531440589
+CRC: 944549565
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4381ff7a625adda827d0be5cee52c2cc
+    Hash: a024d1880f837349ef08f37d0cdbd227
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
@@ -21,14 +21,19 @@ Assets:
 - Assets/LuaTxt/RegisterPanel.lua.txt
 - Assets/LuaTxt/ResultPanel.lua.txt
 - Assets/LuaTxt/Main.lua.txt
+- Assets/LuaTxt/PanelLayer.lua.txt
 - Assets/LuaTxt/ProgressPanel.lua.txt
 - Assets/LuaTxt/HeroIconData.lua.txt
+- Assets/LuaTxt/HeroShowPanel.lua.txt
 - Assets/LuaTxt/HeroShowItem.lua.txt
 - Assets/LuaTxt/TipPanel.lua.txt
 - Assets/LuaTxt/Object.lua.txt
+- Assets/LuaTxt/SettingPanel.lua.txt
 - Assets/LuaTxt/ControlPanel.lua.txt
 - Assets/LuaTxt/JsonUtility.lua.txt
+- Assets/LuaTxt/BattleMessagePanel.lua.txt
 - Assets/LuaTxt/GameMainPanel.lua.txt
 - Assets/LuaTxt/MatchPanel.lua.txt
+- Assets/LuaTxt/BasePanelView.lua.txt
 - Assets/LuaTxt/StartShowPanel.lua.txt
 Dependencies: []

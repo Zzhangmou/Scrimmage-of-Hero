@@ -21,7 +21,6 @@ Sprite=CS.UnityEngine.Sprite
 
 Vector3 = CS.UnityEngine.Vector3
 Vector2 = CS.UnityEngine.Vector2
-
 --UI相关
 UI = CS.UnityEngine.UI
 RawImage = UI.RawImage
@@ -32,6 +31,10 @@ Toggle = UI.Toggle
 ScrollRect = UI.ScrollRect
 InputField = UI.InputField
 Slider=UI.Slider
+Anim= CS.UnityEngine.Animator
+Screen = CS.UnityEngine.Screen
+
+PlayerPrefs = CS.UnityEngine.PlayerPrefs
 
 Canvas = GameObject.Find("Canvas/PanelLayer").transform
 TipCanvas = GameObject.Find("Canvas/TipLayer").transform

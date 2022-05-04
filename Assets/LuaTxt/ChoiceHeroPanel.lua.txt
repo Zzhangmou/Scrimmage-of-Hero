@@ -5,7 +5,7 @@ ChoiceHeroPanel.showHeroRImage = nil
 ChoiceHeroPanel.Content = nil
 ChoiceHeroPanel.returnBtn = nil
 
-local iconDataList = heroiconDataList
+local iconDataList = HeroiconDataList
 
 function ChoiceHeroPanel:Init()
     self.panelObj = ABMgr:LoadRes("ui", "ChoiceHeroPanel", typeof(GameObject))
@@ -13,10 +13,7 @@ function ChoiceHeroPanel:Init()
 
     --获取组件
     self.returnBtn = self.panelObj.transform:Find("ReturnButton"):GetComponent(typeof(Button))
-
-    --重新赋值RenderText
-    self.showHeroRImage = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(RawImage))
-    self.showHeroRImage.texture = Resources.Load("Target")
+    self.backBtn = self.panelObj.transform:Find("BackButton"):GetComponent(typeof(Button))
 
     self.Content = self.panelObj.transform:Find("ChoiceHeroView/Viewport/Content")
 
@@ -24,6 +21,11 @@ function ChoiceHeroPanel:Init()
 
     --添加事件
     self.returnBtn.onClick:AddListener(
+        function()
+            self:Close()
+        end
+    )
+    self.backBtn.onClick:AddListener(
         function()
             self:Close()
         end

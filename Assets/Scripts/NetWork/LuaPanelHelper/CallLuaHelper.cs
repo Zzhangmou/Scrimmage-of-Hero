@@ -1,4 +1,5 @@
 using Common;
+using proto;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,16 @@ namespace Helper
         void UpdateText(string text);
         void ChangeSliderValue(float value);
     }
-
+    [CSharpCallLua]
+    public interface ICallBattleMessagePanel
+    {
+        void InitBattleMessage(int camp,int heroId,string id);
+        void FlushData(int camp,string id);
+    }
     public static class CallLuaHelper
     {
         private static ICallPanel panel;
+        private static ICallBattleMessagePanel battleMessagePanel;
         public static void PanelClose(string panelName)
         {
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
@@ -53,6 +60,18 @@ namespace Helper
         {
             panel = LuaManager.Instance.Global.Get<ICallPanel>("ProgressPanel");
             panel.ChangeSliderValue(value);
+        }
+
+        public static void InitBattleMessage(int camp, int heroId, string id)
+        {
+            battleMessagePanel = LuaManager.Instance.Global.Get<ICallBattleMessagePanel>("BattleMessagePanel");
+            battleMessagePanel.InitBattleMessage(camp, heroId, id);
+        }
+
+        public static void FlushData(int camp,string id)
+        {
+            battleMessagePanel = LuaManager.Instance.Global.Get<ICallBattleMessagePanel>("BattleMessagePanel");
+            battleMessagePanel.FlushData(camp, id);
         }
     }
 }

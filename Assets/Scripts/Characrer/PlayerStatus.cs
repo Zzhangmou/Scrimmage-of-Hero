@@ -3,6 +3,8 @@ using proto;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Common;
+using Scrimmage;
 
 namespace Character
 {
@@ -11,9 +13,11 @@ namespace Character
     /// </summary>
     public class PlayerStatus : CharacterStatus
     {
+        private bool isDeathSend = false;
         public override void Death()
         {
             base.Death();
+            if (isDeathSend) return;
             //关闭操作面板
             CallLuaHelper.PanelClose("ControlPanel");
             //停止发送同步位置
@@ -25,7 +29,16 @@ namespace Character
                 deathID = id
             };
             NetWorkFK.NetManager.Send(msgDeath);
-            print("发送角色死亡协议");
+            GameManager.Instance.teamDatas.Remove(id);
+            if (GameManager.Instance.teamDatas.Count > 0)
+            {
+                foreach (var item in GameManager.Instance.teamDatas.Values)
+                {
+                    CameraFollow.Instance.ChangeTarget(item);
+                    return;
+                }
+            }
+            isDeathSend = true;
         }
     }
 }

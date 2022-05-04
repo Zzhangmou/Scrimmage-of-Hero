@@ -5,8 +5,24 @@ local txt = ABMgr:LoadRes("json", "HeroObjectItem", typeof(TextAsset))
 local iconList = Json.decode(txt.text)
 
 --转存信息
-heroiconDataList = {}
+HeroiconDataList = {}
 
 for _, value in pairs(iconList) do
-    heroiconDataList[value.id] = value
+    HeroiconDataList[value.id] = value
+end
+
+
+local skilltxt =  ABMgr:LoadRes("json", "PlayerDataInfo", typeof(TextAsset))
+local skillList = Json.decode(skilltxt.text)
+
+HeroSkillDataList = {}
+
+for _, value in pairs(skillList) do
+    if not HeroSkillDataList[value.id] then
+        HeroSkillDataList[value.id] = {}
+        HeroSkillDataList[value.id].normal = value
+    end
+    if HeroSkillDataList[value.id] then
+        HeroSkillDataList[value.id].special = value
+    end
 end

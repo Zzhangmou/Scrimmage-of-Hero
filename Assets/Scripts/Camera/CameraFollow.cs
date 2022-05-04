@@ -1,3 +1,4 @@
+using Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace Scrimmage
     /// <summary>
     /// Ïà»ú¸úËæ
     /// </summary>
-    public class CameraFollow : MonoBehaviour
+    public class CameraFollow : MonoSingleton<CameraFollow>
     {
         [SerializeField]
         private Transform targetPlayerTF;
@@ -34,6 +35,13 @@ namespace Scrimmage
 
             //Vector3 mapCenterVec = Common.GameManager.Instance.gameDatas["Map"].transform.position;
             //transform.position = new Vector3(mapCenterVec.x, transform.position.y, transform.position.z);
+        }
+
+        public void ChangeTarget(Transform targetTf)
+        {
+            targetPlayerTF = targetTf;
+            transform.position = targetPlayerTF.position + offset;
+            transform.LookAt(targetPlayerTF);
         }
     }
 }

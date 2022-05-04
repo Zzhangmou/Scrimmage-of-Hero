@@ -48,6 +48,7 @@ namespace Scrimmage.Skill
         {
             //创建技能预制件
             GameObject skillGo = GameObjectPool.Instance.CreateObject(data.prefabName, data.skillPrefab, data.prefabPos, transform.rotation);
+            //GameObject skillGo = GameObjectPool.Instance.CreateObject(data.prefabName, data.skillPrefab, data.prefabPos, Quaternion.Euler(data.prefabRotation));
             SkillDeployer deployer = skillGo.GetComponent<SkillDeployer>();
             //传递技能数据
             //内部创建算法对象

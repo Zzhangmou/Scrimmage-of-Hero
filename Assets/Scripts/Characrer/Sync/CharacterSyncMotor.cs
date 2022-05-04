@@ -37,10 +37,10 @@ namespace Character
 
             float t = (Time.time - forecastTime) / syncInterval;
             t = Mathf.Clamp(t, 0f, 1f);
+            //Î»ÖÃ
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             //Ðý×ª
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(targetRot), t);
-            //Î»ÖÃ
-            transform.position = Vector3.Lerp(transform.position, targetPos, t);
         }
     }
 }

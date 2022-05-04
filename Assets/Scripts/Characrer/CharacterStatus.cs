@@ -38,6 +38,7 @@ namespace Character
         }
         public virtual void Death()
         {
+            transform.gameObject.tag = "Death";
             GetComponent<Animator>().SetBool(chParams.dead, true);
             Debug.Log(id + " ËÀÍö ");
         }

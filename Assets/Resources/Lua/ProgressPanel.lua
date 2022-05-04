@@ -16,7 +16,7 @@ function ProgressPanel:Show(showPtName)
         self:Init()
     end
     local userHeroId=tonumber(showPtName)
-    local ptName=heroiconDataList[userHeroId].name
+    local ptName=HeroiconDataList[userHeroId].name
     local ptShow=ABMgr:LoadRes("progressui", ptName, typeof(Sprite))
     self.panelObj.transform:GetComponent(typeof(Image)).sprite=ptShow
     self.panelObj:SetActive(true)

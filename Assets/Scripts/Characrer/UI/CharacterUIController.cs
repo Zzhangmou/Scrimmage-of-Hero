@@ -20,6 +20,8 @@ namespace Character
         private void Awake()
         {
             uiTF = transform.Find("PlayerUICanvas" + "(Clone)");
+            if (uiTF == null)
+                uiTF = transform.Find("PlayerUICanvas_red" + "(Clone)");
             nameText = uiTF.Find("UserNameText").GetComponent<Text>();
             hpText = uiTF.Find("UserHpText").GetComponent<Text>();
             hpSlider = uiTF.Find("UserHpSlider").GetComponent<Slider>();

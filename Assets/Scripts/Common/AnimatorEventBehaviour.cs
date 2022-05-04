@@ -40,7 +40,7 @@ namespace Common
             anim.SetBool(animParam, false);
         }
         /// <summary>
-        /// 由Unity调用
+        /// 由Unity引擎调用
         /// </summary>
         /// <param name="animParam"></param>
         private void OnCancelAnimWithDelay(string animParam)

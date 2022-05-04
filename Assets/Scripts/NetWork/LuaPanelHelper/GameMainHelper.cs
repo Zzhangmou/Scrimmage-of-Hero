@@ -25,7 +25,8 @@ namespace Helper
         private static void OnMsgGetUserInfo(IExtensible msgBase)
         {
             MsgGetUserInfo msg = (MsgGetUserInfo)msgBase;
-            CallLuaHelper.SetUserInfo(msg.userName, msg.win + "Ê¤" + msg.lose + "¸º");
+            int score = msg.win * 100 - msg.lose * 10;
+            CallLuaHelper.SetUserInfo(msg.userName, score.ToString());
         }
     }
 }
