@@ -35,7 +35,7 @@ namespace Common
             //测试传入的参数是什么
             Debug.Log(filePath);
             
-            string path = Application.dataPath + "/Resources/Lua/" + filePath + ".lua";
+            string path = Application.dataPath + "/ArtRes//Lua/" + filePath + ".lua";
 
             //判断文件是否存在
             if (File.Exists(path))

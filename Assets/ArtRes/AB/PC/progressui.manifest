@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 2273986157
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e8b87e7a5703be2d3bb3deade63fc9fc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: e8b87e7a5703be2d3bb3deade63fc9fc
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ArtRes/PT/Spaceman.png
+- Assets/ArtRes/PT/Sniper.png
+- Assets/ArtRes/PT/Veteren.png
+- Assets/ArtRes/PT/Male.png
+- Assets/ArtRes/PT/Knight.png
+- Assets/ArtRes/PT/Hoodie.png
+- Assets/ArtRes/PT/Chemicalman.png
+- Assets/ArtRes/PT/Hero.png
+- Assets/ArtRes/PT/Jester.png
+- Assets/ArtRes/PT/Soldier.png
+- Assets/ArtRes/PT/Robot.png
+- Assets/ArtRes/PT/Cowboy.png
+- Assets/ArtRes/PT/Bear.png
+- Assets/ArtRes/PT/Terrorist.png
+- Assets/ArtRes/PT/Felame.png
+- Assets/ArtRes/PT/Salaryman.png
+- Assets/ArtRes/PT/Alien.png
+- Assets/ArtRes/PT/Samurai.png
+- Assets/ArtRes/PT/Chicken.png
+- Assets/ArtRes/PT/Ninja.png
+Dependencies: []

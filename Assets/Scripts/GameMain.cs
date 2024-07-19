@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using NetWorkFK;
 
 namespace Common
@@ -14,10 +13,33 @@ namespace Common
     {
         public string id = "";
 
+        public GameObject updatePanel;
+        public Text updateText;
+
         public override void Init()
         {
             base.Init();
-            LuaManager.Instance.DoLuaFile("Main");
+            updatePanel.SetActive(true);
+            AbUpdateManager.Instance.CheckUpdate((isOver) =>
+            {
+                if (isOver)
+                {
+                    updateText.text = "检查更新结束,进入游戏";
+                    ThreadCrossHelper.Instance.ExecuteOnMainThread(() =>
+                    {
+                        Destroy(updatePanel);
+                        LuaManager.Instance.DoLuaFile("Main");
+                    }, 3f);
+                }
+                else
+                {
+                    updateText.text = "更新失败";
+                }
+            }, (result) =>
+            {
+                updateText.text = result;
+            });
+            //LuaManager.Instance.DoLuaFile("Main");
             //NetManager.Connect("127.0.0.1", 18188);
             //NetManager.Connect("server.natappfree.cc", 44553);
         }

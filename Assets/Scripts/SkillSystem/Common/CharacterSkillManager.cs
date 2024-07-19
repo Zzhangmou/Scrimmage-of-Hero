@@ -28,7 +28,9 @@ namespace Scrimmage.Skill
              */
 
             //data.skillPrefab = Resources.Load<GameObject>("Prefabs/SkillFX/" + data.prefabName);
-            data.skillPrefab = ResourcesManager.Load<GameObject>(data.prefabName);
+            //data.skillPrefab = ResourcesManager.Load<GameObject>(data.prefabName);
+            //改由ab包加载
+            data.skillPrefab = AbManager.Instance.LoadRes<GameObject>("skillPrefab", data.prefabName);
             data.owner = gameObject;
             data.attackPos = transform.Find("FirePos");
         }

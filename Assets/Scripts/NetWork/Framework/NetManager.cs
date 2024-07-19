@@ -6,7 +6,6 @@ using System.Net.Sockets;
 using UnityEngine;
 using Common;
 using proto;
-using ns;
 using Helper;
 
 namespace NetWorkFK
@@ -196,7 +195,9 @@ namespace NetWorkFK
             //状态判断
             if (socket == null || !socket.Connected) return;
             if (isConnecting) return;
+            Debug.Log("2");
             if (isClosing) return;
+
 
             byte[] nameBytes = ProtobufHelper.EncodeName(msgBase);
             byte[] bodyBytes = ProtobufHelper.Encode(msgBase);
@@ -291,7 +292,7 @@ namespace NetWorkFK
                 Socket socket = (Socket)ar.AsyncState;
                 socket.EndConnect(ar);
                 Debug.Log("连接成功");
-                ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "连接成功"));
+                ThreadCrossHelper.Instance.ExecuteOnMainThread(() =>CallLuaHelper.PanelShow("TipPanel", "连接成功"));
                 FireEvent(NetEvent.ConnectSucc, "");
                 isConnecting = false;
                 //开始接收
@@ -352,6 +353,7 @@ namespace NetWorkFK
                 Debug.Log("解析协议名失败,为空");
                 return;
             }
+            Debug.Log(protoName);
             readBuff.readIndex += nameCount;
             //解析协议体
             int bodyCount = bodyLength - nameCount;
@@ -373,6 +375,7 @@ namespace NetWorkFK
         {
             try
             {
+                Debug.Log("1");
                 Socket socket = (Socket)ar.AsyncState;
                 if (socket == null && !socket.Connected) return;
 
@@ -398,6 +401,7 @@ namespace NetWorkFK
                     socket.BeginSend(ba.bytes, ba.readIndex, ba.Length, 0, SendCallback, socket);
                 else if (isClosing)
                     socket.Close();
+                Debug.Log("ok");
             }
             catch (SocketException ex)
             {

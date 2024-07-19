@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 600985991
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: lua
+      Dependencies: {}
+    Info_1:
+      Name: progressui
+      Dependencies: {}
+    Info_2:
+      Name: ui
+      Dependencies:
+        Dependency_0: progressui
+    Info_3:
+      Name: json
+      Dependencies: {}
+    Info_4:
+      Name: skillprefab
+      Dependencies: {}
+    Info_5:
+      Name: skillarea
+      Dependencies: {}
+    Info_6:
+      Name: character
+      Dependencies: {}

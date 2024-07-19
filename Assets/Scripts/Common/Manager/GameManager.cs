@@ -7,7 +7,6 @@ using Helper;
 using XLua;
 using ProtoBuf;
 using Character;
-using System;
 
 namespace Common
 {
@@ -151,8 +150,10 @@ namespace Common
 
                 LuaTable heroId = heroTable.Get<int, LuaTable>(msg.players[i].heroId);
                 string heroName = heroId.Get<string, string>("name");
-                go = ResourcesManager.Load<GameObject>(heroName);
-
+                //go = ResourcesManager.Load<GameObject>(heroName);
+                go = AbManager.Instance.LoadRes<GameObject>("character", heroName);
+//RuntimeAnimatorController controller = go.GetComponent<RuntimeAnimatorController>();
+//                go.GetComponent<Animator>().runtimeAnimatorController = controller;
                 if (msg.players[i].camp == 1)
                 {
                     go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId, msg.currentCamp);

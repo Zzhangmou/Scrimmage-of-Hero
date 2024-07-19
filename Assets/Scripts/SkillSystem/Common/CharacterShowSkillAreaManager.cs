@@ -113,7 +113,8 @@ namespace Scrimmage.Skill
         private Transform GetElement(SkillAreaElement skillAreaElement)
         {
             string name = skillAreaElement.ToString();
-            GameObject elementGo = ResourcesManager.Load<GameObject>(name);
+            //GameObject elementGo = ResourcesManager.Load<GameObject>(name);
+            GameObject elementGo = AbManager.Instance.LoadRes<GameObject>("skillArea", name);
             elementGo = GameObjectPool.Instance.CreateObject(name, elementGo, transform.position, transform.rotation);
             elementGo.transform.parent = this.transform;
             return elementGo.transform;

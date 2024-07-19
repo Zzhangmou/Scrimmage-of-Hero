@@ -1,0 +1,73 @@
+ManifestFileVersion: 0
+CRC: 3207535588
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 227d7ba11fcf40beff7c1044077fd64e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 99093748ac4d438c437aedec131963ba
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 227d7ba11fcf40beff7c1044077fd64e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Animation/Character/Character_Chicken.controller
+- Assets/ArtRes/Prefabs/Character/Veteran.prefab
+- Assets/ArtRes/Prefabs/Character/Cowboy.prefab
+- Assets/Animation/Character/Character_Soldier.controller
+- Assets/ArtRes/Prefabs/Character/Hoodie.prefab
+- Assets/ArtRes/Prefabs/Character/Alien.prefab
+- Assets/ArtRes/Prefabs/Character/Salaryman.prefab
+- Assets/Animation/Character_Show.controller
+- Assets/ArtRes/Prefabs/Character/Jester.prefab
+- Assets/ArtRes/Prefabs/Character/Chemicalman.prefab
+- Assets/ArtRes/Prefabs/Character/Chicken.prefab
+- Assets/ArtRes/Prefabs/Character/Sniper.prefab
+- Assets/ArtRes/Prefabs/Character/Female.prefab
+- Assets/ArtRes/Prefabs/Character/Robot.prefab
+- Assets/ArtRes/Prefabs/Character/Soldier.prefab
+- Assets/Animation/Character/Character_Robot.controller
+- Assets/ArtRes/Prefabs/Character/Terrorist.prefab
+- Assets/ArtRes/Prefabs/Character/Knight.prefab
+- Assets/ArtRes/Prefabs/Character/Spaceman.prefab
+- Assets/Animation/Character/Character_Ninja.controller
+- Assets/ArtRes/Prefabs/Character/Bear.prefab
+- Assets/ArtRes/Prefabs/Character/Ninja.prefab
+- Assets/ArtRes/Prefabs/Character/Hero.prefab
+- Assets/Animation/Character/Character_Common.controller
+- Assets/Animation/Character/Character_Samurai.controller
+- Assets/ArtRes/Prefabs/Character/Male.prefab
+- Assets/Animation/Character/Character_Spaceman.controller
+- Assets/ArtRes/Prefabs/Character/Samurai.prefab
+Dependencies: []

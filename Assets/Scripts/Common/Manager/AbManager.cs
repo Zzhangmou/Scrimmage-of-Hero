@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,7 +20,7 @@ namespace Common
         /// <summary>
         /// AB包存放路径
         /// </summary>
-        private string PathUrl { get { return Application.streamingAssetsPath + "/"; } }
+        //private string PathUrl { get { return Application.streamingAssetsPath + "/"; } }
         /// <summary>
         /// 主包名
         /// </summary>
@@ -28,7 +29,7 @@ namespace Common
             get
             {
 #if UNITY_EDITOR || UNITY_STANDALONE
-                return "StandaloneWindows";
+                return "PC";
 #elif UNITY_IOS
         reuten "IOS";
 #elif UNITY_ANDROID
@@ -42,6 +43,15 @@ namespace Common
             abDic = new Dictionary<string, AssetBundle>();
         }
 
+        //如果可读可写返回新资源 没有说明是默认资源 
+        public AssetBundle GetRealAB(string abName)
+        {
+            if (File.Exists(Application.persistentDataPath + '/' + abName))
+            {
+                return AssetBundle.LoadFromFile(Application.persistentDataPath + '/' + abName);
+            }
+            return AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + abName);
+        }
         /// <summary>
         /// 加载AB包
         /// </summary>
@@ -51,7 +61,8 @@ namespace Common
             //加载AB包
             if (mainAB == null)
             {
-                mainAB = AssetBundle.LoadFromFile(PathUrl + MainAbName);
+                //mainAB = AssetBundle.LoadFromFile(PathUrl + MainAbName);
+                mainAB = GetRealAB(MainAbName);
                 manifest = mainAB.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
             }
             //获取依赖包相关信息
@@ -62,7 +73,7 @@ namespace Common
                 //判断是否加载
                 if (!abDic.ContainsKey(strs[i]))
                 {
-                    ab = AssetBundle.LoadFromFile(PathUrl + strs[i]);
+                    ab = GetRealAB(strs[i]);
                     abDic.Add(strs[i], ab);
                 }
             }
@@ -70,7 +81,7 @@ namespace Common
             //如果没有加载过 再加载
             if (!abDic.ContainsKey(abName))
             {
-                ab = AssetBundle.LoadFromFile(PathUrl + abName);
+                ab = GetRealAB(abName);
                 abDic.Add(abName, ab);
             }
         }
@@ -86,11 +97,7 @@ namespace Common
             LoadAB(abName);
 
             //加载目标包
-            Object obj = abDic[abName].LoadAsset(resName);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
+            return abDic[abName].LoadAsset(resName);
         }
 
         /// <summary>
@@ -106,11 +113,7 @@ namespace Common
             LoadAB(abName);
 
             //加载目标包
-            Object obj = abDic[abName].LoadAsset(resName, type);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
+            return abDic[abName].LoadAsset(resName, type);
         }
 
         /// <summary>
@@ -126,11 +129,7 @@ namespace Common
             LoadAB(abName);
 
             //加载目标包
-            T obj = abDic[abName].LoadAsset<T>(resName);
-            if (obj is GameObject)
-                return Instantiate(obj);
-            else
-                return obj;
+            return abDic[abName].LoadAsset<T>(resName);
         }
         //异步加载
         //这里的异步加载 AB包并没有使用异步加载
@@ -155,10 +154,7 @@ namespace Common
             AssetBundleRequest abr = abDic[abName].LoadAssetAsync(resName);
             yield return abr;
             //异步加载结束后 通过委托传递给外部使用
-            if (abr.asset is GameObject)
-                callBack(Instantiate(abr.asset));
-            else
-                callBack(abr.asset);
+            callBack(abr.asset);
         }
         /// <summary>
         /// 根据Type异步加载资源
@@ -181,10 +177,7 @@ namespace Common
             AssetBundleRequest abr = abDic[abName].LoadAssetAsync(resName, type);
             yield return abr;
             //异步加载结束后 通过委托传递给外部使用
-            if (abr.asset is GameObject)
-                callBack(Instantiate(abr.asset));
-            else
-                callBack(abr.asset);
+            callBack(abr.asset);
         }
         /// <summary>
         /// 根据泛型异步加载资源
@@ -206,10 +199,7 @@ namespace Common
             AssetBundleRequest abr = abDic[abName].LoadAssetAsync<T>(resName);
             yield return abr;
             //异步加载结束后 通过委托传递给外部使用
-            if (abr.asset is GameObject)
-                callBack(Instantiate(abr.asset) as T);
-            else
-                callBack(abr.asset as T);
+            callBack(abr.asset as T);
         }
         /// <summary>
         /// 单个包卸载

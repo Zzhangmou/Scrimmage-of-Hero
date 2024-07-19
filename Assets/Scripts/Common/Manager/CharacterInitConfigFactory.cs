@@ -43,12 +43,12 @@ namespace Common
             GameObject uiCanvas;//UI ¡Ÿ ±¥¶¿Ì
             if (playerInfo.camp == currentCamp)
             {
-                uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas")
+                uiCanvas = GameObject.Instantiate(AbManager.Instance.LoadRes<GameObject>("ui", "PlayerUICanvas")
                     , go.transform.position + offset, go.transform.rotation);
             }
             else
             {
-                uiCanvas = GameObject.Instantiate(ResourcesManager.Load<GameObject>("PlayerUICanvas_red")
+                uiCanvas = GameObject.Instantiate(AbManager.Instance.LoadRes<GameObject>("ui", "PlayerUICanvas_red")
                     , go.transform.position + offset, go.transform.rotation);
             }
             uiCanvas.transform.SetParent(go.transform);
@@ -155,7 +155,8 @@ namespace Common
             SkillData[] skillDatas = skillDataDic[id].dataList.ToArray();
             for (int i = 0; i < skillDatas.Length; i++)
             {
-                GameObject skillPrefab = ResourcesManager.Load<GameObject>(skillDatas[i].prefabName);
+                //GameObject skillPrefab = ResourcesManager.Load<GameObject>(skillDatas[i].prefabName);
+                GameObject skillPrefab = AbManager.Instance.LoadRes<GameObject>("skillPrefab", skillDatas[i].prefabName);
                 GameObject skillGo = GameObjectPool.Instance.CreateObject(skillDatas[i].prefabName, skillPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
                 GameObjectPool.Instance.CollectObject(skillGo);
             }

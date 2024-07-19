@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3159519564
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5cd0faa3e8198438df8b02908c23671f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 5cd0faa3e8198438df8b02908c23671f
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ArtRes/Json/PlayerDataInfo.json
+- Assets/ArtRes/Json/HeroObjectItem.txt
+Dependencies: []

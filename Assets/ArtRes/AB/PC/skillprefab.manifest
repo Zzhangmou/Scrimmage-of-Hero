@@ -1,0 +1,92 @@
+ManifestFileVersion: 0
+CRC: 4038632667
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 52bdf864050f12e9190028d4f5dcb613
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a12a8fa17686108409c5b9a05122a478
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 52bdf864050f12e9190028d4f5dcb613
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: b623744335ff68f45965acb15ac2a560, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7faa64a828219b44cb0eb5bfbfa83524, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: adf4dc26d7a2b834bac40dffe324ae15, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 07674485510fe804fbded95d89575e25, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/ArrowDefault.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordSpinRed.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/NovaLightningBlue1.prefab
+- Assets/ArtRes/Prefabs/SkillFX/NovaLightningGreen.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/PoisonDeath.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/FireballMissilePink.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BulletFatBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordWaveRed 1.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/SuperEvilDeath.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/GrenadeExplosionPink.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BulletFatGreen.prefab
+- Assets/ArtRes/Prefabs/SkillFX/NovaLightningPurple.prefab
+- Assets/ArtRes/Prefabs/SkillFX/NovaLightningYellow.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordSpinRed 1.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordWhirlwindBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/FlashExplosion2.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BazookaMissileDefault.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/FireballMissileFire.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/RocketMissileFire.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/NovaLightningBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/RocketMissileGreen.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordWaveRed.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/FireballMissileGreen.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordWhirlwindRed 1.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BulletFatPink.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordWhirlwindRed.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BulletFatFire.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Plane.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/BulletSmallBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Explosion/FlashExplosion2 1.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SwordSpinYellow.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/FireballMissileBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/FlamethrowerCartoonyPink.prefab
+- Assets/ArtRes/Prefabs/SkillFX/Bullet/LaserMissileBlue.prefab
+- Assets/ArtRes/Prefabs/SkillFX/SawDefault.prefab
+Dependencies: []

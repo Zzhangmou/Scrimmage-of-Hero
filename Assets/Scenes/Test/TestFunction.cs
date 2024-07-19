@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Common;
 using Scrimmage.Skill;
 
-namespace ns
+namespace Common
 {
     /// <summary>
     /// 测试脚本
@@ -15,10 +14,26 @@ namespace ns
         public static Dictionary<int, PlayerJsDataInfo> skillDataDic;
         void Start()
         {
-            skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
-            PlayerJsDataInfo playerJsDataInfo = skillDataDic[18];
-            List<SkillData> data = playerJsDataInfo.dataList;
-            SkillData[] skillDatas = data.ToArray();
+            //skillDataDic = SkillJsonDataManager.GetPlayerJsDataInfo();
+            //PlayerJsDataInfo playerJsDataInfo = skillDataDic[18];
+            //List<SkillData> data = playerJsDataInfo.dataList;
+            //SkillData[] skillDatas = data.ToArray();
+
+
+            AbUpdateManager.Instance.CheckUpdate((isOver) =>
+            {
+                if (isOver)
+                {
+                    print("检查更新结束");
+                }
+                else
+                {
+                    print("更新失败");
+                }
+            }, (result) =>
+            {
+                print(result);
+            });
         }
     }
 }
