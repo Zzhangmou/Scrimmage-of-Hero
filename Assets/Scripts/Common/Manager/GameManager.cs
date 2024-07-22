@@ -123,9 +123,6 @@ namespace Common
 
             CallLuaHelper.PanelShow("ProgressPanel", msg.userHeroId.ToString());
 
-            //ab包不能直接打包预制体及脚本 暂时直接生成
-            //GameObject controlPanel = Instantiate(ResourcesManager.Load<GameObject>("ControlPanel"));
-            //controlPanel.transform.SetParent(GameObject.Find("Canvas/PanelLayer").transform, false);
             CallLuaHelper.PanelShow("ControlPanel");
 
             //生成场景   mapId
@@ -152,8 +149,7 @@ namespace Common
                 string heroName = heroId.Get<string, string>("name");
                 //go = ResourcesManager.Load<GameObject>(heroName);
                 go = AbManager.Instance.LoadRes<GameObject>("character", heroName);
-//RuntimeAnimatorController controller = go.GetComponent<RuntimeAnimatorController>();
-//                go.GetComponent<Animator>().runtimeAnimatorController = controller;
+
                 if (msg.players[i].camp == 1)
                 {
                     go = CharacterInitConfigFactory.CreateCharacter(go, wayPointA[redNum], msg.players[i], gameMainId, msg.currentCamp);

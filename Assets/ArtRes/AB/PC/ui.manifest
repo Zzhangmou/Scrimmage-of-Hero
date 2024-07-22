@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3044994431
+CRC: 2149340872
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a24a29a7c9315ca7afc27b0b19f1535
+    Hash: 6c9e4fda3e8f9946096d1ef9e60fa7d2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 92df7b257c49814066b6c73be0f98ace
+    Hash: 4fd6a5594a089f0d9ca26458dbe74667
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 2a24a29a7c9315ca7afc27b0b19f1535
+    Hash: 6c9e4fda3e8f9946096d1ef9e60fa7d2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -43,15 +43,17 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8646a1f708fb34e4ea32e33b7d161327, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
 - Class: 114
@@ -142,9 +144,9 @@ Assets:
 - Assets/ArtRes/Prefabs/UI/LoginPanel.prefab
 - Assets/ArtRes/Prefabs/UI/RegisterPanel.prefab
 - Assets/ArtRes/Prefabs/UI/TipPanel.prefab
-- Assets/Resources/UI/ControlPanel.prefab
+- Assets/ArtRes/Prefabs/UI/ControlPanel.prefab
 - Assets/ArtRes/Prefabs/UI/StartShowPanel.prefab
-- Assets/Resources/SpriteAtlas/HeroIcon.spriteatlas
+- Assets/ArtRes/SpriteAtlas/HeroIcon.spriteatlas
 - Assets/ArtRes/Prefabs/UI/ResultPanel.prefab
 - Assets/ArtRes/Prefabs/UI/BattleMessagePanel.prefab
 - Assets/ArtRes/Prefabs/UI/SettingPanel.prefab
@@ -152,4 +154,4 @@ Assets:
 - Assets/ArtRes/Prefabs/UI/ProgressPanel.prefab
 - Assets/ArtRes/Prefabs/UI/GameMainPanel.prefab
 Dependencies:
-- E:/Unity/Scrimmage-of-Hero-main/Scrimmage-of-Hero-main/Assets/ArtRes/AB/PC/progressui
+- E:/Unity/Scrimmage-of-Hero/Assets/ArtRes/AB/PC/progressui

@@ -7,6 +7,15 @@ using XLua;
 
 namespace Helper
 {
+    public static class XLuaConfig
+    {
+        [CSharpCallLua]
+        public static List<System.Type> CSharpCallLua = new List<System.Type>()
+        {
+            typeof(UnityEngine.Events.UnityAction<UnityEngine.Vector2>)
+             // 在这里添加其他需要的委托类型
+        };
+    }
     /// <summary>
     /// 用接口模拟lua类
     /// </summary>
@@ -23,9 +32,10 @@ namespace Helper
     [CSharpCallLua]
     public interface ICallBattleMessagePanel
     {
-        void InitBattleMessage(int camp,int heroId,string id);
-        void FlushData(int camp,string id);
+        void InitBattleMessage(int camp, int heroId, string id);
+        void FlushData(int camp, string id);
     }
+
     public static class CallLuaHelper
     {
         private static ICallPanel panel;
@@ -41,7 +51,7 @@ namespace Helper
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
             panel.Show();
         }
-        public static void PanelShow(string panelName,string message)
+        public static void PanelShow(string panelName, string message)
         {
             panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
             panel.Show(message);
@@ -68,7 +78,7 @@ namespace Helper
             battleMessagePanel.InitBattleMessage(camp, heroId, id);
         }
 
-        public static void FlushData(int camp,string id)
+        public static void FlushData(int camp, string id)
         {
             battleMessagePanel = LuaManager.Instance.Global.Get<ICallBattleMessagePanel>("BattleMessagePanel");
             battleMessagePanel.FlushData(camp, id);

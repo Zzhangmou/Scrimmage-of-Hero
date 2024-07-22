@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 850697316
+CRC: 118033924
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a7a9a759dc05d9ec0ecef9f7c18e3bf5
+    Hash: 2b600adea578332d00117ec73cf01313
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: a7a9a759dc05d9ec0ecef9f7c18e3bf5
+    Hash: 2b600adea578332d00117ec73cf01313
 HashAppended: 0
 ClassTypes:
 - Class: 49
@@ -37,6 +37,7 @@ Assets:
 - Assets/LuaTxt/JsonUtility.lua.txt
 - Assets/LuaTxt/BattleMessagePanel.lua.txt
 - Assets/LuaTxt/GameMainPanel.lua.txt
+- Assets/LuaTxt/RecyclingList.lua.txt
 - Assets/LuaTxt/MatchPanel.lua.txt
 - Assets/LuaTxt/BasePanelView.lua.txt
 - Assets/LuaTxt/StartShowPanel.lua.txt

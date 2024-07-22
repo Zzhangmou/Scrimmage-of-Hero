@@ -2,6 +2,8 @@ require("InitClass")
 
 require("AbManager")
 
+require("RecyclingList")
+
 -- 初始化道具表信息
 require("HeroIconData")
 -- 初始化人物

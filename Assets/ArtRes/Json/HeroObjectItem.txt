@@ -18,5 +18,5 @@
 {"id":17,"name":"Soldier","icon":"HeroIcon_17"},
 {"id":18,"name":"Spaceman","icon":"HeroIcon_18"},
 {"id":19,"name":"Terrorist","icon":"HeroIcon_19"},
-{"id":20,"name":"Veteran","icon":"HeroIcon_20"}
+{"id":20,"name":"Veteran","icon":"HeroIcon_20"},
 ]
