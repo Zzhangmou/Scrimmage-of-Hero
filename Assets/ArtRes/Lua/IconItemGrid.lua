@@ -21,7 +21,7 @@ end
 --初始化格子
 function IconItemGrid:InitData(data)
     --设置
-    local spriteAtlas = ABManager:LoadRes("ui", "HeroIcon", typeof(SpriteAtlas))
+    local spriteAtlas = ABManager:LoadRes("ui", "CommonView", typeof(SpriteAtlas))
     self.HeroImage.sprite = spriteAtlas:GetSprite(data.icon)
     self.HeroNameText.text = data.name
     self.heroName = data.name

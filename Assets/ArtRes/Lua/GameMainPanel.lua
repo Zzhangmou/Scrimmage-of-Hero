@@ -18,7 +18,7 @@ function GameMainPanel:Init()
     self.panelObj.transform:SetParent(Canvas, false)
 
     self.UserNameText = self.panelObj.transform:Find("UserInfo/UserNameText"):GetComponent(typeof(Text))
-    self.UserRecordText = self.panelObj.transform:Find("UserInfo/WinShow/Text"):GetComponent(typeof(Text))
+    self.UserRecordText = self.panelObj.transform:Find("UserInfo/UserRecordText"):GetComponent(typeof(Text))
     --重新赋值RenderText
     self.showHeroRImage = self.panelObj.transform:Find("ShowHeroRawImage"):GetComponent(typeof(RawImage))
     self.showHeroRImage.texture = Resources.Load("Target")

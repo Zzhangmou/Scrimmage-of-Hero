@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2149340872
+CRC: 3821132536
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c9e4fda3e8f9946096d1ef9e60fa7d2
+    Hash: 2533a2d85c8670178d0ea86510add881
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4fd6a5594a089f0d9ca26458dbe74667
+    Hash: 26c6f2a020314ed9589d04d1b17f694b
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6c9e4fda3e8f9946096d1ef9e60fa7d2
+    Hash: 2533a2d85c8670178d0ea86510add881
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -54,6 +54,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8646a1f708fb34e4ea32e33b7d161327, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6bf2227c2d673e54a81c684b0314c2e6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
 - Class: 114
@@ -107,6 +109,8 @@ SerializeReferenceClassIdentifiers:
   ClassName: ETCJoystick/OnTouchStartHandler
 - AssemblyName: Assembly-CSharp
   ClassName: ETCJoystick/OnTouchUpHandler
+- AssemblyName: Assembly-CSharp
+  ClassName: Nirvana.UINameTable/BindPair
 - AssemblyName: UnityEngine.CoreModule
   ClassName: UnityEngine.Events.PersistentCallGroup
 - AssemblyName: UnityEngine.CoreModule
@@ -141,16 +145,20 @@ Assets:
 - Assets/ArtRes/Prefabs/UI/PlayerUICanvas_red.prefab
 - Assets/ArtRes/Prefabs/UI/ChoiceHeroPanel.prefab
 - Assets/ArtRes/Prefabs/UI/PlayerUICanvas.prefab
+- Assets/ArtRes/SpriteAtlas/CommonView.spriteatlas
 - Assets/ArtRes/Prefabs/UI/LoginPanel.prefab
 - Assets/ArtRes/Prefabs/UI/RegisterPanel.prefab
 - Assets/ArtRes/Prefabs/UI/TipPanel.prefab
 - Assets/ArtRes/Prefabs/UI/ControlPanel.prefab
 - Assets/ArtRes/Prefabs/UI/StartShowPanel.prefab
-- Assets/ArtRes/SpriteAtlas/HeroIcon.spriteatlas
+- Assets/ArtRes/SpriteAtlas/Demo_ClanFlag.spriteatlas
 - Assets/ArtRes/Prefabs/UI/ResultPanel.prefab
 - Assets/ArtRes/Prefabs/UI/BattleMessagePanel.prefab
+- Assets/ArtRes/SpriteAtlas/Button.spriteatlas
 - Assets/ArtRes/Prefabs/UI/SettingPanel.prefab
+- Assets/ArtRes/SpriteAtlas/Popup.spriteatlas
 - Assets/ArtRes/Prefabs/UI/HeroShowPanel.prefab
+- Assets/ArtRes/SpriteAtlas/Default.spriteatlas
 - Assets/ArtRes/Prefabs/UI/ProgressPanel.prefab
 - Assets/ArtRes/Prefabs/UI/GameMainPanel.prefab
 Dependencies:

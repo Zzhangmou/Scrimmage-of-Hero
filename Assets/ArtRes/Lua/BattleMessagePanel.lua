@@ -6,7 +6,7 @@ BattleMessagePanel.dataList = {}
 BattleMessagePanel.index_red = 1
 BattleMessagePanel.index_blue = 1
 
-local spriteAtlas = ABManager:LoadRes("ui", "HeroIcon", typeof(SpriteAtlas))
+local spriteAtlas = ABManager:LoadRes("ui", "CommonView", typeof(SpriteAtlas))
 
 function BattleMessagePanel:Init()
     self.panelObj = ABManager:LoadRes("ui", "BattleMessagePanel", typeof(GameObject))
