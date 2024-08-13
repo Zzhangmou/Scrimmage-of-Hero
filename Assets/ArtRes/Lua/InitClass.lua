@@ -3,6 +3,7 @@
 --准备之前导入的脚本
 --面向对象相关
 require("Object")
+require("BaseClass")
 --字符串拆分
 require("SplitTools")
 --Json解析
@@ -39,8 +40,8 @@ Screen = CS.UnityEngine.Screen
 
 PlayerPrefs = CS.UnityEngine.PlayerPrefs
 
-Canvas = GameObject.Find("Canvas/PanelLayer").transform
-TipCanvas = GameObject.Find("Canvas/TipLayer").transform
+Canvas = GameObject.Find("GameRoot/UILayer/NormalLayer").transform
+TipCanvas = GameObject.Find("GameRoot/UILayer/TipLayer").transform
 --自己写的C#脚本相关
 ABMgr = CS.Common.AbManager.Instance
 

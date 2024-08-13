@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 118033924
+CRC: 1062951424
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2b600adea578332d00117ec73cf01313
+    Hash: 67e8831d37cd07c83a199719d211a060
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5ad585dd02dfb5016c0dad519eab8f49
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 2b600adea578332d00117ec73cf01313
+    Hash: 67e8831d37cd07c83a199719d211a060
 HashAppended: 0
 ClassTypes:
 - Class: 49
@@ -17,28 +17,15 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/LuaTxt/InitClass.lua.txt
-- Assets/LuaTxt/LoginPanel.lua.txt
 - Assets/LuaTxt/SplitTools.lua.txt
 - Assets/LuaTxt/IconItemGrid.lua.txt
-- Assets/LuaTxt/ChoiceHeroPanel.lua.txt
 - Assets/LuaTxt/ABManager.lua.txt
-- Assets/LuaTxt/ResultPanel.lua.txt
 - Assets/LuaTxt/Main.lua.txt
-- Assets/LuaTxt/RegisterPanel.lua.txt
-- Assets/LuaTxt/PanelLayer.lua.txt
-- Assets/LuaTxt/ProgressPanel.lua.txt
+- Assets/LuaTxt/BaseClass.lua.txt
 - Assets/LuaTxt/HeroIconData.lua.txt
-- Assets/LuaTxt/HeroShowPanel.lua.txt
 - Assets/LuaTxt/HeroShowItem.lua.txt
-- Assets/LuaTxt/TipPanel.lua.txt
 - Assets/LuaTxt/Object.lua.txt
-- Assets/LuaTxt/SettingPanel.lua.txt
-- Assets/LuaTxt/ControlPanel.lua.txt
+- Assets/LuaTxt/CallLuaMethod.lua.txt
 - Assets/LuaTxt/JsonUtility.lua.txt
-- Assets/LuaTxt/BattleMessagePanel.lua.txt
-- Assets/LuaTxt/GameMainPanel.lua.txt
 - Assets/LuaTxt/RecyclingList.lua.txt
-- Assets/LuaTxt/MatchPanel.lua.txt
-- Assets/LuaTxt/BasePanelView.lua.txt
-- Assets/LuaTxt/StartShowPanel.lua.txt
 Dependencies: []

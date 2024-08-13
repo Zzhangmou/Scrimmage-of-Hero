@@ -1,27 +1,53 @@
 -- 复用列表
-Object:subClass("RecyclingList")
+RecyclingList = RecyclingList or BaseClass()
 
-RecyclingList.list = nil
-RecyclingList.scrollRect = nil
-RecyclingList.content = nil
-RecyclingList.layoutGroup = nil
+function RecyclingList:__init()
+    self.list = nil
+    self.scrollRect = nil
+    self.content = nil
+    self.layoutGroup = nil
 
-RecyclingList.item = nil
-RecyclingList.dataList = {}
+    self.item = nil
+    self.dataList = {}
 
-RecyclingList.cellSize = {}
-RecyclingList.padding = {}
-RecyclingList.spacing = {}
-RecyclingList.constraintCount = 0
+    self.cellSize = {}
+    self.padding = {}
+    self.spacing = {}
+    self.constraintCount = 0
 
-RecyclingList.oldMinIndex = -1;
-RecyclingList.oldMaxIndex = -1;
+    self.oldMinIndex = -1;
+    self.oldMaxIndex = -1;
 
-RecyclingList.nowShowItems = {}
+    self.nowShowItems = {}
 
---模拟对象池
-RecyclingList.collectObjectList = {}
+    --模拟对象池
+    self.collectObjectList = {}
+end
 
+function RecyclingList:__delete()
+    self.list = nil
+    self.scrollRect = nil
+    self.content = nil
+    self.layoutGroup = nil
+
+    self.item = nil
+    self.dataList = {}
+
+    self.cellSize = {}
+    self.padding = {}
+    self.spacing = {}
+    self.constraintCount = 0
+
+    self.oldMinIndex = -1;
+    self.oldMaxIndex = -1;
+
+    self.nowShowItems = {}
+
+    for k, v in pairs(self.collectObjectList) do
+        v:DeleteMe()
+    end
+    self.collectObjectList = {}
+end
 
 function RecyclingList:InitContentAndSVH(trans, item, dataList)
     self.list = trans:GetComponent(typeof(CS.RecyclingList))
@@ -39,10 +65,6 @@ function RecyclingList:InitContentAndSVH(trans, item, dataList)
     self.scrollRect.content.sizeDelta = Vector2(0, math.floor(math.ceil(#dataList / self.constraintCount)) * (self.cellSize.y + self.spacing.y) + self.padding.top);
 
     self:CheckShowOrHide(true)
-
-    -- xlua.hotfix(CS.RecyclingList, "CheckShowOrHide", function(self, show)
-    --     self:CheckShowOrHide(show)
-    -- end)
 
     self.scrollRect.onValueChanged:AddListener(function(normalisedPos)
         self:OnScrollChanged(normalisedPos)
@@ -106,12 +128,12 @@ function RecyclingList:CheckShowOrHide(clearContents)
                     self.collectObjectList[#self.collectObjectList].obj.gameObject:SetActive(true)
                     table.remove(self.collectObjectList, #self.collectObjectList)
                 else
-                    grid = IconItemGrid:new()
+                    grid = self.item.New()
                     grid:Init(self.content)
                 end
                 grid:InitData(self.dataList[i+1])
                 --加载人物模型  后续应该让各自格子自己执行相应更新逻辑
-                local hero = HeroShowItem:new()
+                local hero = HeroShowItem.New()
                 hero:Init(self.dataList[i+1].name, false)
                 
                 local  go = grid.obj

@@ -2,10 +2,7 @@ using Character;
 using proto;
 using Scrimmage;
 using Scrimmage.Skill;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 namespace Common
@@ -16,7 +13,7 @@ namespace Common
     public static class CharacterInitConfigFactory
     {
         //获取JS数据
-        public static Dictionary<int, PlayerJsDataInfo> skillDataDic;
+        private static Dictionary<int, PlayerJsDataInfo> skillDataDic;
 
         //static CharacterInitConfigFactory()
         //{
@@ -109,7 +106,7 @@ namespace Common
             return go;
         }
 
-        public static GameObject SyncPlayerComponentInit(GameObject go, PlayerInfo playerInfo, bool isTeam)
+        private static GameObject SyncPlayerComponentInit(GameObject go, PlayerInfo playerInfo, bool isTeam)
         {
             go.AddComponent<CharacterSyncMotor>().moveSpeed = skillDataDic[playerInfo.heroId].moveSpeed;
             Rigidbody rigidbody = go.AddComponent<Rigidbody>();
@@ -150,7 +147,7 @@ namespace Common
         /// 预生成
         /// </summary>
         /// <param name="id"></param>
-        public static void PreLoadSkillPrefab(int id)
+        private static void PreLoadSkillPrefab(int id)
         {
             SkillData[] skillDatas = skillDataDic[id].dataList.ToArray();
             for (int i = 0; i < skillDatas.Length; i++)
@@ -160,7 +157,6 @@ namespace Common
                 GameObject skillGo = GameObjectPool.Instance.CreateObject(skillDatas[i].prefabName, skillPrefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
                 GameObjectPool.Instance.CollectObject(skillGo);
             }
-
         }
     }
 }

@@ -126,8 +126,6 @@ namespace XLua.CSObjectWrap
             
             translator.AddInterfaceBridgeCreator(typeof(Helper.ICallPanel), HelperICallPanelBridge.__Create);
             
-            translator.AddInterfaceBridgeCreator(typeof(Helper.ICallBattleMessagePanel), HelperICallBattleMessagePanelBridge.__Create);
-            
             translator.AddInterfaceBridgeCreator(typeof(Tutorial.CSCallLua.ItfD), TutorialCSCallLuaItfDBridge.__Create);
             
         }

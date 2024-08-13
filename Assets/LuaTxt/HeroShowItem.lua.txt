@@ -5,9 +5,17 @@ HeroShowTargetPosition = GameObject.Find("HeroShowTargetPosition")
 
 CurrectHero = nil
 
-Object:subClass("HeroShowItem")
---"成员"
-HeroShowItem.obj = nil
+HeroShowItem = HeroShowItem or BaseClass()
+
+function HeroShowItem:__init()
+    --"成员"
+    self.obj = nil
+end
+
+function HeroShowItem:__delete()
+
+end
+
 
 --函数
 function HeroShowItem:Init(name, active)

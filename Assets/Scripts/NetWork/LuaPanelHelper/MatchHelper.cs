@@ -1,12 +1,6 @@
 using NetWorkFK;
 using proto;
 using ProtoBuf;
-using Common;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using XLua;
 
 namespace Helper
 {

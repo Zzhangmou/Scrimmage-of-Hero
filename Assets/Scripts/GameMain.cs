@@ -29,7 +29,7 @@ namespace Common
                     {
                         Destroy(updatePanel);
                         LuaManager.Instance.DoLuaFile("Main");
-                    }, 3f);
+                    }, 1f);
                 }
                 else
                 {

@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3821132536
+CRC: 1023886780
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2533a2d85c8670178d0ea86510add881
+    Hash: 8557235764b476e74157d8c7b078797b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 26c6f2a020314ed9589d04d1b17f694b
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 2533a2d85c8670178d0ea86510add881
+    Hash: 8557235764b476e74157d8c7b078797b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -160,6 +160,6 @@ Assets:
 - Assets/ArtRes/Prefabs/UI/HeroShowPanel.prefab
 - Assets/ArtRes/SpriteAtlas/Default.spriteatlas
 - Assets/ArtRes/Prefabs/UI/ProgressPanel.prefab
-- Assets/ArtRes/Prefabs/UI/GameMainPanel.prefab
+- Assets/ArtRes/Prefabs/UI/ShowMainPanel.prefab
 Dependencies:
 - E:/Unity/Scrimmage-of-Hero/Assets/ArtRes/AB/PC/progressui

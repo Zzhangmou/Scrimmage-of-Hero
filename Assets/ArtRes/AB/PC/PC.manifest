@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1594290540
+CRC: 3970552801
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -23,4 +23,46 @@ AssetBundleManifest:
       Dependencies: {}
     Info_6:
       Name: character
+      Dependencies: {}
+    Info_7:
+      Name: battlemessageview
+      Dependencies: {}
+    Info_8:
+      Name: choiceheroview
+      Dependencies: {}
+    Info_9:
+      Name: common
+      Dependencies: {}
+    Info_10:
+      Name: controlview
+      Dependencies: {}
+    Info_11:
+      Name: heroshowview
+      Dependencies: {}
+    Info_12:
+      Name: loginview
+      Dependencies: {}
+    Info_13:
+      Name: matchview
+      Dependencies: {}
+    Info_14:
+      Name: progressview
+      Dependencies: {}
+    Info_15:
+      Name: registerview
+      Dependencies: {}
+    Info_16:
+      Name: resultview
+      Dependencies: {}
+    Info_17:
+      Name: settingview
+      Dependencies: {}
+    Info_18:
+      Name: showmainview
+      Dependencies: {}
+    Info_19:
+      Name: startshowview
+      Dependencies: {}
+    Info_20:
+      Name: tipview
       Dependencies: {}

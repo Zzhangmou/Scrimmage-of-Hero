@@ -1,0 +1,32 @@
+ProgressView = ProgressView or BaseClass(BaseView)
+
+function ProgressView:__init()
+    self.ui_config = {"ui", "ProgressPanel"}
+
+    self.progressSlider = nil
+end
+
+function ProgressView:__delete()
+
+end
+
+function ProgressView:ReleaseCallBack()
+    self.progressSlider = nil
+end
+
+function ProgressView:LoadCallBack()
+    self.root_node.transform:SetParent(TipCanvas, false)
+    self.progressSlider = self.root_node.transform:Find("ProgressBar"):GetComponent(typeof(Slider))
+end
+
+function ProgressView:ShowHero(showPtName)
+    local userHeroId = tonumber(showPtName)
+    local ptName = HeroiconDataList[userHeroId].name
+    local ptShow = ABManager:LoadRes("progressui", ptName, typeof(Sprite))
+    self.root_node.transform:GetComponent(typeof(Image)).sprite = ptShow
+    self.root_node:SetActive(true)
+end
+
+function ProgressView:ChangeSliderValue(value)
+    self.progressSlider.value = value
+end

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1705726832
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7a815c8e53e20ffc4ca8032353d736a2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7a815c8e53e20ffc4ca8032353d736a2
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaTxt/TipView/tip_view.lua.txt
+- Assets/LuaTxt/TipView/tip_ctrl.lua.txt
+Dependencies: []

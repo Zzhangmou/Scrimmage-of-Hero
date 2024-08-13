@@ -34,7 +34,7 @@ namespace Common
         {
             //测试传入的参数是什么
             Debug.Log(filePath);
-            
+
             string path = Application.dataPath + "/ArtRes//Lua/" + filePath + ".lua";
 
             //判断文件是否存在
@@ -55,6 +55,24 @@ namespace Common
         /// <returns></returns>
         private byte[] MyCustomABLoader(ref string filepath)
         {
+            Debug.Log(filepath);
+
+            int lastIndex = filepath.LastIndexOf('/');
+            string abName, fileName;
+            if(lastIndex == -1)
+            {
+                abName = "lua";
+                fileName = filepath;
+            }
+            else
+            {
+                abName = filepath.Substring(0, lastIndex).ToLower().Replace('/', '_');
+                fileName = filepath.Substring(lastIndex + 1);
+            }
+
+            //通过Ab包管理器 加载lua脚本资源
+
+            TextAsset lua = AbManager.Instance.LoadRes<TextAsset>(abName, fileName + ".lua");
             #region
             //Debug.Log("进入AB包加载 重定向函数");
             ////从AB包中加载lua文件
@@ -66,8 +84,6 @@ namespace Common
             ////加载lua文件 byte数组
             //return tx.bytes;
             #endregion
-            //通过Ab包管理器 加载lua脚本资源
-            TextAsset lua = AbManager.Instance.LoadRes<TextAsset>("lua", filepath + ".lua");
             if (lua != null)
                 return lua.bytes;
             else

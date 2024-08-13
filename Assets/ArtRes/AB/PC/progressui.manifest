@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2273986157
+CRC: 2656483850
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e8b87e7a5703be2d3bb3deade63fc9fc
+    Hash: 07594fa8e52d7fc916afb552da1864c5
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: e8b87e7a5703be2d3bb3deade63fc9fc
+    Hash: 07594fa8e52d7fc916afb552da1864c5
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -32,7 +32,7 @@ Assets:
 - Assets/ArtRes/PT/Cowboy.png
 - Assets/ArtRes/PT/Bear.png
 - Assets/ArtRes/PT/Terrorist.png
-- Assets/ArtRes/PT/Felame.png
+- Assets/ArtRes/PT/Female.png
 - Assets/ArtRes/PT/Salaryman.png
 - Assets/ArtRes/PT/Alien.png
 - Assets/ArtRes/PT/Samurai.png

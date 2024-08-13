@@ -1,7 +1,4 @@
 using ProtoBuf;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using NetWorkFK;
 using proto;
@@ -45,9 +42,9 @@ namespace Helper
             {
                 Debug.Log("登陆成功");
                 GameMain.Instance.id = msg.id;//设置id
-                CallLuaHelper.PanelClose("LoginPanel");//关闭面板
-                CallLuaHelper.PanelClose("StartShowPanel");
-                CallLuaHelper.PanelShow("GameMainPanel");//打开主面板
+                CallLuaHelper.PanelClose("LoginView");//关闭面板
+                CallLuaHelper.PanelClose("StartShowView");
+                CallLuaHelper.PanelShow("ShowMainView");//打开主面板
             }
             else
             {
@@ -55,15 +52,15 @@ namespace Helper
                 switch (msg.result)
                 {
                     case -1:
-                        CallLuaHelper.PanelShow("TipPanel", "账号或密码错误");
+                        CallLuaHelper.ShowMessage("账号或密码错误");
                         PlayerPrefs.DeleteKey("ID");
                         PlayerPrefs.DeleteKey("PW");
                         break;
                     case -2:
-                        CallLuaHelper.PanelShow("TipPanel", "用户已经登陆");
+                        CallLuaHelper.ShowMessage("用户已经登陆");
                         break;
                     case -3:
-                        CallLuaHelper.PanelShow("TipPanel", "获取玩家数据出错");
+                        CallLuaHelper.ShowMessage("获取玩家数据出错");
                         break;
                 }
             }

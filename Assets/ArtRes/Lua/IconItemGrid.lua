@@ -1,12 +1,23 @@
 --生成一个table 集成Object 通过继承方法subClass和new
-Object:subClass("IconItemGrid")
+IconItemGrid = IconItemGrid or BaseClass()
 
---"成员"
-IconItemGrid.obj = nil
-IconItemGrid.heroName = nil
-IconItemGrid.HeroImage = nil
-IconItemGrid.HeroNameText = nil
-IconItemGrid.HeroChoiceBtn = nil
+function IconItemGrid:__init()
+    --"成员"
+    self.obj = nil
+    self.heroName = nil
+    self.HeroImage = nil
+    self.HeroNameText = nil
+    self.HeroChoiceBtn = nil
+end
+
+function IconItemGrid:__delete()
+    self.obj = nil
+    self.heroName = nil
+    self.HeroImage = nil
+    self.HeroNameText = nil
+    self.HeroChoiceBtn = nil
+end
+
 
 --函数
 function IconItemGrid:Init(father) --实例化格子对象
@@ -28,8 +39,8 @@ function IconItemGrid:InitData(data)
     --添加点击事件
     self.HeroChoiceBtn.onClick:AddListener(
         function()
-            GameMainPanel.heroId = data.id
-            HeroShowPanel:Show(data.id)
+            ShowMainData.Instance:SetHeroId(data.id)
+            HeroShowCtrl.Instance:UpdateHeroDesc(data.id)
             self:SwitchHero()
         end
     )

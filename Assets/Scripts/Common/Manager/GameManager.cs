@@ -31,22 +31,22 @@ namespace Common
 
         private void OnClose(string str)
         {
-            ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "已断开连接"));
+            ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.ShowMessage("已断开连接"));
         }
 
         private void OnMsgBattleResult(IExtensible msgBase)
         {
             //处理对局消息
             //打开结果面板 显示 
-            CallLuaHelper.PanelClose("ControlPanel");
+            CallLuaHelper.PanelClose("ControlView");
 
             string id = GameMain.Instance.id;
             int camp = GetHero(id).GetComponent<CharacterStatus>().camp;
             MsgBattleResult msg = (MsgBattleResult)msgBase;
             if (camp == msg.winCamp)
-                CallLuaHelper.PanelShow("ResultPanel", "胜利");
+                CallLuaHelper.ShowMessage("胜利");
             else
-                CallLuaHelper.PanelShow("ResultPanel", "失败");
+                CallLuaHelper.ShowMessage("失败");
 
             //场景清理
             //GameObjectPool.Instance.ClearAll();//清理对象池(游戏开始时 清理)
@@ -82,10 +82,11 @@ namespace Common
 
         private void OnMsgStartGame(IExtensible msgBase)
         {
-            CallLuaHelper.PanelClose("ProgressPanel");
-            CallLuaHelper.PanelClose("MatchPanel");
-            CallLuaHelper.PanelClose("GameMainPanel");
-            CallLuaHelper.PanelShow("BattleMessagePanel");
+            CallLuaHelper.PanelClose("ProgressView");
+            CallLuaHelper.PanelClose("MatchView");
+            CallLuaHelper.PanelClose("ShowMainView");
+            //CallLuaHelper.PanelShow("BattleMessageView");
+            //CallLuaHelper.PanelShow("ControlView");
         }
         private void OnMsgDeath(IExtensible msgBase)
         {
@@ -121,9 +122,9 @@ namespace Common
             MsgGetRoomInfo msg = (MsgGetRoomInfo)msgBase;
             //LuaTable luaTable = LuaManager.Instance.Global.Get<LuaTable>("heroiconDataList");
 
-            CallLuaHelper.PanelShow("ProgressPanel", msg.userHeroId.ToString());
+            CallLuaHelper.ShowHero(msg.userHeroId.ToString());
 
-            CallLuaHelper.PanelShow("ControlPanel");
+            CallLuaHelper.PanelShow("ControlView");
 
             //生成场景   mapId
             GameObject GameMap = ResourcesManager.Load<GameObject>("Forest");
@@ -180,6 +181,8 @@ namespace Common
                 yield return null;
             }
             NetManager.Send(new MsgPrepared());
+            CallLuaHelper.PanelShow("BattleMessageView");
+            CallLuaHelper.PanelShow("ControlView");
         }
     }
 }

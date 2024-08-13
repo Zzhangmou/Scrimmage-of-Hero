@@ -47,7 +47,7 @@ namespace NetWorkFK
         //是否启用心跳
         public static bool isUserPing = true;
         //心跳间隔时间
-        public static int pingInterval = 20;
+        public static int pingInterval = 10;
         //心跳间隔超时倍数
         private static int closeIntervalMultiple = 4;
         //上一次发送Ping时间
@@ -195,7 +195,6 @@ namespace NetWorkFK
             //状态判断
             if (socket == null || !socket.Connected) return;
             if (isConnecting) return;
-            Debug.Log("2");
             if (isClosing) return;
 
 
@@ -292,7 +291,7 @@ namespace NetWorkFK
                 Socket socket = (Socket)ar.AsyncState;
                 socket.EndConnect(ar);
                 Debug.Log("连接成功");
-                ThreadCrossHelper.Instance.ExecuteOnMainThread(() =>CallLuaHelper.PanelShow("TipPanel", "连接成功"));
+                ThreadCrossHelper.Instance.ExecuteOnMainThread(() =>CallLuaHelper.ShowMessage("连接成功"));
                 FireEvent(NetEvent.ConnectSucc, "");
                 isConnecting = false;
                 //开始接收
@@ -301,7 +300,7 @@ namespace NetWorkFK
             catch (SocketException ex)
             {
                 Debug.Log("Socket连接失败 " + ex.ToString());
-                ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.PanelShow("TipPanel", "Socket连接失败 " + ex.ToString()));
+                ThreadCrossHelper.Instance.ExecuteOnMainThread(() => CallLuaHelper.ShowMessage("Socket连接失败 " + ex.ToString()));
                 FireEvent(NetEvent.ConnectFail, ex.ToString());
                 isConnecting = false;
             }
@@ -375,7 +374,6 @@ namespace NetWorkFK
         {
             try
             {
-                Debug.Log("1");
                 Socket socket = (Socket)ar.AsyncState;
                 if (socket == null && !socket.Connected) return;
 
@@ -401,7 +399,6 @@ namespace NetWorkFK
                     socket.BeginSend(ba.bytes, ba.readIndex, ba.Length, 0, SendCallback, socket);
                 else if (isClosing)
                     socket.Close();
-                Debug.Log("ok");
             }
             catch (SocketException ex)
             {

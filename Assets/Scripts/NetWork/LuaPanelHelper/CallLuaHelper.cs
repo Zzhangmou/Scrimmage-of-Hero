@@ -1,9 +1,7 @@
 using Common;
-using proto;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using XLua;
+using UnityEngine;
 
 namespace Helper
 {
@@ -22,66 +20,67 @@ namespace Helper
     [CSharpCallLua]
     public interface ICallPanel
     {
-        void Show();
-        void Show(string message);
-        void Close();
-        void SetUserInfo(string userName, string userRecord);
-        void UpdateText(string text);
+        //ViewManager Open
+        void OpenView(string panelName);
+        //TipCtrl
+        void ShowMessage(string message);
+        //ViewManager Close
+        void CloseView(string panelName);
+        //progressCtrl
+        void ShowHero(string heroId);
         void ChangeSliderValue(float value);
-    }
-    [CSharpCallLua]
-    public interface ICallBattleMessagePanel
-    {
+        //ShowMainCtrl
+        void SetUserInfo(string userName, string userRecord);
+        //MatchCtrl
+        void UpdateText(string text);
+
+        //BattleMessageCtrl
         void InitBattleMessage(int camp, int heroId, string id);
         void FlushData(int camp, string id);
     }
-
     public static class CallLuaHelper
     {
-        private static ICallPanel panel;
-        private static ICallBattleMessagePanel battleMessagePanel;
+        private static ICallPanel panel = LuaManager.Instance.Global.Get<ICallPanel>("CallLuaMethod");
         public static void PanelClose(string panelName)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
-            panel.Close();
+            Debug.Log("PanelClose " + panelName);
+            panel.CloseView(panelName);
         }
 
         public static void PanelShow(string panelName)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
-            panel.Show();
+            Debug.Log("PanelShow " + panelName);
+            panel.OpenView(panelName);
         }
-        public static void PanelShow(string panelName, string message)
+        public static void ShowMessage(string message)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>(panelName);
-            panel.Show(message);
+            panel.ShowMessage(message);
+        }
+        public static void ShowHero(string heroId)
+        {
+            panel.ShowHero(heroId);
         }
         public static void SetUserInfo(string userName, string userRecord)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>("GameMainPanel");
             panel.SetUserInfo(userName, userRecord);
         }
         public static void UpdateText(string text)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>("MatchPanel");
             panel.UpdateText(text);
         }
         public static void ChangeSliderValue(float value)
         {
-            panel = LuaManager.Instance.Global.Get<ICallPanel>("ProgressPanel");
             panel.ChangeSliderValue(value);
         }
 
         public static void InitBattleMessage(int camp, int heroId, string id)
         {
-            battleMessagePanel = LuaManager.Instance.Global.Get<ICallBattleMessagePanel>("BattleMessagePanel");
-            battleMessagePanel.InitBattleMessage(camp, heroId, id);
+            panel.InitBattleMessage(camp, heroId, id);
         }
 
         public static void FlushData(int camp, string id)
         {
-            battleMessagePanel = LuaManager.Instance.Global.Get<ICallBattleMessagePanel>("BattleMessagePanel");
-            battleMessagePanel.FlushData(camp, id);
+            panel.FlushData(camp, id);
         }
     }
 }

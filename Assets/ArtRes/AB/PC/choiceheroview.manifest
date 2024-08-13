@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3606150241
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d42f310fbad59dbfb5928497f62583a4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: d42f310fbad59dbfb5928497f62583a4
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaTxt/ChoiceHeroView/choice_hero_view.lua.txt
+- Assets/LuaTxt/ChoiceHeroView/choice_hero_ctrl.lua.txt
+- Assets/LuaTxt/ChoiceHeroView/choice_hero_data.lua.txt
+Dependencies: []

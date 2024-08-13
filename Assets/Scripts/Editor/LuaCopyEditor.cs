@@ -1,62 +1,70 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-
-namespace ns
+/// <summary>
+/// 
+/// </summary>
+public class LuaCopyEditor : Editor
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class LuaCopyEditor : Editor
+    [MenuItem("Tools/CopyLuaToTxt")]
+    public static void CopyLuaToTxt()
     {
-        [MenuItem("XLua/CopyLuaToTxt")]
-        public static void CopyLuaToTxt()
+        //找到所有Lua文件
+        string path = Application.dataPath + "/ArtRes/Lua/";
+        //判断路径是否存在
+        if (!Directory.Exists(path))
+            return;
+
+        string[] allPath = Directory.GetFiles(path, "*.lua", SearchOption.AllDirectories);
+
+        //将Lua文件拷贝到新的文件夹
+        string newPath = Application.dataPath + "/LuaTxt/";//定义新路径
+
+        //拷贝前先清空
+        if (Directory.Exists(newPath))
         {
-            //找到所有Lua文件
-            string path = Application.dataPath + "/ArtRes/Lua/";
-            //判断路径是否存在
-            if (!Directory.Exists(path))
-                return;
+            Directory.Delete(newPath, true);
+        }
 
-            string[] allPath = Directory.GetFiles(path, "*.lua");
+        Directory.CreateDirectory(newPath);
 
-            //将Lua文件拷贝到新的文件夹
-            string newPath = Application.dataPath + "/LuaTxt/";//定义新路径
-            //拷贝前先清空
-            if (!Directory.Exists(newPath))
-                Directory.CreateDirectory(newPath);
-            else
+        List<string> newFileNames = new List<string>();
+        string fileName;
+        foreach (string luaFile in allPath)
+        {
+            // 计算新文件的相对路径，并创建新目录
+            string relativePath = luaFile.Substring(path.Length);
+
+            string newFileDirectory = Path.Combine(newPath, Path.GetDirectoryName(relativePath));
+
+            if (!Directory.Exists(newFileDirectory))
+                Directory.CreateDirectory(newFileDirectory);
+
+            // 创建新的文件路径并添加 .txt 后缀
+            fileName = Path.Combine(newFileDirectory, Path.GetFileNameWithoutExtension(luaFile) + ".lua.txt");
+            newFileNames.Add(fileName);
+
+            // 复制文件到新的路径
+            File.Copy(luaFile, fileName);
+        }
+        // 修改AB标签
+        string abName;
+        string replacePath = "Assets/LuaTxt";
+        foreach (string newFile in newFileNames)
+        {
+            // 获取相对于 Assets 的路径
+            string assetPath = "Assets" + newFile.Substring(Application.dataPath.Length);
+            string namePath = Path.GetDirectoryName(assetPath);
+            abName = namePath.Length == replacePath.Length ? "lua" : namePath.Substring(replacePath.Length + 1).Replace('\\', '_');
+            AssetImporter importer = AssetImporter.GetAtPath(assetPath);
+            if (importer != null)
             {
-                //得到后缀.txt 删除
-                string[] oldPath = Directory.GetFiles(newPath, "*.txt");
-                foreach (var item in oldPath)
-                {
-                    File.Delete(item);
-                }
-            }
-
-            List<string> newFileNames = new List<string>();
-            string fileName;
-            for (int i = 0; i < allPath.Length; i++)
-            {
-                fileName = newPath + allPath[i].Substring(allPath[i].LastIndexOf("/") + 1) + ".txt";
-                newFileNames.Add(fileName);
-                File.Copy(allPath[i], fileName);
-            }
-            //刷新
-            AssetDatabase.Refresh();
-
-            //修改Ab标签
-            for (int i = 0; i < newFileNames.Count; i++)
-            {
-                //传入路径必须是Asset文件夹的
-                AssetImporter importer = AssetImporter.GetAtPath(newFileNames[i].Substring(newFileNames[i].IndexOf("Assets")));
-                if (importer != null)
-                    importer.assetBundleName = "lua";
+                importer.assetBundleName = abName;
             }
         }
+        //刷新
+        AssetDatabase.Refresh();
     }
 }

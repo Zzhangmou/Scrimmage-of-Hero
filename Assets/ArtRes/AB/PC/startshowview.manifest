@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3748439448
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1683988b07a0bb319f9c3d87e1a94ec7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 1683988b07a0bb319f9c3d87e1a94ec7
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaTxt/StartShowView/start_show_view.lua.txt
+- Assets/LuaTxt/StartShowView/start_show_ctrl.lua.txt
+- Assets/LuaTxt/StartShowView/start_show_data.lua.txt
+Dependencies: []
